@@ -1,6 +1,8 @@
+### train資料集和flickr30k_images資料集的內容太大了，所以沒有放到github上  
+
 ## Quiz1  
 #### Sentiment Analysis資料集: sentiment_data.csv  
-#### Image Classification資料集: train資料夾  
+#### Image Classification資料集: train資料夾   
 #### Image Captioning資料集: flickr30k_images資料夾、result.csv  
 
 ## Quiz2  
@@ -21,7 +23,7 @@ Test Recall: 0.8045
 Test F1: 0.8109  
 
 ## Quiz3  
-使用model：  google/vit-base-patch16-224、ResNet50，在image_classification.ipynb裡  
+使用model：  google/vit-base-patch16-224、ResNet50，在resnet18_lstm_flickr30k_faster.ipynb裡  
 兩者結果比較(參數皆相同):  
 Vit test:   
 Test Loss: 0.0126  
