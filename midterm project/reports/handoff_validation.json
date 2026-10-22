@@ -1,0 +1,30 @@
+{
+  "stage": "progress_handoff_not_final_submission",
+  "python_tests": {
+    "passed": 14,
+    "skipped": 2,
+    "failed": 0,
+    "skipped_reasons": [
+      "LR artifacts have not been trained",
+      "public data processing is incomplete"
+    ]
+  },
+  "frontend_production_build": "passed",
+  "browser_checks": {
+    "desktop_width": 1440,
+    "mobile_width": 390,
+    "horizontal_overflow": false,
+    "english_switch": "passed",
+    "examples": "passed",
+    "missing_model_error": "passed",
+    "metrics_modal_missing_metrics": "passed",
+    "javascript_errors": 0
+  },
+  "lr_trained": false,
+  "bert_trained": false,
+  "v100_connected": false,
+  "blockers": [
+    "Cloud large Hugging Face downloads redirect to us.aws.cdn.hf.co and were denied by proxy policy",
+    "V100 reachable from user PC only; direct cloud SSH connection refused"
+  ]
+}

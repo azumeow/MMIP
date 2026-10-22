@@ -1,0 +1,94 @@
+{
+  "normal": [
+    ["會議安排在星期{day}下午，請查看附件議程並準時出席。", "Our team meeting is on {day}. Please review the attached agenda before joining."],
+    ["老師您好，這是我的期中報告草稿，想請教第三章的分析方法。編號{n}。", "Professor, attached is draft {n} of my midterm report. Could you review the analysis in chapter three?"],
+    ["您的訂單{n}已出貨，可直接開啟您平常使用的官方購物應用程式查看物流。", "Order {n} has shipped. Open the official shopping app you normally use to track delivery."],
+    ["提醒您星期{day}的牙醫預約，如需更改請致電診所櫃檯。", "A reminder about your dental appointment on {day}. Call the clinic reception if you need to reschedule."],
+    ["圖書館通知：您借閱的圖書將在{day}到期，請至學校圖書館辦理續借。", "Library reminder: your books are due on {day}. Renew them through the university library."],
+    ["這個月的水電帳單已寄達，金額{amount}元。我們照往常方式分攤。", "The utility bill arrived: {amount} this month. We can split it as usual."],
+    ["謝謝你的生日祝福！我們星期{day}一起吃飯，餐廳位置晚點傳給你。", "Thanks for the birthday wishes! Let's have dinner on {day}; I will send the restaurant location later."],
+    ["安全提醒：我們不會索取您的密碼或驗證碼。若發現異常，請自行開啟官方網站查詢。公告{n}。", "Security notice {n}: we never ask for passwords or verification codes. Visit the official website independently if you notice unusual activity."],
+    ["詐騙防治宣導：遇到保證獲利、要求轉帳到安全帳戶的訊息，請不要付款，先向165查證。案例{n}。", "Fraud prevention bulletin {n}: do not pay anyone promising guaranteed returns or asking for a transfer to a safe account. Verify independently."],
+    ["您的貸款申請文件已收到，請預約分行面談。我們不收取預付保證金。案件{n}。", "We received your loan documents, reference {n}. Please book a branch appointment. We do not charge an upfront deposit."],
+    ["人資通知：您已錄取，報到日期是{day}，請攜帶證件。本公司不向求職者收取費用。", "HR confirmation: your start date is {day}. Bring your identification. We do not charge applicants any recruitment fees."],
+    ["投資研究課程將介紹風險與資產配置，並不保證報酬。請在{day}到教室上課。", "The investment research class on {day} covers risk and asset allocation. Returns are not guaranteed."],
+    ["我把專案的程式錯誤修好了，測試{n}已全部通過，明天再一起檢查。", "I fixed the project bug and test run {n} passed. Let's review it together tomorrow."],
+    ["停機維護將於{day}晚間進行，不需要點擊任何連結或提供帳號資料。", "Scheduled maintenance takes place on {day} evening. You do not need to click any link or provide account details."],
+    ["您好，我想詢問商品{n}是否還有庫存，可以透過平台的正常結帳程序購買嗎？", "Hello, is item {n} still in stock? Can I purchase it through the platform's regular checkout?"],
+    ["上次借你的{amount}元已還到你原本的帳戶，不用再做任何操作。謝謝！", "I returned the {amount} I borrowed to your usual account. No further action is needed. Thank you!"]
+  ],
+  "spam": [
+    ["本週會員專屬優惠，全館商品八折！歡迎到門市選購，活動至{day}截止。回覆退訂即可停止通知。", "Member sale this week: 20% off all products in store until {day}. Reply STOP to unsubscribe."],
+    ["新品上市！春季服飾任選兩件免運，消費滿{amount}再送折價券。不想收到請退訂。", "New spring collection! Free shipping on two items and a coupon on orders over {amount}. Unsubscribe to stop these offers."],
+    ["健身房週年慶，月費只要{amount}元，現在預約可免費體驗。廣告訊息，回覆取消可退訂。", "Our gym anniversary offer: membership for {amount} per month. Book a free trial. Advertisement; reply STOP to opt out."],
+    ["每週電子報第{n}期：本週好書推薦、閱讀活動與書店優惠，點選退訂即可停止寄送。", "Weekly newsletter #{n}: book recommendations, reading events, and bookshop offers. Use unsubscribe to stop receiving messages."],
+    ["週末美食優惠！雙人套餐只要{amount}元，請至門市訂位。您可隨時取消訂閱。", "Weekend dining promotion! A meal for two costs {amount}. Reserve at the restaurant. You may unsubscribe anytime."],
+    ["線上英語課程早鳥優惠，到{day}前報名可享折扣，詳細課表請洽客服。廣告，回覆退訂。", "Early-bird discount for our English course until {day}. Contact customer service for the syllabus. Ad; reply STOP."],
+    ["旅遊廣告：{day}出發的國內三日行程，每人{amount}元，可至旅行社門市了解。", "Travel advertisement: a three-day domestic tour leaving {day}, {amount} per person. Ask at our travel agency office."],
+    ["親愛的會員，您的生日購物折扣已送達，有效期限到{day}。不想收到優惠可退訂。", "Dear member, your birthday shopping discount is valid until {day}. Unsubscribe if you do not want these offers."],
+    ["新品手機保護殼上市，單件{amount}元，歡迎於商城依正常程序選購。促銷訊息。", "New phone cases available at {amount} each. Buy through the regular store checkout. Promotional message."],
+    ["家具清倉廣告：沙發與書桌本週限量折扣，門市編號{n}，可回覆停止接收廣告。", "Furniture clearance advertisement: discounts on sofas and desks this week at store {n}. Reply STOP to end advertisements."],
+    ["本月商業雜誌新刊第{n}期上市，訂閱一年享九折，不保證任何投資收益。可取消訂閱。", "Business magazine issue {n} is out. Save 10% on a yearly subscription. No investment returns promised. Unsubscribe anytime."],
+    ["軟體服務廣告：企業帳號年繳優惠{amount}元，請自行前往官網了解，回覆退訂。", "Software service advertisement: business account annual plan at {amount}. Visit our official site independently. Reply STOP."]
+  ],
+  "investment": [
+    ["老師帶單保證獲利，每日收益{rate}%，立即加入投資群組並匯款{amount}元開通。", "Our trading expert guarantees {rate}% daily returns. Join the investment group and wire {amount} to activate your account."],
+    ["虛擬貨幣套利零風險，先充值{amount}元，明天本金翻倍，錯過今天就沒有名額。", "Risk-free cryptocurrency arbitrage. Deposit {amount} and double your principal tomorrow. Places close today."],
+    ["您的投資獲利已達{amount}，但提領前必須先繳交稅金，請匯入專員指定的私人帳戶。", "Your investment profits reached {amount}, but you must pay a release tax to our agent's personal account before withdrawal."],
+    ["內線股票即將漲停，保證報酬{rate}%，請不要告訴銀行，直接轉帳加入我們的操盤平台。", "Insider stock tip: guaranteed {rate}% returns. Do not tell your bank; transfer funds directly to our trading platform."],
+    ["國際黃金量化平台限時招募，只賺不賠！匯款{amount}即可獲得專屬老師指導。", "Limited recruitment for a gold trading platform: profits with no losses! Send {amount} to receive exclusive expert guidance."],
+    ["恭喜您獲得投資私募名額，資金由陌生專員代操，保證每週返利{rate}%，先轉保證金。", "You won a private investment allocation. Our agent guarantees {rate}% weekly rebates; transfer a security deposit first."],
+    ["您帳上的加密資產被鎖定，必須另外匯款{amount}元解鎖收益，不能從餘額扣除。", "Your crypto investment balance is locked. Send an additional {amount} to unlock profits; the fee cannot be deducted from your balance."],
+    ["別再工作了，這套自動投資機器人穩賺不賠，今天先付{amount}，七天就能財富自由。", "Quit your job! This automated investment bot cannot lose money. Pay {amount} today and become financially free in seven days."]
+  ],
+  "shopping": [
+    ["您的網購訂單設定錯誤將重複扣款，請立即轉帳{amount}元解除分期。", "Your online order will be charged repeatedly due to an error. Transfer {amount} immediately to cancel installments."],
+    ["包裹地址不完整，請到https://delivery-check.example/{n}支付{amount}元重新配送費，否則退件。", "Your parcel address is incomplete. Pay a redelivery fee of {amount} at https://delivery-check.example/{n} or your package will be returned."],
+    ["商品在平台已售完，我們私下交易比較便宜，請匯款{amount}到私人帳戶，不能使用買家保障。", "The item is sold out on the marketplace. Buy off-platform for {amount}; wire a personal account without buyer protection."],
+    ["您誤訂一年會員將被扣款{amount}元，客服要求您現在操作ATM取消訂閱並轉帳驗證。", "You accidentally subscribed for a year and will be charged {amount}. Customer service asks you to use an ATM transfer to cancel."],
+    ["退貨退款流程需要先繳{amount}元認證金，請勿聯絡原商家，私訊本帳號即可辦理。", "Your shopping refund requires a verification payment of {amount}. Do not contact the original seller; message this account instead."],
+    ["二手商品買家說您的賣場無法付款，要先在陌生連結輸入信用卡並支付{amount}元認證。", "A second-hand buyer says your store cannot receive payment. Enter your card on an unfamiliar link and pay {amount} for verification."],
+    ["限量球鞋只剩一雙，先匯款{amount}元保留，不提供面交、平台付款或任何退貨保障。", "One pair of limited sneakers remains. Wire {amount} to reserve it. No pickup, platform checkout, or refund protection."],
+    ["航空退款已核准，為了返還票款請先轉帳{amount}元啟動退款通道，三十分鐘內完成。", "Your airline refund is approved. Transfer {amount} to activate the refund channel within thirty minutes."]
+  ],
+  "relationship": [
+    ["親愛的，我在海外出了車禍，需要你立即匯款{amount}，不要告訴其他人我們的事情。", "My love, I had an accident overseas. Please send {amount} immediately and keep our relationship secret."],
+    ["猜猜我是誰，我是你的老同學！我換號碼了，現在急需你轉帳{amount}，不要打電話。", "Guess who? Your old classmate! I changed my number. Transfer {amount} urgently, and do not call me."],
+    ["寶貝，我寄給你的禮物被海關扣住了，請先付{amount}元手續費給我介紹的物流員。", "Darling, my gift for you was held at customs. Pay {amount} in fees to the courier I introduced."],
+    ["我們交往這麼久應該相信彼此，請買{amount}元禮物卡，把序號拍照給我當旅費。", "After all our time together you should trust me. Buy gift cards worth {amount} and send me the codes for travel expenses."],
+    ["我是你主管，現在開會不能說話，請先代墊{amount}元匯到這個新帳戶，不要向同事確認。", "This is your manager. I cannot speak in a meeting. Send {amount} to this new account and do not verify with colleagues."],
+    ["我想來台灣和你結婚，但軍隊要求先付離營費{amount}元，你是唯一可以幫我的人。", "I want to come marry you, but the military requires a leave fee of {amount}. You are the only person who can help me."],
+    ["我是你女兒，手機掉了，借朋友帳號傳訊息。醫院急著收{amount}元，現在先匯不要來電。", "It is your daughter; I lost my phone and am using a friend's account. The hospital needs {amount} urgently. Transfer it and do not call."],
+    ["我有你的私密照片，不想被所有朋友看到就轉帳{amount}，今天不付就公開，不准報警。", "I have your private photos. Transfer {amount} today or all your friends will see them. Do not contact the police."]
+  ],
+  "government": [
+    ["我是地檢署檢察官，您涉及洗錢，立即轉帳{amount}元到安全帳戶，偵查不公開不能告訴家人。", "I am a prosecutor. You are suspected of money laundering. Transfer {amount} to a safe account; the investigation must be kept secret from family."],
+    ["稅務局通知您欠稅{amount}元，今天不匯款將逮捕，請購買禮物卡支付稅款。", "The tax authority says you owe {amount}. You will be arrested today unless you pay the tax with gift cards."],
+    ["政府補助{amount}元已核准，請先轉帳手續費，並在非官方網站輸入銀行資料。", "A government grant of {amount} is approved. First transfer a processing fee and enter bank details on a non-government website."],
+    ["公安表示您的證件遭冒用，必須把存款{amount}元全部匯入監管帳戶配合調查。", "Police say your identity was stolen. Send your entire savings of {amount} to a supervised account for investigation."],
+    ["法院電子傳票編號{n}，請下載附件程式並繳交{amount}元保證金，否則立即拘提。", "Electronic court summons {n}: download the attached program and pay a bail deposit of {amount} or face immediate detention."],
+    ["健保機關發現重複請領，限時支付{amount}元到私人帳戶才能避免刑事處分。", "The health insurance authority found duplicate claims. Pay {amount} to a personal account immediately to avoid criminal charges."],
+    ["移民署要求驗證財力，將{amount}元匯給本專員，否則取消居留資格，不接受親自到場。", "Immigration requires a financial verification transfer of {amount} to this agent or your residency will be cancelled. No in-person visits accepted."],
+    ["我是警察，你的孩子已被拘留，現在支付{amount}元私下和解，不能向派出所查證。", "I am a police officer and your child is detained. Pay {amount} privately now; do not verify with the police station."]
+  ],
+  "job_loan": [
+    ["高薪兼職在家操作，每日賺{amount}元，入職前先繳保證金並傳送存摺照片。", "High-paying work from home earns {amount} daily. Pay an upfront deposit and send a photo of your bankbook before starting."],
+    ["您的貸款已核准{amount}元，但需先支付手續費才可撥款，不需審核任何收入。", "Your loan of {amount} is approved without income checks. Pay a processing fee before funds can be released."],
+    ["刷單任務佣金{rate}%，先用自己的錢購買商品，再充值{amount}才能解鎖提現。", "Task job commission is {rate}%. Buy products with your own money, then deposit {amount} to unlock withdrawal."],
+    ["招募收款助理，只要提供銀行帳戶和提款卡，每月薪水{amount}元，不需要面試。", "Hiring payment assistants: provide your bank account and ATM card for a monthly salary of {amount}. No interview needed."],
+    ["免信用貸款，先匯款{amount}元保證金，專員會把您的聯徵紀錄全部刪除。", "No-credit-check loan: wire a deposit of {amount} and our agent will erase all your credit records."],
+    ["恭喜錄取海外工作，先轉帳{amount}元辦理工作簽證給私人仲介，今天必須決定。", "You have been hired overseas. Send {amount} to a private recruiter for a work visa; decide today."],
+    ["您做的任務有操作錯誤，帳上薪資無法提領，需額外繳{amount}元修復信用分。", "An error in your task job blocked your wages. Pay an additional {amount} to repair your worker credit score."],
+    ["貸款資料填錯被凍結，請先付{amount}元解凍費，否則您仍需償還沒有收到的貸款。", "Your loan is frozen due to a form error. Pay an unfreezing fee of {amount} or repay a loan you never received."]
+  ],
+  "account": [
+    ["您的銀行帳號即將停用，請立即點擊https://secure-check.example/{n}輸入密碼和驗證碼。", "Your bank account will be suspended. Click https://secure-check.example/{n} immediately and enter your password and one-time code."],
+    ["郵件信箱容量已滿，請在{day}前回覆您的登入密碼，否則永久刪除所有郵件。", "Your mailbox is full. Reply with your login password before {day} or all emails will be permanently deleted."],
+    ["我是技術支援，你的電腦遭病毒入侵，請安裝遠端控制軟體，然後提供銀行帳號與付款{amount}元。", "Technical support here: your computer has a virus. Install remote access software, provide bank details, and pay {amount}."],
+    ["您的包裹已送達，點擊陌生網站登入帳號並輸入一次性密碼才能查看照片，編號{n}。", "Your parcel arrived, reference {n}. Log into this unfamiliar site with your account and one-time password to view the delivery photo."],
+    ["錢包升級通知：請在https://wallet-update.example/{n}填寫助記詞，否則加密資產將被清空。", "Wallet upgrade notice: enter your seed phrase at https://wallet-update.example/{n} or your crypto assets will be wiped."],
+    ["偵測到異地登入，立即把手機收到的驗證碼傳給本客服，這是唯一的解鎖方法。編號{n}。", "Unusual login detected, reference {n}. Send the verification code from your phone to this agent; it is the only way to unlock your account."],
+    ["您收到共享文件{n}，必須在非官方登入頁輸入公司電子郵件密碼，才能取得薪資明細。", "You received shared document {n}. Enter your corporate email password on this external sign-in page to access your payslip."],
+    ["恭喜抽中手機，為驗證身分請輸入信用卡號、安全碼與簡訊驗證碼，我們將扣{amount}元。", "You won a phone! Verify your identity with your card number, security code, and SMS verification code. We will charge {amount}."]
+  ]
+}
