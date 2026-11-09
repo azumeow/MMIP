@@ -1,0 +1,120 @@
+{
+  "optimization": "Describe visible objects/actions without inventing objects, intentions, or events",
+  "model": "OpenGVLab/InternVL3_5-14B",
+  "planned_training": "SFT + QLoRA; training not executed",
+  "seed": 42,
+  "counts": {
+    "train": 300,
+    "val": 60,
+    "test": 60
+  },
+  "source_dataset_count": 1,
+  "source": {
+    "dataset": "COCO-CN",
+    "repo": "AIMClab-RUC/COCO-CN",
+    "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+    "url": "https://huggingface.co/datasets/AIMClab-RUC/COCO-CN",
+    "original_project": "https://github.com/li-xirong/coco-cn",
+    "archive_url": "https://huggingface.co/datasets/AIMClab-RUC/COCO-CN/resolve/d40a7aac6fdfa88f5e30c0cd89516feaa8014739/coco-cn-version1805v1.1.tar.gz",
+    "archive_sha256": "6c126cd8455363a404806e452ec75066a8fc96d73922d9357d993fcdd1d40b8a",
+    "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+    "official_split_list_sha256": {
+      "train": "2b2d39ab6143b0779a40341cf12c8c3dcf2ff270df2a36270665cbd30b9825b1",
+      "val": "6fa6462ffbd868ceb0a6255310c6b83bdcfc2182d65698ee819c568d15c674c8",
+      "test": "68015976e01af84c76ea4c8fabba4e17678c2f9bdbdaefcbb95f9a13f8a7146e"
+    }
+  },
+  "selection": {
+    "caption_length_characters": [
+      12,
+      80
+    ],
+    "excluded_caption_pattern": "似乎|好像|可能|也许|大概|估计|猜测|准备|将要|即将|打算|计划|等待|思考|想要|希望|感到|觉得|快乐|开心|高兴|愉快|幸福|可爱|漂亮|美丽|享受|著名|主人|夫妻|一家人|父亲|母亲|爸爸|妈妈|哥哥|姐姐|弟弟|妹妹|生日|婚礼|庆祝|参加|比赛|参赛|聚会|聚餐|约会|度假|旅游|旅行|情侣|恋人|朋友|同学|同事|家人|父子|母子|兄弟|姐妹|乘务员|服务员|工作人员|运动员|歌手|新郎|新娘|慵懒|悠闲|忙碌|专心|认真|精美|精致|古老|美味|好吃|享用|公家车|看起来|很久|很长时间|欧洲|亚洲|美洲|他的|她的|自己的|自家|安静|宁静|吵闹|喧闹|交谈|聊天|讨论|教练",
+    "caption_selection": "shortest eligible original human-written caption; tie by annotation ID",
+    "image_selection": "sort eligible images by SHA-256 of seed:official_split:image_id; take first valid unique images",
+    "text_conversion": "opencc-python-reimplemented==0.1.7, s2t; character conversion without regional paraphrasing",
+    "visual_qa_excluded_images": {
+      "COCO_val2014_000000226408": "Visual spot-check: original human caption says lying on the ground, but the image shows a person on cushions/a sofa.",
+      "COCO_val2014_000000080303": "Visual spot-check: original human caption calls the pictured combine harvester a tractor; exclude instead of rewriting the annotation."
+    },
+    "min_image_side": 256,
+    "near_duplicate_rule": "64-bit dHash distance must exceed 4",
+    "same_image_other_caption": "never counted as another example",
+    "eval_prompt": "這張圖片在說什麼？",
+    "training_prompts": [
+      "這張圖片在說什麼？",
+      "請描述這張照片。",
+      "照片中可以看到什麼？",
+      "請說明圖片中的主要物體與動作。",
+      "這張照片呈現了什麼場景？"
+    ],
+    "training_prompt_counts": {
+      "這張圖片在說什麼？": 60,
+      "請描述這張照片。": 60,
+      "照片中可以看到什麼？": 60,
+      "請說明圖片中的主要物體與動作。": 60,
+      "這張照片呈現了什麼場景？": 60
+    }
+  },
+  "statistics": {
+    "train": {
+      "official_images": 18341,
+      "eligible_images": 14028,
+      "selected": 300,
+      "rejected_after_download": {
+        "image_download_or_resolution": 3
+      }
+    },
+    "val": {
+      "official_images": 1000,
+      "eligible_images": 759,
+      "selected": 60,
+      "rejected_after_download": {}
+    },
+    "test": {
+      "official_images": 1000,
+      "eligible_images": 767,
+      "selected": 60,
+      "rejected_after_download": {}
+    }
+  },
+  "download_failures": [
+    {
+      "split": "train",
+      "image_id": "COCO_train2014_000000421903",
+      "reason": "low_resolution"
+    },
+    {
+      "split": "train",
+      "image_id": "COCO_train2014_000000083204",
+      "reason": "low_resolution"
+    },
+    {
+      "split": "train",
+      "image_id": "COCO_train2014_000000195188",
+      "reason": "low_resolution"
+    }
+  ],
+  "files_sha256": {
+    "internvl_train_meta.json": "1c849fdce54ad8d51898f367227d4dc94fde92a8fc7848882952d12b85755b64",
+    "internvl_val_meta.json": "31c10bfedbb35722d390e39d4f68158793398f9759bb68a02a97f9f6d05306e3",
+    "preview.html": "864549cda0ba0ff2dba7e917742b874dcba39b6520b7e12246875e62a67842ee",
+    "target_test_60.json": "655771db6a374360dd749545dfeaf976462dc31f3efaa2a72dd8df9fe1e07bb4",
+    "target_test_60.jsonl": "8d503731fd93f256817cb318a577cbad71fc19c668296dc30829aff4b5174d9a",
+    "train_sft_300.json": "b00ddccb9af725852fc422c52617fbf1b3949b79cd35ae0067962777357aba27",
+    "train_sft_300.jsonl": "87d4f91aa3abfcfd493f966e02515778203ac1ef150074cbd2ddba5c01fe0768",
+    "validation_60.json": "185d9d51a363c2b22f555a67bc35c5b19c8b8ce395118d6b0b88f78a5114746a",
+    "validation_60.jsonl": "c0ed35a3dae362e6e21d04e1040987af73397bef93bee55d8cb152bee1c1b408"
+  },
+  "limitations": [
+    "Human captions can still contain omissions or annotation errors.",
+    "Keyword filtering and perceptual hashes do not prove perfect visual grounding.",
+    "Human-written tags are partial; unlisted objects must not automatically be called absent.",
+    "Local split separation cannot rule out these public images occurring in model pretraining."
+  ],
+  "rights": {
+    "dataset_card_label": "MIT",
+    "image_rights": "COCO-CN uses MS-COCO photographs. Image rights remain with original owners; do not relabel every photo MIT.",
+    "terms_url": "https://cocodataset.org/#termsofuse"
+  }
+}

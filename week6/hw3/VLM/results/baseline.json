@@ -1,0 +1,1017 @@
+{
+  "status": "completed",
+  "model": "OpenGVLab/InternVL3_5-14B",
+  "revision": "a1e37197b393ce9eec9df700fef65c11f4a6ffbd",
+  "adapter": null,
+  "config": {
+    "model": "OpenGVLab/InternVL3_5-14B",
+    "revision": "a1e37197b393ce9eec9df700fef65c11f4a6ffbd",
+    "seed": 42,
+    "epochs": 3,
+    "micro_batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "lora_targets": [
+      "q_proj",
+      "v_proj"
+    ],
+    "quantization": "NF4",
+    "double_quantization": false,
+    "compute_dtype": "float16",
+    "trainable_dtype": "float32",
+    "vision_dtype": "float16",
+    "vision_and_projector": "frozen",
+    "max_dynamic_tiles": 2,
+    "thumbnail": true,
+    "tile_size": 448,
+    "max_sequence_length": 1536,
+    "gradient_checkpointing": "non-reentrant",
+    "attention": "eager",
+    "selection": "lowest validation token-mean NLL",
+    "max_new_tokens": 128,
+    "do_sample": false,
+    "system_message": "你是一個圖片描述助手。"
+  },
+  "data_hashes": {
+    "train_sft_300.json": "b00ddccb9af725852fc422c52617fbf1b3949b79cd35ae0067962777357aba27",
+    "validation_60.json": "185d9d51a363c2b22f555a67bc35c5b19c8b8ce395118d6b0b88f78a5114746a",
+    "target_test_60.json": "655771db6a374360dd749545dfeaf976462dc31f3efaa2a72dd8df9fe1e07bb4",
+    "sources.json": "752b9ce53ba6eb9f4ee1d4f00220a3365a915eb1b3c324a9ad01b7b2407f2dbe"
+  },
+  "image_chat_parity": {
+    "id": "test_001",
+    "same_answer": true,
+    "check": "reloaded selected adapter: cached-feature generation == official pixel_values chat"
+  },
+  "examples": [
+    {
+      "id": "test_001",
+      "image": "images/test/COCO_train2014_000000154377.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個黑人男孩拿着一個滑板站在樹林前",
+      "reference_answers": [
+        "一個黑人男孩拿着一個滑板站在樹林前"
+      ],
+      "image_sha256": "3c5ee3b864244f27c78aa55ad95bc36e71f6100e13b6d59e2f4d050912f111ce",
+      "answer": "這張圖片展示了一個年輕人，他正高興地舉著一塊色彩斑斕的滑板。他穿著一件紫色和白色條紋的T恤，背景是戶外的樹木和晴朗的天空。整體氛圍顯得輕鬆愉快，似乎是在享受滑板帶來的樂趣。",
+      "generated_tokens": 73,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 5.237157305702567
+    },
+    {
+      "id": "test_002",
+      "image": "images/test/COCO_train2014_000000255330.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "年輕人在空中做滑板特技。",
+      "reference_answers": [
+        "年輕人在空中做滑板特技。"
+      ],
+      "image_sha256": "3cd8eb91c4982952f35fe41f0f2788a52d4f3d7935b9d55f5ba9dd2b59f755a7",
+      "answer": "這張圖片展示了一位年輕人正在進行滑板運動。他穿著白色T恤和黑色短褲，頭戴黑色帽子，腳上穿著黑色運動鞋。他正在空中躍起，似乎在進行一個滑板技巧動作，滑板在他下方，看起來他可能正在嘗試一個高難度的花式。\n\n背景中可以看到一些樹木和一個垃圾箱，顯示出這是在戶外的一個場所，可能是一個公園或街頭的滑板場地。背景還有一輛紅色的車停在路邊。\n\n整個場景充滿了動感和",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 9.030671335756779
+    },
+    {
+      "id": "test_003",
+      "image": "images/test/COCO_train2014_000000239580.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個男人在一座建築前玩滑板飛下臺階",
+      "reference_answers": [
+        "一個男人在一座建築前玩滑板飛下臺階"
+      ],
+      "image_sha256": "d565465010b833afbfa379ad856b9375d7fea9efd3be733f8f842287f9eecaa0",
+      "answer": "這張圖片展示了一個滑板場景，背景是一個名為「Boogaloos Skatepark」的建築。在圖片的中心，有一個滑板手正在空中進行滑板技巧動作，他穿著白色T恤和深色牛仔褲，頭戴白色帽子。滑板手的姿勢顯示他正在進行一個高難度的滑板技巧。\n\n背景中的建築物有弧形的結構和大玻璃窗，上面掛有「Boogaloos Skatepark」的標誌。在建築物的下方，可以看到一些觀眾，他們坐在長椅上或",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 9.238172741606832
+    },
+    {
+      "id": "test_004",
+      "image": "images/test/COCO_train2014_000000301890.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "兩隻女孩各自抱着毛絨玩具。",
+      "reference_answers": [
+        "兩隻女孩各自抱着毛絨玩具。"
+      ],
+      "image_sha256": "773bfbadba8a3cba6b74f19c93cfd1dbfe78d010279df83ec2cc11719c4c7112",
+      "answer": "這張圖片展示了兩個小女孩，她們都懷著毛絨玩具，並緊緊地擁抱著它們。她們看起來非常開心和滿足。左邊的小女孩抱著一隻棕色和白色相間的狗形玩具，而右邊的小女孩抱著一隻粉紅色的狐狸形玩具。她們站在一起，臉頰相鄰，顯得非常親密友好。背景中可以看到一些模糊的人物和物件，似乎是在一個室內的公共場所，可能是遊樂場或者商場。整體氛圍溫馨愉快。",
+      "generated_tokens": 125,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.768443580716848
+    },
+    {
+      "id": "test_005",
+      "image": "images/test/COCO_train2014_000000026263.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個人左手拿着一隻寫着字的黃色的香蕉。",
+      "reference_answers": [
+        "一個人左手拿着一隻寫着字的黃色的香蕉。"
+      ],
+      "image_sha256": "50e312f4942ead5d6bc3c1afc25d0379fbc8e445d2ac650df5c6fddfd780cbcc",
+      "answer": "這張圖片展示了一隻手握著一根香蕉，香蕉上有手寫的英文字。文字內容是：\n\n\"Sometimes a bit green;\nOften slippery;\nBut always good for you!\"\n\n這段文字是一種幽默的描述，把香蕉比作一個人，說它有時還不熟（綠的），有時滑溜溜的，但總是对你有益。右下角標註了 \"Banana Philosophy Pty Ltd\"，這可能是創作者的簽名或品牌名稱。",
+      "generated_tokens": 105,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 7.386814021505415
+    },
+    {
+      "id": "test_006",
+      "image": "images/test/COCO_val2014_000000421882.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "有一個馬桶的廁所裏很髒。",
+      "reference_answers": [
+        "有一個馬桶的廁所裏很髒。"
+      ],
+      "image_sha256": "89f1e7a16ade0d9eb511bb59c8d8fbb6367b7a82a97aa75ec097215c8633a43f",
+      "answer": "這張圖片展示了一個狹窄、昏暗的廁所，看起來已經被遺棄了一段時間。廁所的牆壁和天花板呈現出老舊和破損的狀態，天花板上可以看到明顯的損壞和生鏽的跡象。廁所內有一個白色的馬桶，馬桶旁邊散落著一些雜物，包括一個掃帚和一些垃圾。地板上有一塊彩色的地毯，但地毯也顯得非常髒舊。整體環境顯得非常破敗和荒廢。",
+      "generated_tokens": 119,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 8.572166530415416
+    },
+    {
+      "id": "test_007",
+      "image": "images/test/COCO_val2014_000000158372.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "桌子上有一個藍色行李箱。",
+      "reference_answers": [
+        "桌子上有一個藍色行李箱。"
+      ],
+      "image_sha256": "a1baca755ecab36aa41bbe4e5160ff375ac7f7f73073895189bf014d7a70e705",
+      "answer": "這張圖片顯示了一個紫色的行李箱，放在室內的地板上。行李箱上掛著一個標籤，可能是行李標籤，上面有文字。行李箱看起來是硬殼設計，適合旅行使用。背景中可以看到部分地毯和地板。",
+      "generated_tokens": 60,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 4.290915525518358
+    },
+    {
+      "id": "test_008",
+      "image": "images/test/COCO_val2014_000000324253.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一面鏡子，一個洗手池與一個浴缸擺放在浴室裏",
+      "reference_answers": [
+        "一面鏡子，一個洗手池與一個浴缸擺放在浴室裏"
+      ],
+      "image_sha256": "25dc8809d809a519ee1fe66bba0a7d5e26ecfad52659b199b701d564bd23af67",
+      "answer": "這張圖片展示了一個衛生間的內部。可以看到一個獨立的洗手盆，上面有水龍頭，洗手盆下方有支撐的管子。旁邊是一個浴缸，浴缸上方有一個置物架。牆上有一面鏡子，鏡子旁邊有四個燈泡提供照明。地板是六角形的瓷磚，牆壁是淺色的瓷磚。毛巾掛在洗手盆旁邊。整個空間看起來整潔且功能齊全。",
+      "generated_tokens": 108,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 7.965079350396991
+    },
+    {
+      "id": "test_009",
+      "image": "images/test/COCO_val2014_000000346262.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "白色的盤子裏放着一個素餡餅和一隻冰激凌空杯子。",
+      "reference_answers": [
+        "白色的盤子裏放着一個素餡餅和一隻冰激凌空杯子。"
+      ],
+      "image_sha256": "9ae27238c80537f2792bb1e044c1a40332c82f6fe155aa8a340fc41c6fcf95eb",
+      "answer": "這張圖片展示了一個三明治，放在一個白色的紙盤上。三明治的麵包是烤過的，有明顯的烤痕，看起來非常酥脆。三明治裡似乎有蔬菜和肉類，從切開的部分可以看到一些生菜、番茄和肉類。旁邊還有一個小包裝的醬料，可能是用來搭配三明治的醬汁。整體看起來是一個美味的簡餐。",
+      "generated_tokens": 97,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 7.0767473094165325
+    },
+    {
+      "id": "test_010",
+      "image": "images/test/COCO_val2014_000000391862.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個戴頭盔的小男孩正在水岸邊一條道路上玩滑板。",
+      "reference_answers": [
+        "一個戴頭盔的小男孩正在水岸邊一條道路上玩滑板。"
+      ],
+      "image_sha256": "ac08c6c11c0a7165cc48985aac171efd8c1b65c74affa5e0dcbcaa22e4f1514a",
+      "answer": "這張圖片展示了一個小男孩在海邊的步道上滑滑板。他戴著安全頭盔，穿著深色的T恤和花紋的短褲，腳上穿著運動鞋和白色的襪子。背景中可以看到波光粼粼的海面，以及遠處的幾艘船隻。天氣看起來很好，陽光明媚，給整個場景增添了一種愉快和活潑的氛圍。這張圖片可能在表達孩子在户外活動中的快樂時光，以及陽光和自然環境帶來的愉悅感。",
+      "generated_tokens": 125,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 9.082182820886374
+    },
+    {
+      "id": "test_011",
+      "image": "images/test/COCO_train2014_000000140500.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "幾頭牛躺在沙地上靠在一艘船的旁邊。",
+      "reference_answers": [
+        "幾頭牛躺在沙地上靠在一艘船的旁邊。"
+      ],
+      "image_sha256": "f26fbc9535e1a3a2a43c9ca38297b663eeb93a37f90fd0045245dc8f68b48900",
+      "answer": "這張圖片顯示了四頭牛躺在沙灘上，旁邊有一艘木船。場景顯得非常放鬆，牛似乎在享受陽光和沙灘的環境。這可能是在一個漁村或海灘附近拍攝的，展現了自然和動物的和諧共處。",
+      "generated_tokens": 72,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 5.379546566866338
+    },
+    {
+      "id": "test_012",
+      "image": "images/test/COCO_val2014_000000299946.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一位主婦在廚房餐桌上攪拌一大杯食物。",
+      "reference_answers": [
+        "一位主婦在廚房餐桌上攪拌一大杯食物。"
+      ],
+      "image_sha256": "364907baa7ef3461894eae0914d4fea10046865baf1cac4559f4abefa1f36de2",
+      "answer": "這張圖片顯示一個人在廚房裡使用攪拌機攪拌綠色的食材。看起來他可能在製作綠色的奶昔、果汁或類似的飲品。廚房台面上有量杯、碗和其他食材，背景中可以看到冰箱和一些磁貼。",
+      "generated_tokens": 62,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 4.612994582392275
+    },
+    {
+      "id": "test_013",
+      "image": "images/test/COCO_val2014_000000486457.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "辦公室裏有許多電腦和氣球",
+      "reference_answers": [
+        "辦公室裏有許多電腦和氣球"
+      ],
+      "image_sha256": "b2e056a161dce829402db43dc4da93beac129cd5a36b26a5291c893d7f5cbd57",
+      "answer": "這張圖片顯示了一個辦公室的場景。辦公桌上擺放著多個電腦螢幕和辦公用品，桌上還有一束五顏六色的氣球，氣球上有「Happy Birthday」的字樣，暗示這可能是某人的生日慶祝。背景中可以看到白板上有手寫的筆記和圖畫，牆上還貼有一些便條和照片。辦公室的氛圍看起來既忙碌又充滿節日氣氛。",
+      "generated_tokens": 104,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 7.627395138144493
+    },
+    {
+      "id": "test_014",
+      "image": "images/test/COCO_val2014_000000441522.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "許多廚師在廚房裏烹飪食物。",
+      "reference_answers": [
+        "許多廚師在廚房裏烹飪食物。"
+      ],
+      "image_sha256": "14bd49762008ea6d42cab857f83f84a0551e9d6303eeeff9600c1a2e2962d7fb",
+      "answer": "這張圖片展示了一個廚房的場景，多個廚師正在忙碌地烹飪。他們身穿白色廚師制服和高帽，站在一排排的爐灶前，每個爐灶上都有多個鍋子。廚師們似乎在進行協作，可能是在準備一場大型活動或宴會的餐點。廚房設備齊全，燈光明亮，環境看起來非常專業。",
+      "generated_tokens": 91,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.752589021809399
+    },
+    {
+      "id": "test_015",
+      "image": "images/test/COCO_train2014_000000143095.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一隻白色的泰迪熊躺在一張藍白色條紋的牀上。",
+      "reference_answers": [
+        "一隻白色的泰迪熊躺在一張藍白色條紋的牀上。"
+      ],
+      "image_sha256": "7c24b8ba1643df9a9657f31ed12c1994154cfb933dd4f68892ec1f6eb108e891",
+      "answer": "這張圖片展示了一隻白色的毛絨大象玩具，坐在藍白條紋的床單上。背景中還有一個印有彩色花朵圖案的枕頭。整體氛圍溫馨舒適，似乎是一個室內的場景。",
+      "generated_tokens": 56,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 4.1214270144701
+    },
+    {
+      "id": "test_016",
+      "image": "images/test/COCO_train2014_000000480313.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個戴着墨鏡的男人手中拿着一個熱狗。",
+      "reference_answers": [
+        "一個戴着墨鏡的男人手中拿着一個熱狗。"
+      ],
+      "image_sha256": "a38337bea5fc326678ff0b6148d08f76583a48cf0cd8af10f1ba5173e7f00ce2",
+      "answer": "這張圖片展示了一位戴墨鏡的男子，他正手持一個熱狗。熱狗被放在一個麵包中，看起來還有一些醬料。背景是一個戶外的場景，有綠色的草地和一些木製的結構，可能是一個公園或後院。男子穿著一件深色的T恤，上面有文字。整體氛圍輕鬆愉快，似乎是在享受戶外的美食。",
+      "generated_tokens": 92,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.844983158633113
+    },
+    {
+      "id": "test_017",
+      "image": "images/test/COCO_train2014_000000400124.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個盤子上擺放着一塊熱狗和幾塊水果。",
+      "reference_answers": [
+        "一個盤子上擺放着一塊熱狗和幾塊水果。"
+      ],
+      "image_sha256": "2d18996667e23292705b21d6dc279a17ae1daf685bfa5eaed376cb0a275a6fa9",
+      "answer": "這張圖片展示了一盤食物，包括一個烤麵包三明治、一根酸黄瓜、幾塊無花果和一些小胡蘿蔔。這是一道看起來很健康的餐點，結合了不同的質地和風味。",
+      "generated_tokens": 54,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 4.0263649467378855
+    },
+    {
+      "id": "test_018",
+      "image": "images/test/COCO_train2014_000000568963.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "白色的盤子裏放着兩個三明治、一碗湯和一個勺子",
+      "reference_answers": [
+        "白色的盤子裏放着兩個三明治、一碗湯和一個勺子"
+      ],
+      "image_sha256": "ff080eda4cdaf59f192ae2a0b724c9ba037f71e381b1ff4122f5e5c872a19276",
+      "answer": "這張圖片展示了一頓餐點，包括一個壓烤三明治和一碗湯。三明治被壓烤得金黃酥脆，看起來有火腿和蔬菜等配料。旁邊的湯可能是蔬菜湯，看起來有蔬菜和肉塊。此外，還有一根酸黄瓜和餐具（叉子和湯匙）擺在盤子旁邊。整體看起來是一頓簡單而美味的餐點。",
+      "generated_tokens": 92,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 6.9355708956718445
+    },
+    {
+      "id": "test_019",
+      "image": "images/test/COCO_val2014_000000523250.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一隻彩色的鸚鵡站在一個小樹枝上。",
+      "reference_answers": [
+        "一隻彩色的鸚鵡站在一個小樹枝上。"
+      ],
+      "image_sha256": "f15bf208c5a8def77f317f0c29eae25e4a1c1972c8c3137b3532656c0eed9e4a",
+      "answer": "這張圖片展示了一隻鳥，具體來說是一隻鴝鴉（Cockatiel）。以下是對這隻鳥的詳細描述：\n\n1. **鳥的品種**：\n   這是一隻鴝鴉，也稱為虎皮鹦鹉，是一種常見的寵物鳥，以其活潑和友好的性格受到歡迎。\n\n2. **顏色和特徵**：\n   - 這隻鴝鴉的臉部主要是淺黃色的，臉頰上有明顯的橙紅色斑塊。\n   - �",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 9.14377904124558
+    },
+    {
+      "id": "test_020",
+      "image": "images/test/COCO_val2014_000000521052.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一輛卡車上面到處都是塗鴉。",
+      "reference_answers": [
+        "一輛卡車上面到處都是塗鴉。"
+      ],
+      "image_sha256": "3aa389e1258ce12da6b3aab20489a1c2fd6e9da8495badaaef394a09730691cb",
+      "answer": "這張圖片展示了一輛停在街邊的紅色貨車，貨車的後面繪有一幅精美的塗鴉藝術作品。這幅塗鴉描繪了兩個人物，他們似乎處於一個超現實的場景中。\n\n1. **貨車**：\n   - 這是一輛紅色的貨車，停放在城市街道的一側。貨車的後面部分被用作展示塗鴉的畫布。\n\n2. **塗鴉藝術**：\n   - 塗鴉的主題是兩",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 9.352947315201163
+    },
+    {
+      "id": "test_021",
+      "image": "images/test/COCO_train2014_000000349047.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一些自行車和摩托車停放在有自行車標識的場地上。",
+      "reference_answers": [
+        "一些自行車和摩托車停放在有自行車標識的場地上。"
+      ],
+      "image_sha256": "59c4298bb084774698e3c718b9d57a6a7372ff8b32c372ea451afa4402f05220",
+      "answer": "這張圖片顯示了一個停車區域，其中有幾輛機車和自行車。在背景中可以看到一些建築物和一個藍色的標誌，上面寫著「專門停車區」。這似乎是一個專門用於停放機車和自行車的地方。",
+      "generated_tokens": 65,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 4.7742713410407305
+    },
+    {
+      "id": "test_022",
+      "image": "images/test/COCO_train2014_000000580033.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "有幾個人在海邊的沙灘上玩飛盤",
+      "reference_answers": [
+        "有幾個人在海邊的沙灘上玩飛盤"
+      ],
+      "image_sha256": "8acf3f59061555977335055a9b1ac7f63fb80048041d9d425284533d9c73398e",
+      "answer": "這張圖片顯示了一群人在海灘上玩飛盤。前景中，一名穿著黑色上衣和短褲的男子正向前彎腰，似乎準備接住或躲避飛盤。另一名穿著白色上衣和短褲的男子站在他旁邊，看起來也在參與遊戲。背景中，有幾個人在海灘上活動，有些人在沙地上玩耍，有些人在靠近水邊的地方站立或行走。遠處可以看到一些帆船和水面，天氣看起來有些陰沉，但人們似乎玩得很開心。",
+      "generated_tokens": 120,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 9.147335389629006
+    },
+    {
+      "id": "test_023",
+      "image": "images/test/COCO_val2014_000000244760.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一匹穿着衣服的黑馬在柵欄裏奔跑。",
+      "reference_answers": [
+        "一匹穿着衣服的黑馬在柵欄裏奔跑。"
+      ],
+      "image_sha256": "e9fa23b202e1ca783ad636d6388625993acab0d3b4e6438cf20341a45547e03b",
+      "answer": "這張圖片展示了一匹馬，它被裹在一個淺色的毯子裡，站在一個木製的柵欄旁邊。背景是綠樹成蔭的戶外環境，顯得非常自然和寧靜。馬的頭部露在外面，看起來很安詳。整個場景給人一種平和、鄉村生活的感觉。",
+      "generated_tokens": 78,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 5.841951938346028
+    },
+    {
+      "id": "test_024",
+      "image": "images/test/COCO_train2014_000000487869.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個小女孩面前放着一個粉色的蛋糕",
+      "reference_answers": [
+        "一個小女孩面前放着一個粉色的蛋糕"
+      ],
+      "image_sha256": "62f61fb17324df9f5775a7f636ef14b6271f00f34a5df2e17b08e392c314c431",
+      "answer": "這張圖片展示了一個小女孩，她正專注地看著一個粉紅色的蛋糕。蛋糕上裝飾著精美的奶油花，看起來非常可愛。女孩頭髮捲曲，頭上戴著一個小皇冠，身穿白色的衣服，顯得非常純真和甜美。背景中可以看到一些模糊的物品，但主要焦點在女孩和蛋糕上。整體氛圍溫馨而柔和。",
+      "generated_tokens": 90,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.4982110327109694
+    },
+    {
+      "id": "test_025",
+      "image": "images/test/COCO_train2014_000000249656.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "兩隻長頸鹿站在圍欄裏的草地上。",
+      "reference_answers": [
+        "兩隻長頸鹿站在圍欄裏的草地上。"
+      ],
+      "image_sha256": "51e546b4703611e120285b2f218a024ef0509d715317410b5954a83869bed2c4",
+      "answer": "這張圖片展示了兩隻長頸鹿站在一片草地上，背景有一道鐵絲網圍欄。長頸鹿的斑紋清晰可見，它們似乎處於一個開放的自然環境中，可能是一個野生動物保護區或動物園。",
+      "generated_tokens": 58,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 4.471702180802822
+    },
+    {
+      "id": "test_026",
+      "image": "images/test/COCO_val2014_000000412440.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個拿着披薩的人在街道上行走。",
+      "reference_answers": [
+        "一個拿着披薩的人在街道上行走。"
+      ],
+      "image_sha256": "4ac50f2a9cb528a7f9834861fcca0174e3e9c8131630a6db61f8979a218a9a8a",
+      "answer": "這張圖片展示了一個街頭美食的場景。前景中，一隻手正拿著一塊放在白色紙盤上的披薩。背景中，可以看到幾輛移動餐車，人們排隊購買食物。這些餐車似乎是出售不同種類的美食，包括披薩和其他食物。街道上人來人往，顯得非常熱鬧，可能是一個美食節或者街頭食品市場。整體氛圍輕鬆愉快，人們享受著戶外的美食體驗。",
+      "generated_tokens": 107,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 7.686040326952934
+    },
+    {
+      "id": "test_027",
+      "image": "images/test/COCO_train2014_000000369201.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "火車軌道上停了一輛火車。",
+      "reference_answers": [
+        "火車軌道上停了一輛火車。"
+      ],
+      "image_sha256": "4580efe60be9d8bf75ca65a9e26e20396b103e83f47fe58439d0bdb580118c12",
+      "answer": "這張圖片展示了一個火車站的場景。在圖片的右側，可以看到一列停靠在站台邊的火車，火車車身上有“MARC”的標誌。站台上有木製的地板，靠近火車軌道的一邊有黃色的安全線。在站台的左側，有幾個人坐在長椅上，似乎在等候火車。背景中可以看到一些建築物和綠樹，天色晴朗，天空中有少量的雲。整體上，這是一個寧靜的火車站場景。",
+      "generated_tokens": 128,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.742782012559474
+    },
+    {
+      "id": "test_028",
+      "image": "images/test/COCO_train2014_000000049363.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個男人在網球場上打網球",
+      "reference_answers": [
+        "一個男人在網球場上打網球"
+      ],
+      "image_sha256": "3516dd2e395133950aaa14c4785d45f0a5b732f8044f24989db9b147b3429b45",
+      "answer": "這張圖片展示了一位年長的男子在戶外網球場上打網球的場景。他穿著淺色的上衣和深色的長褲，腳上穿著運動鞋，右手握著一把紅色和白色相間的網球拍，似乎正在準備接球或思考下一步的動作。\n\n場景的背景中可以看到綠色的樹木，顯示出這是一個戶外的運動場地，天氣晴朗，天空湛藍，陽光明媚，給人一種舒適和活潑的感覺。網球場上有白色的界線和",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.757237367331982
+    },
+    {
+      "id": "test_029",
+      "image": "images/test/COCO_train2014_000000464630.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "兩名男人在廁所維修馬桶。",
+      "reference_answers": [
+        "兩名男人在廁所維修馬桶。"
+      ],
+      "image_sha256": "fd275167c86d3d54b66b25da2fbbb65e448eb128e277399d806d24c4afa3f7ae",
+      "answer": "這張圖片顯示了一個穿著軍裝的人正在蹲在馬桶旁，似乎在使用馬桶。另一個穿著類似軍裝的人則站在旁邊，似乎在遞送某樣東西。馬桶旁邊的地板上有一些物品，包括一個相機、一卷衛生紙和一個杯子。牆上貼有一張紙，可能是指示或便條。整個場景似乎發生在一個公共衞生間內。",
+      "generated_tokens": 98,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.703536642715335
+    },
+    {
+      "id": "test_030",
+      "image": "images/test/COCO_train2014_000000515428.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "菜市場上擺滿了很多胡蘿蔔和綠色蔬菜",
+      "reference_answers": [
+        "菜市場上擺滿了很多胡蘿蔔和綠色蔬菜"
+      ],
+      "image_sha256": "6fca6425d5f035fb5ba377dbe89bc7041ed360850aa684076354b1abd25e794c",
+      "answer": "這張圖片展示了一個市場攤位，上面擺滿了新鮮的蔬菜。主要可以看到的是成捆的胡蘿蔔，它們還帶有綠葉。旁邊還有一些其他的蔬菜，像是甘藍和洋蔥。胡蘿蔔旁邊插著一個標籤，上面寫著價格。這是一個典型的農貿市場場景，展現了豐富多彩的新鮮農產品。",
+      "generated_tokens": 95,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.7413512440398335
+    },
+    {
+      "id": "test_031",
+      "image": "images/test/COCO_val2014_000000240681.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個騎摩托車的人站在摩托車旁邊。",
+      "reference_answers": [
+        "一個騎摩托車的人站在摩托車旁邊。"
+      ],
+      "image_sha256": "a013d8ba2159e3124270638848d7b6a8b9e282c8b89dc968338cd993e98ee05c",
+      "answer": "這張圖片展示了一位年輕人站在紅色摩托車旁的場景。年輕人穿著休閒服裝，包括灰色T恤、卡其色長褲和綠色的運動鞋，肩上還背著一個黑色的背包。他用一隻手摸著頭，似乎在思考或等待什麼。\n\n紅色的摩托車非常引人注目，它停在道路的邊緣，前輪用支撐架支撐著。摩托車的設計非常流線型，具有現代感，車燈和車身的曲線顯得非常精緻。背景",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 9.187366981059313
+    },
+    {
+      "id": "test_032",
+      "image": "images/test/COCO_train2014_000000309521.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "房間裏有一張牀，兩邊有木質的牀頭櫃，櫃子上有一盞燈。",
+      "reference_answers": [
+        "房間裏有一張牀，兩邊有木質的牀頭櫃，櫃子上有一盞燈。"
+      ],
+      "image_sha256": "88e8cf8fd97b3f0d84a2ac7bd2355875583307bb01e2be9971ebdaced54404f9",
+      "answer": "這張圖片展示了一間房間的床和周圍的擺設。床上有一個綠色的被子，上面放著一個壓縮的毛巾或衣物。床頭有一個木製的床頭板，上面擺放著一些枕頭和被子。床的一側有一個床頭櫃，上面有一盞燈。另一側的窗台上有一個電風扇和一個裝有水果的碗。整個房間看起來整潔且佈置簡單。",
+      "generated_tokens": 104,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 7.779873329214752
+    },
+    {
+      "id": "test_033",
+      "image": "images/test/COCO_train2014_000000475967.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一隻黑色的狗嘴裏叼着一塊麪包",
+      "reference_answers": [
+        "一隻黑色的狗嘴裏叼着一塊麪包"
+      ],
+      "image_sha256": "bb80275d59608c85ba276b28ac2f0eccd436a43fc2ca86463da21c863df18a6f",
+      "answer": "這張圖片展示了一隻黑色的狗，它正叼著一個甜甜圈。背景中可以看到一些人，他們似乎正在戶外聚會或野餐。狗的表情顯得非常開心，似乎對甜甜圈很感興趣。整體氛圍輕鬆愉快，充滿了戶外活動的樂趣。",
+      "generated_tokens": 69,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 5.261386021971703
+    },
+    {
+      "id": "test_034",
+      "image": "images/test/COCO_train2014_000000267422.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "盤子裏裝着很多口味的披薩餅",
+      "reference_answers": [
+        "盤子裏裝着很多口味的披薩餅"
+      ],
+      "image_sha256": "9118b3918b6f279c0e2100d8912ab915ebb0acd8627e94046937c8d9714954d7",
+      "answer": "這張圖片展示了一頓聚會或餐廳的用餐場景。桌上擺放了多個披薩，包括一個上面有香腸、洋蔥和黑橄欖的披薩，以及另一個看起來是起司和香草的披薩。桌上還有一些沙拉、飲料和餐具，顯得非常豐盛。人們正在享用美食，氣氛看起來很熱鬧。",
+      "generated_tokens": 87,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.364672821946442
+    },
+    {
+      "id": "test_035",
+      "image": "images/test/COCO_val2014_000000472233.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一大羣人在一條道路上騎摩托車。",
+      "reference_answers": [
+        "一大羣人在一條道路上騎摩托車。"
+      ],
+      "image_sha256": "ba2e37b10d0b1843f7a426a2ec1cd7a1236be32680d758705cb967cb87610f03",
+      "answer": "這張圖片展示了一場盛大的遊行活動，可能是一場摩托車遊行或慶祝活動。在圖片的中央，有一對男女騎著一輛橙色的摩托車，他們穿著相對暴露的服裝，這可能暗示這是一個具有特定主題或文化的活動。周圍還有許多其他的摩托車騎手，他們也參與了這次遊行。\n\n街道兩旁站滿了觀眾，他們在觀看和拍照，這表明這是一個公共活動，吸引了大量人群的關注。背景中可以看到一些商店和標誌，顯示出這是在一個城市的商業",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 9.234150445088744
+    },
+    {
+      "id": "test_036",
+      "image": "images/test/COCO_train2014_000000407173.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個女人坐在擺着餐具和紅酒的桌子前。",
+      "reference_answers": [
+        "一個女人坐在擺着餐具和紅酒的桌子前。"
+      ],
+      "image_sha256": "3934d1e002f22067ac633a4a92497627a0357b580761da3b0ebb0ffda1d7e088",
+      "answer": "這張圖片顯示了一位女性坐在餐桌旁，桌上擺放著餐具和食物。她面前有兩杯紅酒，一個裝有食物的碗，以及一些盤子和餐具。背景中可以看到玻璃門和冰箱，冰箱上貼有一些磁貼。整體看起來像是一頓飯的場景。",
+      "generated_tokens": 68,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 5.069613687694073
+    },
+    {
+      "id": "test_037",
+      "image": "images/test/COCO_train2014_000000210416.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個男孩和一個女孩在衛生間刷牙",
+      "reference_answers": [
+        "一個男孩和一個女孩在衛生間刷牙"
+      ],
+      "image_sha256": "a0fb0cc6948cf5e262644e02098ccdfa17a1648f1b16da712008723ff824ba8c",
+      "answer": "這張圖片展示了兩個小孩在浴室裡刷牙。他們站在洗手池旁，背景是瓷磚牆和一些浴室用品。兩個小孩都拿著牙刷，看起來正在認真地刷牙。這張圖片傳達了保持口腔衛生的重要性，以及孩子們在日常生活中學習和模仿成人的健康習慣。",
+      "generated_tokens": 72,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 5.103662514127791
+    },
+    {
+      "id": "test_038",
+      "image": "images/test/COCO_train2014_000000549172.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個女孩在籬笆上喂長頸鹿喫手上的食物。",
+      "reference_answers": [
+        "一個女孩在籬笆上喂長頸鹿喫手上的食物。"
+      ],
+      "image_sha256": "49e259300c3cfda29d91d558a0efcbadca6827e3a84dedbfa013789bd319b10f",
+      "answer": "這張圖片展示了一個小女孩在動物園裡餵食長頸鹿的場景。小女孩站在柵欄旁，將手伸向長頸鹿，似乎在給它餵食。長頸鹿的頭部靠近柵欄，看起來對小女孩的動作很感興趣。背景中可以看到綠色的草地和其他動物，這是一個典型的動物園環境。整體氣氛溫馨，充滿了人與動物互動的美好時光。",
+      "generated_tokens": 102,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 7.38436648901552
+    },
+    {
+      "id": "test_039",
+      "image": "images/test/COCO_train2014_000000310136.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "棒球場上，一個一身白色運動服的男生完成了一次投球",
+      "reference_answers": [
+        "棒球場上，一個一身白色運動服的男生完成了一次投球"
+      ],
+      "image_sha256": "caefb7f895201336351868c3bd535c71383b2a1dcf025b39cc1ecfd6aadf2308",
+      "answer": "這張圖片顯示了一位棒球投手正在投球的瞬間。他穿著印有「INDIANA」字樣的球衣，代表印第安納波利斯的棒球隊。投手的姿勢顯示他正處於投球動作的中段，左腿高高抬起，右臂向前伸展，準備將球投出。背景是棒球場的內野區，綠色的草坪和紅色的土壩清晰可見。這張圖片捕捉了棒球運動中的動態和力量。",
+      "generated_tokens": 121,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.478461164049804
+    },
+    {
+      "id": "test_040",
+      "image": "images/test/COCO_train2014_000000084949.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "盤子裏裝着一塊已經被喫過的披薩餅",
+      "reference_answers": [
+        "盤子裏裝着一塊已經被喫過的披薩餅"
+      ],
+      "image_sha256": "113df3cd84c1ded07ba120dfd10006f92e32c205251c9623d2aff4db5541829a",
+      "answer": "這張圖片展示了一盤披薩。披薩上有各種配料，包括番茄、菠菜、起司和一些肉類。披薩已經被切了一塊，叉子放在盤子上，顯示有人正在享用這道美食。背景是木質桌面，給人一種溫馨的用餐氛圍。",
+      "generated_tokens": 68,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 4.8235968155786395
+    },
+    {
+      "id": "test_041",
+      "image": "images/test/COCO_train2014_000000251319.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個穿牛仔褲和領帶的男人下半身特寫",
+      "reference_answers": [
+        "一個穿牛仔褲和領帶的男人下半身特寫",
+        "一個穿藍上衣牛仔褲，打着白領帶的男人胳膊上有紋身。"
+      ],
+      "image_sha256": "4e66d52dc292f25c703f988425f38e8ed4991d65f0317e5d6aad21e4fa53563c",
+      "answer": "這張圖片展示了一個人的腰部以下部分。這個人穿著一條藍色牛仔褲，褲子的腰帶上有兩個金色的鈕扣。他還穿著一件淺藍色的襯衫，搭配了一條白色的領帶。這個人的手臂上有紋身，左手靠近腰部的位置有一個宗教人物的圖案，而右手手臂上有一隻蝴蝶的圖案。此外，這個人的左手戴著一個金色的手鐲。背景是藍色的，看起來像是一面藍色的牆。",
+      "generated_tokens": 117,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 8.440398644655943
+    },
+    {
+      "id": "test_042",
+      "image": "images/test/COCO_train2014_000000151254.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "棒球場上，一個擊球手正舉着棒球棒，旁邊兩個人有兩個人蹲着。",
+      "reference_answers": [
+        "棒球場上，一個擊球手正舉着棒球棒，旁邊兩個人有兩個人蹲着。"
+      ],
+      "image_sha256": "988a07ee786f8395a2540d22094996c220fb054451b83f5ceff42fcc16a47628",
+      "answer": "這張圖片展示的是一場棒球比賽的投打局面。圖片中可以看到以下幾個主要元素：\n\n1. **投手**：穿著黑色上衣和灰色褲子，戴著黑色頭盔，正準備投球。他處於投手丘上，身體微微彎曲，準備進行投球動作。\n\n2. **打者**：穿著白色球衣和白色長褲，戴著黑色頭盔，站在本壘板前準備擊球。他的姿勢顯示他正集中注意力，準備迎接投手投出的球。\n\n3. **捕手**",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.932755726389587
+    },
+    {
+      "id": "test_043",
+      "image": "images/test/COCO_train2014_000000550023.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個人在一座白雪覆蓋的山坡上滑雪。",
+      "reference_answers": [
+        "一個人在一座白雪覆蓋的山坡上滑雪。"
+      ],
+      "image_sha256": "05d88e2c3507617851b17b6d004b93c295dc0ffa7a08e1f60b7484c295f63739",
+      "answer": "這張圖片展示了一位滑雪者在雪山上滑雪的場景。滑雪者身穿滑雪裝備，包括頭盔和滑雪板，正在一個覆蓋著厚厚白雪的山坡上滑行。背景是壯麗的雪山，天空晴朗，藍天白云，整個畫面充滿了冬季運動的動感和自然的美麗。",
+      "generated_tokens": 74,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 5.46128315012902
+    },
+    {
+      "id": "test_044",
+      "image": "images/test/COCO_train2014_000000213135.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個金髮小男孩坐在桌前，手裏拿着一根烤腸正在喫早餐。",
+      "reference_answers": [
+        "一個金髮小男孩坐在桌前，手裏拿着一根烤腸正在喫早餐。"
+      ],
+      "image_sha256": "788771d0cd3d98f35b55d35ecffce02253588966a37cc5f8f505ec746607b3a1",
+      "answer": "這張圖片顯示一個小男孩正在吃飯。他坐在桌前，手裡拿著一根熱狗，看起來正在咬熱狗。桌上有一個碗，裡面似乎裝有豌豆，旁邊還有一個盤子，上面有熱狗和薯條。男孩穿著一件藍色的長袖T恤，上面印有卡通圖案。背景中可以看到一些室內裝飾，包括掛在牆上的畫和一些玩具。整體氛圍看起來很溫馨，像是家庭聚餐的場景。",
+      "generated_tokens": 113,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 7.903635638765991
+    },
+    {
+      "id": "test_045",
+      "image": "images/test/COCO_train2014_000000139144.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "叢林裏有幾隻行走的大象。",
+      "reference_answers": [
+        "叢林裏有幾隻行走的大象。"
+      ],
+      "image_sha256": "b30992b070a746023782702209770df5d9a067faddf12370b176a265707b1fb7",
+      "answer": "這張圖片展示了一頭大象和它的小象，它們正在森林或叢林中行進。大樹和茂密的植被包圍著它們，小象緊貼著大象，看起來它們正在一起移動。這幅畫面展現了大象母子在自然環境中的和諧景象。",
+      "generated_tokens": 72,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 5.10367620177567
+    },
+    {
+      "id": "test_046",
+      "image": "images/test/COCO_train2014_000000025274.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "許多人站在一個大的建築物前的廣場上。",
+      "reference_answers": [
+        "許多人站在一個大的建築物前的廣場上。"
+      ],
+      "image_sha256": "e9559b5812b0b7c8d5dba2edaace7f1e1aa7f0c022ce43125c587baaf876356c",
+      "answer": "這張圖片顯示了一大群人在城市街道上聚集，似乎在等待過馬路。背景是一棟大樓，上面有幾幅大型廣告牌，包括一個宣傳「The Voice」的海報。這可能是某個繁忙的都市地標，周圍有許多商業設施。整體氣氛顯得活躍，可能是在等人潮過後再通行。",
+      "generated_tokens": 84,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 6.128282799385488
+    },
+    {
+      "id": "test_047",
+      "image": "images/test/COCO_train2014_000000073494.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一張桌子上有一臺臺式電腦和一臺筆記本電腦。",
+      "reference_answers": [
+        "一張桌子上有一臺臺式電腦和一臺筆記本電腦。"
+      ],
+      "image_sha256": "c6a9b59271b0ef8c0f414ed8d59d4a79162028f9ae4172da0aa646a1dd8ffed1",
+      "answer": "這張圖片展示了一個整潔的辦公空間。桌上有一台顯示器、筆記本電腦、鍵盤、滑鼠和一個平板電腦。旁邊有一盞燈和一些儲物櫃。整個環境看起來舒適且井然有序，適合工作或學習。",
+      "generated_tokens": 63,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 4.488091827370226
+    },
+    {
+      "id": "test_048",
+      "image": "images/test/COCO_train2014_000000247849.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "三個飢餓的男孩用一塊麪包擺姿勢。",
+      "reference_answers": [
+        "三個飢餓的男孩用一塊麪包擺姿勢。"
+      ],
+      "image_sha256": "5bd0c5cce2cae91ab381ae57bd1f3807359cda61e45db37578778162d54361fa",
+      "answer": "這張圖片展示了三個人正在一起吃一個大漢堡。他們看起來非常開心，似乎在享受這一刻。背景中可以看到一些書架和裝飾品，這可能是在室內的某個房間。",
+      "generated_tokens": 49,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 3.5076301274821162
+    },
+    {
+      "id": "test_049",
+      "image": "images/test/COCO_train2014_000000177954.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一羣人坐在海邊的長椅上。",
+      "reference_answers": [
+        "一羣人坐在海邊的長椅上。"
+      ],
+      "image_sha256": "afd40caa0d9f2281608e015aa9dfb3ef9b8d765c8ef6f635b137854a4bd129a8",
+      "answer": "這張圖片顯示了一群人在戶外的場所，可能是一個靠近水邊的公共區域。他們坐在長桌旁，似乎在進行學習或討論。背景中可以看到停泊的船隻和水面，顯示出這是一個臨水的場所。陽光透過棚架灑在地面上，營造出一個寧靜的氛圍。",
+      "generated_tokens": 78,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 5.533968857489526
+    },
+    {
+      "id": "test_050",
+      "image": "images/test/COCO_train2014_000000045422.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個藍色的架子靠在牆邊，上面放着一摞書，一個花瓶和一個籃子",
+      "reference_answers": [
+        "一個藍色的架子靠在牆邊，上面放着一摞書，一個花瓶和一個籃子"
+      ],
+      "image_sha256": "68592d902cd97ec09007507db872fd3a9a7540f423fcb1c9e29860349a4cd55a",
+      "answer": "這張圖片展示了一張藍色的小桌子，桌上有一個裝飾性的黑色柳條碗和一個插著白色花朵的花瓶。桌子下方的架子上堆放著幾本書，其中一本書的封面上寫著“WOMEN'S BODIES”。桌子旁邊有一個黑色的鐵製裝飾品靠在牆上。整個場景顯得簡潔而雅緻，給人一種寧靜的感覺。",
+      "generated_tokens": 96,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.791347839869559
+    },
+    {
+      "id": "test_051",
+      "image": "images/test/COCO_val2014_000000209901.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "道路一邊有一幢建築物，另一邊有一個標識牌。",
+      "reference_answers": [
+        "道路一邊有一幢建築物，另一邊有一個標識牌。"
+      ],
+      "image_sha256": "182f4dacd188dc5555ea99d3ed19bf58fb08a6a97060da896fad63da7bbf64c6",
+      "answer": "這張圖片展示了一所名為 Harriet Tubman Elementary 的小學。圖片的背景是一棟紅磚建築，具有典型的學區房屋風格，前面有一個鐵柵欄和一些綠化植物。在圖片的右側，有一個綠色的指示牌，上面寫著：\n\n\"Harriet Tubman Elementary\nREGISTRATION CONTINUES\nSPACE AVAILABLE\nPRE-K - 8\nSCHOOL BEGINS AUG 27TH\"\n\n翻譯成中文即為：\n\n\"哈里特·圖布曼小學\n報名持續進行\n有空位\n幼",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.95163244009018
+    },
+    {
+      "id": "test_052",
+      "image": "images/test/COCO_val2014_000000256852.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一輛有軌電車正駛過街道的十字路口。",
+      "reference_answers": [
+        "一輛有軌電車正駛過街道的十字路口。"
+      ],
+      "image_sha256": "11343c85fb3194a98a4959bf9fb6d7565a9322a7b0ba8ed8b869d02328764da1",
+      "answer": "這張圖片展示了一個城市街景，其中有一輛電車正在行駛。電車的車頭顯示目的地為「Hale Street」，車號為2546。街道兩旁有多家商店和建築，包括一家名為「Dream's」的商店，其招牌上寫著「Home Choice Free Delivery」。此外，還有一家掛著「Beds」標誌的商店。街道上有行人正在走動，整體氛圍顯得繁忙而有活力。",
+      "generated_tokens": 110,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 7.694482825696468
+    },
+    {
+      "id": "test_053",
+      "image": "images/test/COCO_val2014_000000271820.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "整潔的臥室裏有一張牀，一臺電視機和一個沙發。",
+      "reference_answers": [
+        "整潔的臥室裏有一張牀，一臺電視機和一個沙發。"
+      ],
+      "image_sha256": "08b864ee60b4b54f606800588e6e082e2ca0815fcf860304f4bb47cb9a17d152",
+      "answer": "這張圖片顯示了一間房間的角落，房間內有一張綠色的沙發，沙發旁邊有一張小桌子，桌上有一盞燈。燈光亮著，照亮了沙發和周圍的區域。沙發旁邊還有一台電視，電視放在一個木製的電視架上。牆上掛著一面鏡子，鏡子反射了房間的一部分。地板是深色的，帶有圓點圖案。房間的整體佈局顯得簡潔而舒適。",
+      "generated_tokens": 116,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 8.363706269301474
+    },
+    {
+      "id": "test_054",
+      "image": "images/test/COCO_train2014_000000019499.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一條公路上發生了事故，旁邊有很多騎賽車的人在圍觀",
+      "reference_answers": [
+        "一條公路上發生了事故，旁邊有很多騎賽車的人在圍觀"
+      ],
+      "image_sha256": "5993681ba1b4351486c7bad77603887c6cda6fab707bd05c29bacde2b81cfeaf",
+      "answer": "這張圖片顯示了一場公路自行車比賽的場景。在圖片的左側，可以看到幾名自行車手正騎著自行車，似乎在等待比賽重新開始。他們身穿專業的自行車服裝，頭戴安全帽，看起來是比賽的參賽者。\n\n在圖片的右側，有一輛被翻倒的汽車，車輛側翻在道路旁邊，情況看起來像是剛剛發生的交通事故。有幾名穿著黑色衣服的人正站在車旁，似乎在檢查或處理事故情況。路旁還有一名穿著藍色外套的人，可能是旁",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 9.02018628641963
+    },
+    {
+      "id": "test_055",
+      "image": "images/test/COCO_train2014_000000531201.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個穿着白色T恤戴着白色帽子的男人手裏拿着一個網球拍。",
+      "reference_answers": [
+        "一個穿着白色T恤戴着白色帽子的男人手裏拿着一個網球拍。"
+      ],
+      "image_sha256": "472dff5e123b8447c62ed4fd888006781ffee80cffd37c90d465426391881c0a",
+      "answer": "這張圖片顯示了一位網球運動員站在網球場上，他穿著白色的帽子、白色的T恤、灰色的短褲和白色的運動鞋，手上拿著一把網球拍。背景中可以看到「US Open」和「JPMorgan」的標誌，這表明這是在美國公開賽（US Open）的場地。旁邊還有一位穿著深色制服的人，可能是工作人員或教練。這張圖片應該是在一場網球比賽或練習的期間拍攝的。",
+      "generated_tokens": 114,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.015277623198926
+    },
+    {
+      "id": "test_056",
+      "image": "images/test/COCO_train2014_000000125667.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "廚房裏有很多櫥櫃和廚具，還有一個水槽。",
+      "reference_answers": [
+        "廚房裏有很多櫥櫃和廚具，還有一個水槽。"
+      ],
+      "image_sha256": "8545874fdb3a99d02b119cc577d6acd8830e61bd780361c27429616008a78b47",
+      "answer": "這張圖片展示了一個廚房。廚房裡有白色的櫥櫃和抽屜，櫃子上有幾個鍋子掛在牆上。窗戶上有黃色的窗簾，窗台上擺放了一些裝飾品。水槽旁邊有一些廚房用具和洗潔精。廚房的地板是紅色的，左邊有一個老式烤箱。整體看起來是一個溫馨且功能齊全的廚房。",
+      "generated_tokens": 99,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.977230752818286
+    },
+    {
+      "id": "test_057",
+      "image": "images/test/COCO_train2014_000000312828.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "桌子上白色餐盤裏盛着幾種小食品，旁邊的碗裏盛着湯。",
+      "reference_answers": [
+        "桌子上白色餐盤裏盛着幾種小食品，旁邊的碗裏盛着湯。"
+      ],
+      "image_sha256": "8e9e24412543477233e26345997f7a44964634830da91a4242ec057b72581a44",
+      "answer": "這張圖片展示了一頓兒童餐點。餐點包括：\n\n1. 一個白色盤子，上面有：\n   - 三顆紅莓（可能是草莓或樹莓）。\n   - 三塊三角形的餅乾。\n   - 一些切好的小胡蘿蔔，擺成有趣的形狀。\n\n2. 一個碗裡裝有：\n   - 燴飯，看起來有豌豆、玉米和小塊的肉或雞肉。\n\n3. 餐具包括一把叉子和一把湯匙。\n\n4. 桌子上有一個奶瓶，",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 8.969104499556124
+    },
+    {
+      "id": "test_058",
+      "image": "images/test/COCO_train2014_000000182997.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "近處的盤子裏擺着一份三明治，一位女士坐在對面喫蔬菜沙拉",
+      "reference_answers": [
+        "近處的盤子裏擺着一份三明治，一位女士坐在對面喫蔬菜沙拉"
+      ],
+      "image_sha256": "904a24bd0e8bd23611aa617f45378d91801aa53e41ba5555d4429e2ce369d225",
+      "answer": "這張圖片顯示了一位女士正在餐廳用餐。她面前的餐桌上擺放著一份三明治、一杯飲料、一杯冰茶、一些沙拉和一碟配菜。她正用叉子叉起一些沙拉。桌上還有一瓶番茄醬和一些調味品。整體看起來是一頓輕鬆的午餐或晚餐。",
+      "generated_tokens": 77,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 5.655652740970254
+    },
+    {
+      "id": "test_059",
+      "image": "images/test/COCO_train2014_000000283557.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個白色的鍋裏放着黃色的食物。",
+      "reference_answers": [
+        "一個白色的鍋裏放着黃色的食物。"
+      ],
+      "image_sha256": "f6b8e88ccfa4aaca4ed7cdff022ebf3787881ebf3d85aff050adba1c116738ed",
+      "answer": "這張圖片顯示了一個正在烤箱中烘焙的蛋糕。蛋糕被倒入一個圓形的烤盤中，中間有一個圓柱形的模具，可能是為了製作出中空的蛋糕。蛋糕表面看起來已經烤得金黃色，並且可以看到一些巧克力或可可的痕跡，暗示這可能是一個巧克力蛋糕。模具周圍的蛋糕表面有一些裂紋，這通常是蛋糕在烘焙過程中正常的現象。整體來看，蛋糕似乎還在烘焙過程中，需要再烤一段時間才能完成。",
+      "generated_tokens": 113,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 7.889796796254814
+    },
+    {
+      "id": "test_060",
+      "image": "images/test/COCO_train2014_000000342797.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "街道旁的交通標誌牌上貼滿了各種小廣告",
+      "reference_answers": [
+        "街道旁的交通標誌牌上貼滿了各種小廣告"
+      ],
+      "image_sha256": "78df2065d6ae3f24e56dc30d95a35f29f64067ae91d46bd1b9795fe111445b0e",
+      "answer": "這張圖片展示了一個被貼滿貼紙的「STOP」（停車）標誌，位於一個街角。標誌的後方可以看到一家餐廳的部分招牌，上面寫著「Restaurant」和「MEXICAN FOOD」（墨西哥美食）。標誌下方有一個藍色的路牌，上面寫著「90 SOUTH」（90號公路南線），並有一個向上的箭頭。整體場景似乎是在一個小鎮或鄉村的街道上。",
+      "generated_tokens": 111,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 8.012052756734192
+    }
+  ],
+  "count": 60,
+  "elapsed_seconds": 430.1971088545397
+}

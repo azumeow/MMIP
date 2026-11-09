@@ -1,0 +1,46 @@
+{
+  "config": {
+    "model": "OpenGVLab/InternVL3_5-14B",
+    "revision": "a1e37197b393ce9eec9df700fef65c11f4a6ffbd",
+    "seed": 42,
+    "epochs": 3,
+    "micro_batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "lora_targets": [
+      "q_proj",
+      "v_proj"
+    ],
+    "quantization": "NF4",
+    "double_quantization": false,
+    "compute_dtype": "float16",
+    "trainable_dtype": "float32",
+    "vision_dtype": "float16",
+    "vision_and_projector": "frozen",
+    "max_dynamic_tiles": 2,
+    "thumbnail": true,
+    "tile_size": 448,
+    "max_sequence_length": 1536,
+    "gradient_checkpointing": "non-reentrant",
+    "attention": "eager",
+    "selection": "lowest validation token-mean NLL",
+    "max_new_tokens": 128,
+    "do_sample": false,
+    "system_message": "你是一個圖片描述助手。"
+  },
+  "data_hashes": {
+    "train_sft_300.json": "b00ddccb9af725852fc422c52617fbf1b3949b79cd35ae0067962777357aba27",
+    "validation_60.json": "185d9d51a363c2b22f555a67bc35c5b19c8b8ce395118d6b0b88f78a5114746a",
+    "target_test_60.json": "655771db6a374360dd749545dfeaf976462dc31f3efaa2a72dd8df9fe1e07bb4",
+    "sources.json": "752b9ce53ba6eb9f4ee1d4f00220a3365a915eb1b3c324a9ad01b7b2407f2dbe"
+  },
+  "epoch": 3,
+  "validation_nll": 1.841147992546711,
+  "loading": "Load pinned InternVL NF4 base; attach this adapter to model.language_model, not the full VLM."
+}

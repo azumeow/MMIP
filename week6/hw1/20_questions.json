@@ -1,0 +1,876 @@
+{
+  "benchmark_name": "Custom Math, General Knowledge, Machine Learning and Coding Benchmark for Qwen3-8B",
+  "version": "1.3",
+  "language": "zh-TW",
+  "source": "Original practice questions inspired by mathematical reasoning tasks; not official MMMU questions.",
+  "total_questions": 20,
+  "questions": [
+    {
+      "id": "math_001",
+      "category": "vector_dot_product",
+      "difficulty": "basic",
+      "question": "給定兩個三維向量 a = (3.5, 2, 6)，b = (1.2, -5, 9)。請計算 a 與 b 的內積（dot product），並說明計算過程。最後請以『最終答案：<數值>』結尾。",
+      "answer_type": "number",
+      "answer": 48.2,
+      "reference_solution": "a·b = 3.5×1.2 + 2×(-5) + 6×9 = 4.2 - 10 + 54 = 48.2。",
+      "evaluation": {
+        "method": "numeric",
+        "absolute_tolerance": 1e-06
+      }
+    },
+    {
+      "id": "math_002",
+      "category": "matrix_multiplication",
+      "difficulty": "intermediate",
+      "question": "給定兩個 5×5 矩陣 A = [[1, 2, 0, -1, 3], [2, 0, 1, 4, -2], [-1, 3, 2, 0, 1], [0, -2, 4, 1, 2], [3, 1, -1, 2, 0]]，B = [[2, 1, 0, 3, -1], [0, -2, 4, 1, 2], [1, 3, -1, 0, 2], [2, 0, 1, -2, 1], [-1, 2, 3, 1, 0]]。請計算矩陣乘積 AB，並說明計算方法。最後請以『最終答案：[[第1列], [第2列], ...]』結尾，使用 JSON 二維陣列格式表示矩陣。",
+      "answer_type": "matrix",
+      "answer": [
+        [
+          -3,
+          3,
+          16,
+          10,
+          2
+        ],
+        [
+          15,
+          1,
+          -3,
+          -4,
+          4
+        ],
+        [
+          -1,
+          1,
+          13,
+          1,
+          11
+        ],
+        [
+          4,
+          20,
+          -5,
+          -2,
+          5
+        ],
+        [
+          9,
+          -2,
+          7,
+          6,
+          -1
+        ]
+      ],
+      "reference_solution": "矩陣 AB 的第 (i,j) 項等於 A 第 i 列與 B 第 j 行的內積。例如 (AB)[1,1] = 1×2 + 2×0 + 0×1 + (-1)×2 + 3×(-1) = -3。逐項計算得到答案矩陣。",
+      "evaluation": {
+        "method": "matrix_elementwise",
+        "absolute_tolerance": 1e-06
+      }
+    },
+    {
+      "id": "math_003",
+      "category": "permutations_and_combinations",
+      "difficulty": "high_school",
+      "question": "某學校舉辦一場數學競賽，共有 7 位學生參加，其中包含 Alice 和 Bob。主辦單位準備了 4 個排成一直線的座位，並要從 7 位學生中選出 4 位入座。已知 Alice 和 Bob 必須同時被選中，而且兩人必須坐在相鄰的座位上。請問共有多少種不同的座位安排方式？請說明推導過程，最後請以『最終答案：<整數>』結尾。",
+      "answer_type": "integer",
+      "answer": 120,
+      "reference_solution": "Alice 和 Bob 的相鄰位置有 3 種，兩人的內部順序有 2 種；從其餘 5 人挑選並排列 2 人到其餘座位有 5×4 = 20 種。因此 3×2×20 = 120 種。",
+      "evaluation": {
+        "method": "exact_integer"
+      }
+    },
+    {
+      "id": "math_004",
+      "category": "calculus_definite_integral",
+      "difficulty": "introductory_calculus",
+      "question": "計算定積分 I = ∫₀² x e^(x²) dx。請使用適當的積分方法說明步驟，給出精確答案，最後請以『最終答案：<數學表達式>』結尾。",
+      "answer_type": "symbolic_expression",
+      "answer": "(exp(4) - 1) / 2",
+      "answer_numeric_approx": 26.799075016572118,
+      "reference_solution": "令 u = x²，則 du = 2x dx。當 x=0 時 u=0，當 x=2 時 u=4。故 I = (1/2)∫₀⁴ e^u du = (e⁴ - 1)/2。",
+      "evaluation": {
+        "method": "symbolic_equivalence",
+        "numeric_fallback_absolute_tolerance": 0.0001
+      }
+    },
+    {
+      "id": "knowledge_001",
+      "category": "biology_taxonomy",
+      "difficulty": "general_knowledge",
+      "question": "生物界最常用的分類共有幾種類別？請列出由大到小的分類層級。",
+      "answer_type": "text",
+      "answer": "7種：界、門、綱、目、科、屬、種。",
+      "evaluation": {
+        "method": "all_concepts_present",
+        "required_concepts": [
+          [
+            "7",
+            "七"
+          ],
+          [
+            "界"
+          ],
+          [
+            "門",
+            "门"
+          ],
+          [
+            "綱",
+            "纲"
+          ],
+          [
+            "目"
+          ],
+          [
+            "科"
+          ],
+          [
+            "屬",
+            "属"
+          ],
+          [
+            "種",
+            "种"
+          ]
+        ],
+        "min_coverage": 1.0,
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ]
+      },
+      "reference_note": "應包含7個分類階層；回答較長不扣分。"
+    },
+    {
+      "id": "knowledge_002",
+      "category": "sports_nba",
+      "difficulty": "general_knowledge",
+      "question": "NBA一場比賽常規比賽時間是多久？",
+      "answer_type": "text",
+      "answer": "48分鐘",
+      "evaluation": {
+        "method": "contains_any",
+        "accepted_phrases": [
+          "48分鐘",
+          "48分",
+          "48 minutes",
+          "48 minute",
+          "四十八分鐘",
+          "4節每節12分鐘",
+          "四節每節十二分鐘"
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ]
+      },
+      "reference_note": "不包含延長賽。"
+    },
+    {
+      "id": "knowledge_003",
+      "category": "taiwan_law",
+      "difficulty": "general_knowledge",
+      "question": "2026/11/5，台灣酒駕上路若致人於死，刑法處罰是什麼？",
+      "answer_type": "text",
+      "answer": "一般初犯致死：處3年以上10年以下有期徒刑，得併科200萬元以下罰金。累犯致死（10年內曾犯酒／毒駕，經有罪判決確定或緩起訴處分確定，再犯而致死）：處無期徒刑或5年以上有期徒刑，得併科300萬元以下罰金。",
+      "evaluation": {
+        "method": "concept_coverage",
+        "min_coverage": 0.8,
+        "coverage_denominator": "required_concepts",
+        "coverage_unit": "semantic_fact",
+        "scoring": "matched_concepts / total_concepts",
+        "required_concepts": [
+          {
+            "id": "first_offense_context",
+            "alternatives": [
+              "初犯",
+              "一般致死",
+              "一般酒駕致死",
+              "非累犯"
+            ]
+          },
+          {
+            "id": "first_prison_min",
+            "alternatives": [
+              "3年以上",
+              "三年以上",
+              "3年至10年",
+              "3到10年",
+              "3~10年",
+              "3-10年"
+            ]
+          },
+          {
+            "id": "first_prison_max",
+            "alternatives": [
+              "10年以下",
+              "十年以下",
+              "3年至10年",
+              "3到10年",
+              "3~10年",
+              "3-10年"
+            ]
+          },
+          {
+            "id": "first_fine",
+            "alternatives": [
+              "200萬元",
+              "200万",
+              "兩百萬元",
+              "二百萬元",
+              "200萬"
+            ]
+          },
+          {
+            "id": "repeat_window",
+            "alternatives": [
+              "10年內",
+              "十年內",
+              "10年之內"
+            ]
+          },
+          {
+            "id": "repeat_qualifier",
+            "alternatives": [
+              "有罪判決",
+              "緩起訴",
+              "缓起诉"
+            ]
+          },
+          {
+            "id": "repeat_offense",
+            "alternatives": [
+              "再犯",
+              "累犯",
+              "再次酒駕",
+              "再次毒駕"
+            ]
+          },
+          {
+            "id": "repeat_life",
+            "alternatives": [
+              "無期徒刑",
+              "无期徒刑"
+            ]
+          },
+          {
+            "id": "repeat_minimum",
+            "alternatives": [
+              "5年以上",
+              "五年以上"
+            ]
+          },
+          {
+            "id": "repeat_fine",
+            "alternatives": [
+              "300萬元",
+              "300万",
+              "三百萬元",
+              "300萬"
+            ]
+          }
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ],
+        "note": "80%指10項關鍵法律事實至少命中8項，非字元重疊率。應額外檢查有無矛盾或混淆兩類刑度。"
+      },
+      "source_url": "https://mojlaw.moj.gov.tw/LawContentExtent.aspx?LawNo=185-3&lsid=fl001424"
+    },
+    {
+      "id": "knowledge_004",
+      "category": "fluid_mechanics",
+      "difficulty": "general_knowledge",
+      "question": "什麼是流體力學的雷諾數？",
+      "answer_type": "text",
+      "answer": "雷諾數代表流體慣性力與黏性力的比值。",
+      "evaluation": {
+        "method": "all_concepts_present",
+        "required_concepts": [
+          [
+            "慣性力",
+            "惯性力",
+            "inertial force",
+            "inertia"
+          ],
+          [
+            "黏性力",
+            "粘性力",
+            "viscous force",
+            "viscosity"
+          ],
+          [
+            "比值",
+            "比例",
+            "ratio",
+            "相對大小"
+          ]
+        ],
+        "min_coverage": 1.0,
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ]
+      },
+      "reference_note": "也可由 Re=ρVL/μ 等式解釋，但若只列公式，需評分程式支援公式辨識。"
+    },
+    {
+      "id": "knowledge_005",
+      "category": "politics_us_election",
+      "difficulty": "general_knowledge",
+      "question": "台灣時間2026/11/4，美國期中選舉，在德克薩斯州是哪一黨獲勝？",
+      "answer_type": "text",
+      "answer": "民主黨",
+      "evaluation": {
+        "method": "contains_any",
+        "accepted_phrases": [
+          "民主黨",
+          "民主党",
+          "Democratic Party",
+          "Democrats",
+          "Democrat"
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ]
+      },
+      "reference_note": "以2026年德州州長與美國聯邦參議員選舉為判定範圍；原題「德州獲勝」未指明選舉職位，可能有歧義。",
+      "source_url": "https://www.texastribune.org/2026/11/03/texas-midterms-2026-elections-live-blog/"
+    },
+    {
+      "id": "knowledge_006",
+      "category": "games_arknights",
+      "difficulty": "general_knowledge",
+      "question": "截止2026/11/5，明日方舟最新推出的限定角色是誰？",
+      "answer_type": "text",
+      "answer": "塔露拉",
+      "evaluation": {
+        "method": "contains_any",
+        "accepted_phrases": [
+          "塔露拉",
+          "Talulah"
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ]
+      },
+      "reference_note": "以中國大陸伺服器2026年11月「感謝慶典」公告為準；其他伺服器進度可能不同。",
+      "source_url": "https://ak.hypergryph.com/news/0787"
+    },
+    {
+      "id": "knowledge_007",
+      "category": "geography",
+      "difficulty": "general_knowledge",
+      "question": "澳大利亞的首都是？",
+      "answer_type": "text",
+      "answer": "坎培拉（Canberra）",
+      "evaluation": {
+        "method": "contains_any",
+        "accepted_phrases": [
+          "坎培拉",
+          "堪培拉",
+          "坎伯拉",
+          "Canberra"
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ]
+      }
+    },
+    {
+      "id": "knowledge_008",
+      "category": "music",
+      "difficulty": "general_knowledge",
+      "question": "音樂HUNTING FOR YOUR DREAM的作者是誰？",
+      "answer_type": "text",
+      "answer": "GALNERYUS",
+      "evaluation": {
+        "method": "contains_any",
+        "accepted_phrases": [
+          "GALNERYUS",
+          "Galneryus",
+          "ガルネリウス"
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ]
+      },
+      "reference_note": "依使用者指定標準答案評分，這是演唱／演奏團體；若嚴格問作曲者，答案是 Syu。建議正式測驗將「作者」改為「演唱／演奏團體」。",
+      "source_url": "https://www.ntv.co.jp/hunterhunter/music/index.html"
+    },
+    {
+      "id": "code_001",
+      "category": "python_output_prediction",
+      "difficulty": "easy",
+      "question": "請閱讀以下 Python 程式碼，並回答執行後會輸出什麼結果？\n```python\na = [1, 2, 3, 4, 5]\nb = [x**2 for x in a if x % 2 == 1]\nprint(sum(b))\n```\n請在最後一行寫「最終答案：<輸出結果>」。",
+      "answer_type": "integer",
+      "answer": 35,
+      "reference_solution": "篩選出奇數1、3、5，平方得到1、9、25，總和為35。",
+      "evaluation": {
+        "method": "exact_integer",
+        "note": "從模型最後的最終答案欄位擷取整數，避免解題過程的數字干擾。"
+      }
+    },
+    {
+      "id": "code_002",
+      "category": "python_debugging",
+      "difficulty": "easy",
+      "question": "以下 Python 函式原本要計算串列中所有數字的平均值，但程式有錯誤。請修正程式，讓它正確回傳平均值（輸入為非空數字串列）。請輸出完整可執行的 Python 函式。\n```python\ndef calculate_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total / (len(numbers) - 1)\n```",
+      "answer_type": "python_code",
+      "answer": "def calculate_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total / len(numbers)",
+      "reference_solution": "錯誤在於分母使用 len(numbers)-1；應以元素個數 len(numbers) 做分母。對非空數字串列可使用 sum(numbers)/len(numbers) 等等價寫法。",
+      "evaluation": {
+        "method": "python_unit_tests",
+        "function_name": "calculate_average",
+        "test_cases": [
+          {
+            "input": [
+              [
+                2,
+                4,
+                6
+              ]
+            ],
+            "expected": 4.0
+          },
+          {
+            "input": [
+              [
+                10
+              ]
+            ],
+            "expected": 10.0
+          },
+          {
+            "input": [
+              [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            ],
+            "expected": 3.0
+          },
+          {
+            "input": [
+              [
+                -2,
+                0,
+                2
+              ]
+            ],
+            "expected": 0.0
+          },
+          {
+            "input": [
+              [
+                1.5,
+                2.5
+              ]
+            ],
+            "expected": 2.0
+          }
+        ],
+        "absolute_tolerance": 1e-09,
+        "note": "執行模型產生的函式並測試輸出，不以程式碼文字完全一致作為判定；僅在隔離沙箱執行不受信任程式碼。"
+      }
+    },
+    {
+      "id": "code_003",
+      "category": "algorithmic_reasoning_two_sum",
+      "difficulty": "intermediate",
+      "question": "給定整數陣列 nums = [2, 7, 11, 15, 3, 6]，target = 9。請找出第一組索引值（依照索引 i 由小到大、同一 i 下索引 j 由小到大搜尋，且 i < j），使 nums[i] + nums[j] == target。索引從 0 開始；請在最後一行寫「最終答案：[i, j]」。",
+      "answer_type": "integer_array",
+      "answer": [
+        0,
+        1
+      ],
+      "reference_solution": "nums[0]+nums[1]=2+7=9；雖然 nums[4]+nums[5]=3+6=9，但 [0,1] 先出現。",
+      "evaluation": {
+        "method": "exact_array",
+        "note": "擷取最後一行最終答案後依 JSON 整數陣列比較。"
+      }
+    },
+    {
+      "id": "code_004",
+      "category": "python_recursive_factorial",
+      "difficulty": "intermediate",
+      "question": "請使用 Python 撰寫一個名為 factorial(n) 的遞迴函式，計算非負整數 n 的階乘。當 n=0 或 n=1 時回傳1；當 n>1 時必須使用遞迴；當 n<0 時拋出 ValueError；不可使用 math.factorial()。請輸出完整可執行的 Python 函式。",
+      "answer_type": "python_code",
+      "answer": "def factorial(n):\n    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n - 1)",
+      "reference_solution": "階乘的遞迴關係為 n!=n×(n-1)!，基底情況0!=1!=1，負數以ValueError排除。",
+      "evaluation": {
+        "method": "python_unit_tests",
+        "function_name": "factorial",
+        "test_cases": [
+          {
+            "input": [
+              0
+            ],
+            "expected": 1
+          },
+          {
+            "input": [
+              1
+            ],
+            "expected": 1
+          },
+          {
+            "input": [
+              5
+            ],
+            "expected": 120
+          },
+          {
+            "input": [
+              7
+            ],
+            "expected": 5040
+          },
+          {
+            "input": [
+              10
+            ],
+            "expected": 3628800
+          },
+          {
+            "input": [
+              -1
+            ],
+            "expected_exception": "ValueError"
+          }
+        ],
+        "constraints": [
+          "must_use_recursion",
+          "must_not_call_math.factorial"
+        ],
+        "note": "除單元測試外，需靜態檢查是否符合使用遞迴及禁用 math.factorial 的要求。僅在隔離沙箱執行模型產生的程式碼。"
+      }
+    },
+    {
+      "id": "knowledge_009",
+      "category": "sports_mlb",
+      "difficulty": "general_knowledge",
+      "question": "2024 MLB 世界大賽的冠軍是哪一隊？",
+      "answer_type": "text",
+      "answer": "洛杉磯道奇（Los Angeles Dodgers）",
+      "evaluation": {
+        "method": "contains_any",
+        "accepted_phrases": [
+          "洛杉磯道奇",
+          "洛杉矶道奇",
+          "Los Angeles Dodgers",
+          "LA Dodgers",
+          "道奇隊",
+          "道奇"
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ],
+        "note": "可回答更多內容，但不能將對手誤說成冠軍。"
+      },
+      "source_url": "https://www.mlb.com/news/dodgers-win-world-series-2024"
+    },
+    {
+      "id": "knowledge_010",
+      "category": "sports_nba_champion",
+      "difficulty": "general_knowledge",
+      "question": "NBA 2025-2026賽季的冠軍是哪一隊？",
+      "answer_type": "text",
+      "answer": "紐約尼克（New York Knicks）",
+      "evaluation": {
+        "method": "contains_any",
+        "accepted_phrases": [
+          "紐約尼克",
+          "纽约尼克",
+          "New York Knicks",
+          "尼克隊",
+          "尼克"
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ],
+        "note": "要求回答 NBA 總冠軍，非例行賽第一名或東西區冠軍；額外內容不得與答案矛盾。"
+      },
+      "reference_note": "2025–26 NBA Finals：New York Knicks 4–1 San Antonio Spurs。",
+      "source_url": "https://www.nba.com/playoffs/2026/nba-finals"
+    },
+    {
+      "id": "knowledge_011",
+      "category": "machine_learning_multihead_attention",
+      "difficulty": "intermediate",
+      "question": "解釋 Multi-Head Attention（多頭注意力機制）的原理、主要計算過程與用途。",
+      "answer_type": "text",
+      "answer": "Multi-Head Attention 將輸入分別經可學習的線性投影形成多組 Query、Key、Value（Q、K、V），各個注意力頭平行計算 scaled dot-product attention，即 softmax(QK^T/√d_k)V，再將各頭輸出串接（concatenate）並經輸出線性投影。多個頭能在不同表示子空間學習不同位置與特徵之間的關係，增強模型捕捉多種依賴關係的能力。",
+      "evaluation": {
+        "method": "concept_coverage",
+        "min_coverage": 0.8,
+        "coverage_denominator": "required_concepts",
+        "coverage_unit": "semantic_fact",
+        "scoring": "matched_concepts / total_concepts",
+        "required_concepts": [
+          {
+            "id": "multiple_heads",
+            "alternatives": [
+              "多個注意力頭",
+              "多頭",
+              "multiple attention heads",
+              "multiple heads"
+            ]
+          },
+          {
+            "id": "qkv",
+            "alternatives": [
+              "Query Key Value",
+              "Q K V",
+              "QKV",
+              "查詢鍵值"
+            ]
+          },
+          {
+            "id": "learned_projection",
+            "alternatives": [
+              "線性投影",
+              "線性變換",
+              "可學習權重",
+              "linear projection",
+              "projection matrices",
+              "W_Q"
+            ]
+          },
+          {
+            "id": "attention_scores",
+            "alternatives": [
+              "QK^T",
+              "Q乘K的轉置",
+              "query與key計算相似度",
+              "query-key similarity",
+              "dot-product attention"
+            ]
+          },
+          {
+            "id": "softmax",
+            "alternatives": [
+              "softmax",
+              "正規化注意力權重"
+            ]
+          },
+          {
+            "id": "weighted_values",
+            "alternatives": [
+              "加權求和",
+              "加權value",
+              "加權V",
+              "weighted sum of values",
+              "注意力加權"
+            ]
+          },
+          {
+            "id": "parallel",
+            "alternatives": [
+              "平行",
+              "並行",
+              "parallel"
+            ]
+          },
+          {
+            "id": "combine_heads",
+            "alternatives": [
+              "串接",
+              "拼接",
+              "concat",
+              "concatenate"
+            ]
+          },
+          {
+            "id": "output_projection",
+            "alternatives": [
+              "輸出投影",
+              "輸出線性層",
+              "output projection",
+              "W_O"
+            ]
+          },
+          {
+            "id": "diverse_relations",
+            "alternatives": [
+              "不同特徵",
+              "不同關係",
+              "不同表示子空間",
+              "different representation subspaces",
+              "不同依賴",
+              "不同位置的關聯"
+            ]
+          }
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ],
+        "note": "概念覆蓋率至少80%，語義同義表達可計分；單純字串比對不足以完整評判，需語意評分或人工複核。"
+      }
+    },
+    {
+      "id": "knowledge_012",
+      "category": "machine_learning_mixture_of_experts",
+      "difficulty": "intermediate",
+      "question": "解釋 Mixture of Experts（MoE，專家混合模型）的原理、運作流程與優缺點。",
+      "answer_type": "text",
+      "answer": "Mixture of Experts（MoE）使用多個專家子網路（Experts），通常是不同的前饋網路，並由 Router/Gating Network 依輸入 Token 計算路由分數，選擇 Top-k 個專家處理該 Token；選中專家的輸出按路由權重組合。稀疏 MoE 每次只啟用部分專家，在增加總參數量與模型容量的同時控制單個 Token 的計算成本，但有負載不均衡、通訊開銷與訓練穩定性等挑戰。",
+      "evaluation": {
+        "method": "concept_coverage",
+        "min_coverage": 0.8,
+        "coverage_denominator": "required_concepts",
+        "coverage_unit": "semantic_fact",
+        "scoring": "matched_concepts / total_concepts",
+        "required_concepts": [
+          {
+            "id": "multiple_experts",
+            "alternatives": [
+              "多個專家",
+              "專家網路",
+              "experts",
+              "專家子網路"
+            ]
+          },
+          {
+            "id": "router",
+            "alternatives": [
+              "router",
+              "路由器",
+              "路由網路",
+              "gating",
+              "門控網路"
+            ]
+          },
+          {
+            "id": "token_routing",
+            "alternatives": [
+              "token分配",
+              "token路由",
+              "依輸入選擇",
+              "路由每個token",
+              "per-token routing"
+            ]
+          },
+          {
+            "id": "top_k",
+            "alternatives": [
+              "top-k",
+              "top k",
+              "選擇少數專家",
+              "挑選部分專家"
+            ]
+          },
+          {
+            "id": "sparse_activation",
+            "alternatives": [
+              "稀疏啟用",
+              "稀疏激活",
+              "sparse activation",
+              "只有部分專家"
+            ]
+          },
+          {
+            "id": "expert_compute",
+            "alternatives": [
+              "專家處理",
+              "專家計算",
+              "專家前饋",
+              "expert computation"
+            ]
+          },
+          {
+            "id": "combine",
+            "alternatives": [
+              "加權合併",
+              "加權求和",
+              "融合輸出",
+              "weighted combination",
+              "combine expert outputs"
+            ]
+          },
+          {
+            "id": "scalability",
+            "alternatives": [
+              "增加模型容量",
+              "擴展參數",
+              "larger capacity",
+              "scaling parameters"
+            ]
+          },
+          {
+            "id": "compute_efficiency",
+            "alternatives": [
+              "降低每token計算",
+              "節省計算",
+              "計算效率",
+              "compute efficiency",
+              "低計算成本"
+            ]
+          },
+          {
+            "id": "tradeoffs",
+            "alternatives": [
+              "負載不均",
+              "負載平衡",
+              "通訊成本",
+              "通信開銷",
+              "訓練不穩定",
+              "load balancing",
+              "communication overhead"
+            ]
+          }
+        ],
+        "normalize": [
+          "unicode_nfkc",
+          "casefold",
+          "remove_whitespace_punctuation"
+        ],
+        "note": "概念覆蓋率至少80%；接受同義改寫與充分的技術說明，需語意評分或人工複核。"
+      }
+    }
+  ],
+  "evaluation_policy": {
+    "model_input_fields": [
+      "question"
+    ],
+    "hidden_from_model": [
+      "answer",
+      "answer_type",
+      "reference_solution",
+      "evaluation",
+      "accepted_aliases",
+      "reference_note",
+      "source_url",
+      "test_cases",
+      "constraints"
+    ],
+    "long_answers_allowed": true,
+    "short_answer_scoring": "Use normalized inclusion of required answer facts or accepted aliases; extra explanatory text is allowed, provided it does not contradict the expected answer.",
+    "knowledge_003_exception": "Accept with at least 80% coverage of the ten specified legal facts.",
+    "caution": "The JSON describes scoring policy. A separate grading program must implement the methods; Qwen3-8B does not automatically execute them.",
+    "coding_questions": "code_002 and code_004 should be graded using sandboxed Python unit tests, not exact code-string matching. code_004 also requires constraint checks.",
+    "explanation_scoring": "knowledge_011 and knowledge_012 require at least 80% semantic concept coverage; extra correct text permitted, but contradictions should fail. Requires a separately implemented semantic judge or manual review."
+  }
+}

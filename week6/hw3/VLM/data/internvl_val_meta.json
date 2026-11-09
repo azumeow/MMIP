@@ -1,0 +1,10 @@
+{
+  "coco_cn_val": {
+    "root": "hw3/VLM/data/",
+    "annotation": "hw3/VLM/data/validation_60.jsonl",
+    "data_augment": false,
+    "max_dynamic_patch": 6,
+    "repeat_time": 1,
+    "length": 60
+  }
+}

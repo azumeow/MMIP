@@ -1,0 +1,492 @@
+{
+  "status": "completed",
+  "model": "OpenGVLab/InternVL3_5-14B",
+  "revision": "a1e37197b393ce9eec9df700fef65c11f4a6ffbd",
+  "started_at_utc": "2026-11-07T21:12:36.348298+00:00",
+  "dataset_sha256": "7c99cf911470d5243fe7f9e75557bb808cc0d61f074893308fcb0d949370b76c",
+  "system_prompt": "You are a helpful assistant.",
+  "environment": {
+    "gpu": "Tesla V100-PCIE-32GB",
+    "python": "3.11.17",
+    "cuda": "12.1",
+    "packages": {
+      "torch": "2.5.1+cu121",
+      "torchvision": "0.20.1+cu121",
+      "transformers": "4.57.6",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "timm": "1.0.22",
+      "einops": "0.8.1",
+      "pillow": "13.0.0"
+    }
+  },
+  "settings": {
+    "precision": "language NF4 4-bit, vision/projector FP16, compute FP16",
+    "double_quant": false,
+    "do_sample": false,
+    "seed": 42,
+    "max_new_tokens": 512,
+    "batch_size": 1,
+    "attention": "eager",
+    "internvl_max_tiles": 6,
+    "qwen_max_pixels": 1310720,
+    "memory_scope": "NVML whole GPU, sampled every 100 ms",
+    "time_scope": "adapter inference including vision encoder and generation; excludes CPU image preprocessing"
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "prompt": "Identify the main animal shown in the image. Return only its common English name, using one noun.",
+      "image_sha256": "876aca1ee3e230d3ae392d535aeed73ac22228c91b3a04ac49af88f96668c6ba",
+      "answer": "Lion",
+      "input_tokens": 299,
+      "output_tokens": 3,
+      "seconds": 1.9983247881755233,
+      "tokens_per_second": 1.5012574621260688,
+      "visual_input": {
+        "tiles": 1,
+        "visual_tokens": 256
+      },
+      "gpu_memory": {
+        "mean_mib": 14365.35119047619,
+        "peak_mib": 14414.875,
+        "samples": 21
+      },
+      "torch_peak_allocated_mib": 11032.86328125,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q02",
+      "prompt": "Identify the main type of vehicle shown in the image. Return only one English noun.",
+      "image_sha256": "dd79383dc73882cdbc9ff467d09b7a939834b1f3195a3709e337babfdc7691d6",
+      "answer": "Truck",
+      "input_tokens": 296,
+      "output_tokens": 3,
+      "seconds": 0.6777157997712493,
+      "tokens_per_second": 4.426634292741287,
+      "visual_input": {
+        "tiles": 1,
+        "visual_tokens": 256
+      },
+      "gpu_memory": {
+        "mean_mib": 14384.625,
+        "peak_mib": 14412.875,
+        "samples": 8
+      },
+      "torch_peak_allocated_mib": 11031.93701171875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q03",
+      "prompt": "Identify the natural scene shown in the image. Return only a short English scene label.",
+      "image_sha256": "d393db77699ce0474c199a5dcc35aa5d0796df8c7a5ae3ddf10c07f31ab7d0b8",
+      "answer": "Park",
+      "input_tokens": 296,
+      "output_tokens": 2,
+      "seconds": 0.4409760795533657,
+      "tokens_per_second": 4.535393398267004,
+      "visual_input": {
+        "tiles": 1,
+        "visual_tokens": 256
+      },
+      "gpu_memory": {
+        "mean_mib": 14387.875,
+        "peak_mib": 14412.875,
+        "samples": 6
+      },
+      "torch_peak_allocated_mib": 11031.93701171875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q04",
+      "prompt": "Identify the main dish on the plate. Return only the English dish name.",
+      "image_sha256": "dd915b6d40e8b473e8853deb9b4014b4d9514aae0cc546ff0e230823115286c0",
+      "answer": "Pizza",
+      "input_tokens": 1830,
+      "output_tokens": 2,
+      "seconds": 1.645754598081112,
+      "tokens_per_second": 1.2152480098381162,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14359.763888888889,
+        "peak_mib": 14360.875,
+        "samples": 18
+      },
+      "torch_peak_allocated_mib": 12222.99072265625,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q05",
+      "prompt": "How many tiles are visible on the wall holding the shower head? Return only one integer.",
+      "image_sha256": "fe2cf235f74f2c1fdbdf445d4ee2c49c473d5ef2c99020cf41b0f0118a4e2f50",
+      "answer": "9",
+      "input_tokens": 1832,
+      "output_tokens": 2,
+      "seconds": 1.5127737931907177,
+      "tokens_per_second": 1.322074727234422,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14359.933823529413,
+        "peak_mib": 14360.875,
+        "samples": 17
+      },
+      "torch_peak_allocated_mib": 12225.21875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q06",
+      "prompt": "Count the yellow flowers visible in the photograph. Return only one integer.",
+      "image_sha256": "e5b8ee1da8278b775bbc4a55ebc44eb15efa24dc598b52f01c125b43847d79ad",
+      "answer": "6",
+      "input_tokens": 1316,
+      "output_tokens": 2,
+      "seconds": 1.258087313733995,
+      "tokens_per_second": 1.589714782246721,
+      "visual_input": {
+        "tiles": 5,
+        "visual_tokens": 1280
+      },
+      "gpu_memory": {
+        "mean_mib": 14358.259615384615,
+        "peak_mib": 14358.875,
+        "samples": 13
+      },
+      "torch_peak_allocated_mib": 11607.88623046875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q07",
+      "prompt": "Count the individual bookmarks shown across both packages. Return only one integer.",
+      "image_sha256": "adea703e8bd121805cef4056c32f25818a5e53e15973198cdb865f49a533467f",
+      "answer": "10",
+      "input_tokens": 1828,
+      "output_tokens": 3,
+      "seconds": 1.5854448936879635,
+      "tokens_per_second": 1.8922133540835886,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14359.933823529413,
+        "peak_mib": 14360.875,
+        "samples": 17
+      },
+      "torch_peak_allocated_mib": 12219.8779296875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q08",
+      "prompt": "Count the pedestrians visible in this street scene. Return only one integer.",
+      "image_sha256": "bcd93952975e6a16886f0a3572f8f8d514af13826deb0971e2fc0468c4586628",
+      "answer": "0",
+      "input_tokens": 1828,
+      "output_tokens": 2,
+      "seconds": 1.5321953343227506,
+      "tokens_per_second": 1.3053165971713554,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14359.875,
+        "peak_mib": 14360.875,
+        "samples": 16
+      },
+      "torch_peak_allocated_mib": 12219.8779296875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q09",
+      "prompt": "In this app screenshot, read the value directly below the label \"Wrong Answer 2\". Return only that word.",
+      "image_sha256": "2aa4b8892c36268844ab5a2541b1f963f64306a6db46c98f591bc8fd0d751202",
+      "answer": "on",
+      "input_tokens": 813,
+      "output_tokens": 2,
+      "seconds": 0.7689414471387863,
+      "tokens_per_second": 2.6009782766190517,
+      "visual_input": {
+        "tiles": 3,
+        "visual_tokens": 768
+      },
+      "gpu_memory": {
+        "mean_mib": 14358.208333333334,
+        "peak_mib": 14358.875,
+        "samples": 9
+      },
+      "torch_peak_allocated_mib": 11222.0712890625,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q10",
+      "prompt": "Which occasion is represented by this ASCII-art image? Choose exactly one label: christmas, valentine, wedding, birthday. Return only the label.",
+      "image_sha256": "d3ac19acb5d648f89e46fe5e382728957fe0ff928137f43e3cdc443c739ef4c3",
+      "answer": "christmas",
+      "input_tokens": 1843,
+      "output_tokens": 3,
+      "seconds": 1.7553305067121983,
+      "tokens_per_second": 1.7090798505058262,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14359.986111111111,
+        "peak_mib": 14360.875,
+        "samples": 18
+      },
+      "torch_peak_allocated_mib": 12239.95947265625,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q11",
+      "prompt": "请根据图片提取以下字段，并只返回一个 JSON 对象：样品特征和状态、主检、检验类别、审核、样品名称。键名必须与上述字段一致；无法辨认的值请填 null，不要猜测。",
+      "image_sha256": "4191c37ab038f337f5165b83f502883c90dfdf7917f68092efea5bd225e6e281",
+      "answer": "```json\n{\n  \"样品特征和状态\": \"外包装完好\",\n  \"主检\": null,\n  \"检验类别\": \"省级专项抽样检验\",\n  \"审核\": null,\n  \"样品名称\": \"儿童酸肉松\"\n}\n```",
+      "input_tokens": 1864,
+      "output_tokens": 55,
+      "seconds": 5.224861419759691,
+      "tokens_per_second": 10.526594981447305,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14360.573113207547,
+        "peak_mib": 14360.875,
+        "samples": 53
+      },
+      "torch_peak_allocated_mib": 12268.3056640625,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q12",
+      "prompt": "请读取图片中的发票代码，并只返回 JSON 对象，键名为“发票代码”，值为保留全部数字的字符串。",
+      "image_sha256": "2a5fb3624da95d9ba2e61035c2f9ea3b7ff9cd1d045d0eef9f7ec7e7a1b29d63",
+      "answer": "```json\n{\n  \"发票代码\": \"144011972082\"\n}\n```",
+      "input_tokens": 1330,
+      "output_tokens": 26,
+      "seconds": 2.7198031647130847,
+      "tokens_per_second": 9.559515312477686,
+      "visual_input": {
+        "tiles": 5,
+        "visual_tokens": 1280
+      },
+      "gpu_memory": {
+        "mean_mib": 14358.589285714286,
+        "peak_mib": 14358.875,
+        "samples": 28
+      },
+      "torch_peak_allocated_mib": 11622.1787109375,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q13",
+      "prompt": "Look at the car on the right side of the image. In which direction is its front wheel pointing? Choose A (left), B (straight), or C (right). Return only the option letter.",
+      "image_sha256": "598f51e78db54f53a1200905b3bc569116792010436ecdbfcd7e5bce09d8cafd",
+      "answer": "C",
+      "input_tokens": 1855,
+      "output_tokens": 2,
+      "seconds": 1.6018360508605838,
+      "tokens_per_second": 1.24856722941496,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14359.933823529413,
+        "peak_mib": 14360.875,
+        "samples": 17
+      },
+      "torch_peak_allocated_mib": 12256.1240234375,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q14",
+      "prompt": "Does the road slope uphill, slope downhill, or stay flat in the direction the camera faces? Return exactly one label: uphill, downhill, or flat.",
+      "image_sha256": "ab44f939fec5c1079b2149be2a4c50282085baf3197a7b3cb909bde9274842ac",
+      "answer": "uphill",
+      "input_tokens": 1845,
+      "output_tokens": 3,
+      "seconds": 1.716505908407271,
+      "tokens_per_second": 1.747736483344628,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14359.986111111111,
+        "peak_mib": 14360.875,
+        "samples": 18
+      },
+      "torch_peak_allocated_mib": 12242.646484375,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q15",
+      "prompt": "Read the chart and calculate the difference between the Lamb value and the Corn value. Return only the absolute numerical difference.",
+      "image_sha256": "16ed5f0796ef0b10f37e31c22684b7db43e5a95712a815c4c9ee2c3e62032912",
+      "answer": "0.57",
+      "input_tokens": 1837,
+      "output_tokens": 5,
+      "seconds": 1.7636555060744286,
+      "tokens_per_second": 2.835020775190432,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14360.032894736842,
+        "peak_mib": 14360.875,
+        "samples": 19
+      },
+      "torch_peak_allocated_mib": 12232.427734375,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q16",
+      "prompt": "Read the values of the green bars. What is the highest value minus the lowest value? Return only one number.",
+      "image_sha256": "f38b2ce0c35be252f1e1fe8ff0949e50b195870114884b12cb1761f2b76443b8",
+      "answer": "6",
+      "input_tokens": 301,
+      "output_tokens": 2,
+      "seconds": 0.5063642608001828,
+      "tokens_per_second": 3.9497258294641435,
+      "visual_input": {
+        "tiles": 1,
+        "visual_tokens": 256
+      },
+      "gpu_memory": {
+        "mean_mib": 14389.875,
+        "peak_mib": 14414.875,
+        "samples": 6
+      },
+      "torch_peak_allocated_mib": 11033.48193359375,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q17",
+      "prompt": "Describe the central object and the arrangement of its visible parts in 2–3 English sentences. Base every detail on the image.",
+      "image_sha256": "05231886ef8e02042926fa05226a43e5a9cc942b72181458138a9582bb6093dd",
+      "answer": "The central object is a vintage-style clock designed to resemble a bicycle. The front wheel features a clock face with black numbers and hands, labeled \"Windsor London.\" The frame, handlebars, and back wheel are all part of the clock's structure, creating a whimsical blend of timekeeping and cycling elements.",
+      "input_tokens": 304,
+      "output_tokens": 65,
+      "seconds": 4.443216538988054,
+      "tokens_per_second": 14.629041693026242,
+      "visual_input": {
+        "tiles": 1,
+        "visual_tokens": 256
+      },
+      "gpu_memory": {
+        "mean_mib": 14421.18611111111,
+        "peak_mib": 14440.875,
+        "samples": 45
+      },
+      "torch_peak_allocated_mib": 11034.40966796875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q18",
+      "prompt": "Describe the open container and its visible contents in 2–3 English sentences. If the contents cannot be identified confidently, describe their appearance without guessing.",
+      "image_sha256": "269f5a97273d58873244ec1ce7f331de841f1505ebe6431ff44629c2976122d5",
+      "answer": "The open container is a rectangular cardboard box with a white interior. Inside, there are four elongated, dark brown objects that resemble sausages or similar food items. The box is labeled with some text and a logo on the inside lid.",
+      "input_tokens": 1844,
+      "output_tokens": 50,
+      "seconds": 4.615883415564895,
+      "tokens_per_second": 10.83216266498381,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14360.704787234043,
+        "peak_mib": 14360.875,
+        "samples": 47
+      },
+      "torch_peak_allocated_mib": 12241.302734375,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q19",
+      "prompt": "Describe this room, its main fixtures, and their visible spatial arrangement in 2–3 English sentences. Do not add unseen details.",
+      "image_sha256": "1c3e1340f7e45fa3910d1735d9db8625fd72a4dab550e1c5e61c685ea8b10dd9",
+      "answer": "This bathroom features a white pedestal sink with a mirror above it, flanked by a wooden shelf holding various toiletries. A trash can is positioned beneath the sink, and a shower curtain with a map design is partially visible on the right. The floor is tiled in a warm, earthy tone, and a door is open on the left, revealing a glimpse of an adjacent room.",
+      "input_tokens": 1841,
+      "output_tokens": 78,
+      "seconds": 6.386598609387875,
+      "tokens_per_second": 12.213073776915492,
+      "visual_input": {
+        "tiles": 7,
+        "visual_tokens": 1792
+      },
+      "gpu_memory": {
+        "mean_mib": 14360.628846153846,
+        "peak_mib": 14360.875,
+        "samples": 65
+      },
+      "torch_peak_allocated_mib": 12237.6201171875,
+      "truncated": false,
+      "error": null
+    },
+    {
+      "id": "Q20",
+      "prompt": "Describe the person, what they are doing, and the surrounding setting in 2–3 English sentences. Mention only details supported by the image.",
+      "image_sha256": "d450794141833063d4b0dd1ac8f6409c8f575e254696e64d12633aafca931d75",
+      "answer": "A person is playing the violin in a cluttered kitchen. The kitchen has wooden cabinets, a countertop with fruits and flowers, and various items scattered around. The person is wearing a gray t-shirt and appears focused on playing the instrument.",
+      "input_tokens": 819,
+      "output_tokens": 49,
+      "seconds": 3.6142527582123876,
+      "tokens_per_second": 13.557435873476496,
+      "visual_input": {
+        "tiles": 3,
+        "visual_tokens": 768
+      },
+      "gpu_memory": {
+        "mean_mib": 14358.766891891892,
+        "peak_mib": 14358.875,
+        "samples": 37
+      },
+      "torch_peak_allocated_mib": 11224.85791015625,
+      "truncated": false,
+      "error": null
+    }
+  ],
+  "load_seconds": 50.19593302719295,
+  "quantized_linear_layers": 280,
+  "loaded_gpu_memory_mib": 14340.875,
+  "summary": {
+    "questions": 20,
+    "errors": 0,
+    "truncated": 0,
+    "total_seconds": 45.768522187136114,
+    "mean_gpu_memory_mib": 14367.204432547152,
+    "peak_gpu_memory_mib": 14440.875,
+    "total_output_tokens": 359,
+    "overall_tokens_per_second": 7.843818914059279
+  },
+  "finished_at_utc": "2026-11-07T21:14:19.540608+00:00"
+}

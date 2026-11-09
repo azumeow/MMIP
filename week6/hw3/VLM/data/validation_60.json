@@ -1,0 +1,2098 @@
+{
+  "purpose": "validation/checkpoint selection only",
+  "split": "val",
+  "count": 60,
+  "language": "zh-Hant",
+  "examples": [
+    {
+      "id": "val_001",
+      "image": "images/val/COCO_val2014_000000095841.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "圍欄裏的棒球場上一些人正在打棒球，穿紅色上衣的捕手正要接球。",
+      "reference_answers": [
+        "圍欄裏的棒球場上一些人正在打棒球，穿紅色上衣的捕手正要接球。"
+      ],
+      "width": 640,
+      "height": 428,
+      "image_sha256": "a774f1c25ecd93addbca2c1d324c73b9b120e37c43a50eb66b9f017f6f27eb53",
+      "pixel_sha256": "bbc2a753ea665a0591ab3b0a3b4db7a3109cc1c5a832dd7ee66fb632dc03419b",
+      "image_dhash": "67878367c7c7cf1f",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000095841",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000095841#0",
+        "line_index": 1159,
+        "original_caption": "围栏里的棒球场上一些人正在打棒球，穿红色上衣的捕手正要接球。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000095841.jpg",
+        "original_tags": [
+          "棒球",
+          "围栏",
+          "捕手",
+          "球场"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_002",
+      "image": "images/val/COCO_train2014_000000164461.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "兩輛消防車停放在街道的一旁。",
+      "reference_answers": [
+        "兩輛消防車停放在街道的一旁。",
+        "兩輛玩具消防車，擺放在仿造的樹木旁邊仿造的馬路上。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "e97859cb59ee2434293bd6c370275627cedf72fb10e6df4a3da8b95e45e920f5",
+      "pixel_sha256": "546c94cf0ed265db7e3f0d9d12121422863f514f9dde65a8791862a8df852cb0",
+      "image_dhash": "6d2e3666e3381903",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000164461",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000164461#1",
+        "line_index": 16880,
+        "original_caption": "两辆消防车停放在街道的一旁。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000164461.jpg",
+        "original_tags": [
+          "消防车",
+          "树",
+          "马路",
+          "红色",
+          "玩具消防车",
+          "街道",
+          "卡车"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_003",
+      "image": "images/val/COCO_val2014_000000308101.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個戴着圍巾的女人在喫三明治",
+      "reference_answers": [
+        "一個戴着圍巾的女人在喫三明治"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "c60eaaf4304e0764ac3c699eb887c79772a7be304fda36459225e607c08655b6",
+      "pixel_sha256": "b7afd4340ab9e32baf4c0eb4fe50c1585293bf292beb726fb9e9662efe5f0747",
+      "image_dhash": "a7a7273727373733",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000308101",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000308101#0",
+        "line_index": 15761,
+        "original_caption": "一个戴着围巾的女人在吃三明治",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000308101.jpg",
+        "original_tags": [
+          "三明治",
+          "女人",
+          "红色"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_004",
+      "image": "images/val/COCO_val2014_000000528984.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "有很多人在滑雪坡道上滑雪",
+      "reference_answers": [
+        "有很多人在滑雪坡道上滑雪"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "f819857587c845f5d8c07c594b33484ed69d9697256131ab22978c9479c09a84",
+      "pixel_sha256": "76a1cb2b6fd87e5a1344d71be72f10be7244a8eb7e154b031a26d8effc50263a",
+      "image_dhash": "0f074f8e13272d09",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000528984",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000528984#0",
+        "line_index": 4679,
+        "original_caption": "有很多人在滑雪坡道上滑雪",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000528984.jpg",
+        "original_tags": [
+          "雪",
+          "冬天",
+          "人群",
+          "滑雪"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_005",
+      "image": "images/val/COCO_train2014_000000222755.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一輛拖車和一輛軍用卡車在道路上並架行駛。",
+      "reference_answers": [
+        "一輛拖車和一輛軍用卡車在道路上並架行駛。"
+      ],
+      "width": 640,
+      "height": 479,
+      "image_sha256": "4cd3c8c55de4d36b1a92d526351988e112d2be44e31e5a520f827b118c4debfc",
+      "pixel_sha256": "c1f46697fa8f00d43ca326402c7208853cc65fa14901bfccbff1aba021e90d42",
+      "image_dhash": "0c134d0d6dcd187c",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000222755",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000222755#0",
+        "line_index": 14150,
+        "original_caption": "一辆拖车和一辆军用卡车在道路上并架行驶。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000222755.jpg",
+        "original_tags": [
+          "拖车",
+          "卡车",
+          "道路"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_006",
+      "image": "images/val/COCO_train2014_000000377190.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個金髮女孩低下頭看着手中的物品",
+      "reference_answers": [
+        "一個金髮女孩低下頭看着手中的物品",
+        "一個長着金色頭髮的女孩正低着頭雙手抱着手機玩"
+      ],
+      "width": 333,
+      "height": 500,
+      "image_sha256": "a86d8f9fd5559b68e7d28eb90fa26afc4691980320e162c0b5b7bd6fa3a98382",
+      "pixel_sha256": "9013d24ffb541f8deff4b8662c37b2c09584c7852ba36660a60661205b2d8739",
+      "image_dhash": "7d393f4fc7e7371b",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000377190",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000377190#0",
+        "line_index": 16690,
+        "original_caption": "一个金发女孩低下头看着手中的物品",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000377190.jpg",
+        "original_tags": [
+          "手机",
+          "金发",
+          "低头",
+          "头发",
+          "女孩"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_007",
+      "image": "images/val/COCO_train2014_000000061052.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "道路邊草坪上有一排修剪成球形的很大的綠植，草坪近處有一個紅色的消防栓。",
+      "reference_answers": [
+        "道路邊草坪上有一排修剪成球形的很大的綠植，草坪近處有一個紅色的消防栓。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "b9b85bb3fa4741580060ee7715fa56b7644e1ca37158bf806c8cfb8897ccb0b0",
+      "pixel_sha256": "18d7e882c937a3865b9229f3dcdd84ecfea5a7ddd2cf030837399e4e73f4b96c",
+      "image_dhash": "938fc326a0c181c9",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000061052",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000061052#0",
+        "line_index": 11884,
+        "original_caption": "道路边草坪上有一排修剪成球形的很大的绿植，草坪近处有一个红色的消防栓。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000061052.jpg",
+        "original_tags": [
+          "绿色",
+          "消防栓",
+          "草坪",
+          "绿植"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_008",
+      "image": "images/val/COCO_train2014_000000257897.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "這是一張夜晚的燈塔的黑白照片",
+      "reference_answers": [
+        "這是一張夜晚的燈塔的黑白照片"
+      ],
+      "width": 640,
+      "height": 360,
+      "image_sha256": "72c3d9975a3a916ae60ea752a9e8de42cb387562664ff76d2f2130fe9fab55ca",
+      "pixel_sha256": "ce481610001aba95e8569ea0b2fa6c8c5db19559fbcecf16dd7d9d5a2a319c0a",
+      "image_dhash": "465615d77727c740",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000257897",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000257897#0",
+        "line_index": 2508,
+        "original_caption": "这是一张夜晚的灯塔的黑白照片",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000257897.jpg",
+        "original_tags": [
+          "黑白照片",
+          "夜晚",
+          "亮光",
+          "灯塔"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_009",
+      "image": "images/val/COCO_train2014_000000034378.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "幾個年輕人在公園玩飛盤。",
+      "reference_answers": [
+        "幾個年輕人在公園玩飛盤。"
+      ],
+      "width": 640,
+      "height": 428,
+      "image_sha256": "1d450875a9323cf871b3b05d9038db35805a417f9084d79137eebb2f42f39dfd",
+      "pixel_sha256": "87d53d53a1f5098369213b0f5b307aba0d05e836881740c3da06ae54968371e2",
+      "image_dhash": "098898d75bcb0f1b",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000034378",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000034378#0",
+        "line_index": 20259,
+        "original_caption": "几个年轻人在公园玩飞盘。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000034378.jpg",
+        "original_tags": [
+          "秋天",
+          "运动",
+          "飞盘",
+          "树",
+          "公园"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_010",
+      "image": "images/val/COCO_train2014_000000391084.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "廚房裏的與烤箱一體的火爐上放着一個藍色的水壺。",
+      "reference_answers": [
+        "廚房裏的與烤箱一體的火爐上放着一個藍色的水壺。"
+      ],
+      "width": 375,
+      "height": 500,
+      "image_sha256": "d34239eea4fab1080ea6ca59574368437b3e206d0cad1b85e41e94f0fd15bf39",
+      "pixel_sha256": "6ba0172698e7f77458c7427652a41b382ed1faa4a3b58620e74b6b2861b15d92",
+      "image_dhash": "013332d0c1f39339",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000391084",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000391084#0",
+        "line_index": 3690,
+        "original_caption": "厨房里的与烤箱一体的火炉上放着一个蓝色的水壶。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000391084.jpg",
+        "original_tags": [
+          "水壶",
+          "厨房",
+          "炉"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_011",
+      "image": "images/val/COCO_val2014_000000102349.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "街道上一羣人在行走，其中一個女人騎着馬",
+      "reference_answers": [
+        "街道上一羣人在行走，其中一個女人騎着馬"
+      ],
+      "width": 640,
+      "height": 427,
+      "image_sha256": "afad95c207e643d1371f23422dd089894389cb86e8c0b297ae579379d0e1471b",
+      "pixel_sha256": "15cf6935d3049a0b3a5af6a1a696f9711cb77ddf66260c428ba0a8a4848b3bbe",
+      "image_dhash": "4ec4665cd7dfcfcf",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000102349",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000102349#0",
+        "line_index": 19827,
+        "original_caption": "街道上一群人在行走，其中一个女人骑着马",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000102349.jpg",
+        "original_tags": [
+          "马",
+          "人群",
+          "街道"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_012",
+      "image": "images/val/COCO_train2014_000000003464.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "窗邊的桌子上擺放着一束植物與一些水果",
+      "reference_answers": [
+        "窗邊的桌子上擺放着一束植物與一些水果"
+      ],
+      "width": 427,
+      "height": 640,
+      "image_sha256": "7c3648e41c67f9cac190e8266ff99a02c24098ac8287beb68ca03a3b8d1c294f",
+      "pixel_sha256": "05f980bdc30db7da1f10e07d63f386bf5405abcc53683e531e2d55e76e2337ba",
+      "image_dhash": "9d9f1f3f15781212",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000003464",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000003464#0",
+        "line_index": 21634,
+        "original_caption": "窗边的桌子上摆放着一束植物与一些水果",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000003464.jpg",
+        "original_tags": [
+          "水果",
+          "窗",
+          "植物",
+          "桌子"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_013",
+      "image": "images/val/COCO_train2014_000000376697.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個人在廚房中手裏舉着一個啤酒。",
+      "reference_answers": [
+        "一個人在廚房中手裏舉着一個啤酒。"
+      ],
+      "width": 500,
+      "height": 375,
+      "image_sha256": "244f4153531d42cfc3379b26a3fc4aa07adc27a151bae5bbaa08a35165d723c7",
+      "pixel_sha256": "657c86255b8bd12da46bd548d53e43da2ef25adbfa8359756f6e768a0edfa32f",
+      "image_dhash": "494c0e0f6d6c4526",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000376697",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000376697#0",
+        "line_index": 754,
+        "original_caption": "一个人在厨房中手里举着一个啤酒。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000376697.jpg",
+        "original_tags": [
+          "汽水",
+          "手",
+          "啤酒",
+          "厨房"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_014",
+      "image": "images/val/COCO_train2014_000000452072.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一隻貓坐在筆記本電腦前方看着鏡頭。",
+      "reference_answers": [
+        "一隻貓坐在筆記本電腦前方看着鏡頭。"
+      ],
+      "width": 480,
+      "height": 640,
+      "image_sha256": "d5ba28691863a4263571fb8d9fea769bad63a190f80bb95fb7aa54c85a082fb3",
+      "pixel_sha256": "3d7105ff071983188a8fc3990e516cb5950e9c770b2f576ca1ee12370fc7c611",
+      "image_dhash": "0c474573e5e9da7c",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000452072",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000452072#0",
+        "line_index": 7901,
+        "original_caption": "一只猫坐在笔记本电脑前方看着镜头。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000452072.jpg",
+        "original_tags": [
+          "猫",
+          "鼠标",
+          "杯子",
+          "笔记本电脑"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_015",
+      "image": "images/val/COCO_train2014_000000477295.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一張浴池店外停着一輛三輪車的黑白照片。",
+      "reference_answers": [
+        "一張浴池店外停着一輛三輪車的黑白照片。"
+      ],
+      "width": 640,
+      "height": 428,
+      "image_sha256": "1d914ff48ee15ee5aa7b2e13e8cd0e0f3e4638e80c74268adc2419cbed801ad8",
+      "pixel_sha256": "961b1c8d95e39b584fd1fa1424628c615dbdb712f5f75ca010bb9d71bcdf82cb",
+      "image_dhash": "232e795b6a5a48c0",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000477295",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000477295#0",
+        "line_index": 16331,
+        "original_caption": "一张浴池店外停着一辆三轮车的黑白照片。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000477295.jpg",
+        "original_tags": [
+          "店铺",
+          "浴池",
+          "三轮车",
+          "街道"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_016",
+      "image": "images/val/COCO_train2014_000000281815.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "電腦顯示器下方睡了一隻貓",
+      "reference_answers": [
+        "電腦顯示器下方睡了一隻貓",
+        "桌子上有一臺顯示器、一臺筆記本電腦和一個鍵盤，還有一隻貓在睡覺"
+      ],
+      "width": 640,
+      "height": 427,
+      "image_sha256": "4c24449b4d4270db82bc7a6fc4cb35515e2804f5a22e3e683bdbdffe887dd067",
+      "pixel_sha256": "ba43f249ba8b011e660aaca014b9e601d8b417dbf028dcc4a5b30babe1a12e1a",
+      "image_dhash": "fcfccc9086c4cad7",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000281815",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000281815#1",
+        "line_index": 17170,
+        "original_caption": "电脑显示器下方睡了一只猫",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000281815.jpg",
+        "original_tags": [
+          "猫",
+          "显示器",
+          "白色键盘",
+          "键盘",
+          "笔记本电脑",
+          "电脑显示器",
+          "黑色笔记本电脑"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_017",
+      "image": "images/val/COCO_train2014_000000053369.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "幾隻大象在茂密的草原上散步。",
+      "reference_answers": [
+        "幾隻大象在茂密的草原上散步。"
+      ],
+      "width": 640,
+      "height": 427,
+      "image_sha256": "6db61d1143220922365f756026b85de54fe8d44b4e6ba7221f3ee490b900209e",
+      "pixel_sha256": "d60f800c7ee70b4f2d32197bc9e182cfd3e118ce37d45bfaf06f33060a91f143",
+      "image_dhash": "1f4ccad2bbadf51d",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000053369",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000053369#0",
+        "line_index": 20652,
+        "original_caption": "几只大象在茂密的草原上散步。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000053369.jpg",
+        "original_tags": [
+          "青草",
+          "大象"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_018",
+      "image": "images/val/COCO_val2014_000000034139.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "兩個人在一個巨大的行李包旁邊合影。",
+      "reference_answers": [
+        "兩個人在一個巨大的行李包旁邊合影。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "1173eb43bb487f08c3620b12daf67c98a6bcc14b7893521393055bfb84db33c5",
+      "pixel_sha256": "6da3dd6fc60964a5503f3b590dd5774e3ed22b2eac9f8cb754dcbb966c80a25c",
+      "image_dhash": "8321624dceac349b",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000034139",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000034139#0",
+        "line_index": 4348,
+        "original_caption": "两个人在一个巨大的行李包旁边合影。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000034139.jpg",
+        "original_tags": [
+          "标识",
+          "都市",
+          "街道"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_019",
+      "image": "images/val/COCO_train2014_000000539832.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "沙發上放着兩隻毛絨動物玩具。",
+      "reference_answers": [
+        "沙發上放着兩隻毛絨動物玩具。",
+        "這是一張毛絨玩具狗和毛絨玩具奶牛挨着趴在一個抱枕上的黑白照片"
+      ],
+      "width": 500,
+      "height": 454,
+      "image_sha256": "19fdebc4f2428261a0caf2179a327fc769606d1510abd0749317058fa7d08219",
+      "pixel_sha256": "096f88608f600e3f85cd57f67139eb9db32c1d927fc57b072b492f442191b0e5",
+      "image_dhash": "9c9b0b31246d2d36",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000539832",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000539832#0",
+        "line_index": 8747,
+        "original_caption": "沙发上放着两只毛绒动物玩具。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000539832.jpg",
+        "original_tags": [
+          "毛绒玩具",
+          "毛绒",
+          "奶牛",
+          "狗",
+          "黑白照片",
+          "动物",
+          "抱枕",
+          "玩具",
+          "沙发"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_020",
+      "image": "images/val/COCO_train2014_000000290511.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個鐵桿上貼着一個大的紅色的STOP標識和兩個小的綠色的標識",
+      "reference_answers": [
+        "一個鐵桿上貼着一個大的紅色的STOP標識和兩個小的綠色的標識"
+      ],
+      "width": 427,
+      "height": 640,
+      "image_sha256": "1ec2714f5249128038c3f2bb4b53a7942e209612fbd1ad4eb193669120d3ac25",
+      "pixel_sha256": "79cad66037ea5efe9e9682b7cc9277f20ed8593238f96c9b42a59d723381d72b",
+      "image_dhash": "8622a2f04973b36d",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000290511",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000290511#0",
+        "line_index": 12233,
+        "original_caption": "一个铁杆上贴着一个大的红色的STOP标识和两个小的绿色的标识",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000290511.jpg",
+        "original_tags": [
+          "标识",
+          "树林",
+          "铁杆",
+          "红色"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_021",
+      "image": "images/val/COCO_train2014_000000391999.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "四個男孩對着電視玩一個視頻遊戲。",
+      "reference_answers": [
+        "四個男孩對着電視玩一個視頻遊戲。"
+      ],
+      "width": 640,
+      "height": 420,
+      "image_sha256": "57ae6f4b6387c41107c773a72fe44fc29f9af2fff82da4685c5fc537dc1e733a",
+      "pixel_sha256": "dadf56fe28534dd58996f124b90e621866f548ce1ce781eee3d23ab083ce0c85",
+      "image_dhash": "c8a020212b202020",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000391999",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000391999#1",
+        "line_index": 19041,
+        "original_caption": "四个男孩对着电视玩一个视频游戏。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000391999.jpg",
+        "original_tags": [
+          "电视",
+          "女孩",
+          "游戏",
+          "聚会",
+          "朋友",
+          "男孩"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_022",
+      "image": "images/val/COCO_train2014_000000391492.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個陶瓷碟子裏裝着煮熟的蔬菜。",
+      "reference_answers": [
+        "一個陶瓷碟子裏裝着煮熟的蔬菜。"
+      ],
+      "width": 640,
+      "height": 428,
+      "image_sha256": "73a40794354e159ea2a3d48f9997a1b375dfa2466b36bdfe33ee4b00d0c70591",
+      "pixel_sha256": "e9da2df45c1a6ed3f9b2765e051fd6a4a03d0e90003a848454aecc2883785764",
+      "image_dhash": "136dfcb8faf4711f",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000391492",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000391492#0",
+        "line_index": 18256,
+        "original_caption": "一个陶瓷碟子里装着煮熟的蔬菜。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000391492.jpg",
+        "original_tags": [
+          "食物",
+          "陶瓷",
+          "碟子",
+          "蔬菜"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_023",
+      "image": "images/val/COCO_train2014_000000510304.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "雪還沒化的街道上空無一人",
+      "reference_answers": [
+        "雪還沒化的街道上空無一人"
+      ],
+      "width": 480,
+      "height": 640,
+      "image_sha256": "fdb5e9362ce62644c0a4c9dadcbf168475852e7015c16cf48b0e7467c908a40e",
+      "pixel_sha256": "9a10a8bb0a95b02e21a32c73b5885b35600c04479bc977c5e3267f1f044f2eb5",
+      "image_dhash": "2c35d3c3b39c170f",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000510304",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000510304#0",
+        "line_index": 14694,
+        "original_caption": "雪还没化的街道上空无一人",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000510304.jpg",
+        "original_tags": [
+          "雪",
+          "汽车",
+          "标识牌",
+          "街道"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_024",
+      "image": "images/val/COCO_train2014_000000381533.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個男人躺在沙發上，旁邊坐着一個小女孩。",
+      "reference_answers": [
+        "一個男人躺在沙發上，旁邊坐着一個小女孩。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "0acdf8303725b24c268af9f6872d5b7afdab2a82a096d1bcf98adf40c30dfc71",
+      "pixel_sha256": "24f4b8d73d03129c18a47316a2e0cad80d384d2d413ca062d92208d0a3af706f",
+      "image_dhash": "73253df151434353",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000381533",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000381533#0",
+        "line_index": 6398,
+        "original_caption": "一个男人躺在沙发上，旁边坐着一个小女孩。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000381533.jpg",
+        "original_tags": [
+          "沙发",
+          "男人",
+          "女孩"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_025",
+      "image": "images/val/COCO_train2014_000000487649.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個戴着黑色頭盔的女孩拿着一隻棒球棒。",
+      "reference_answers": [
+        "一個戴着黑色頭盔的女孩拿着一隻棒球棒。"
+      ],
+      "width": 480,
+      "height": 640,
+      "image_sha256": "f3231f8e7df96e0aa883b78772ab329480e4129a1bf4ae97fc31691843400213",
+      "pixel_sha256": "4704ca21d4d3c55c06d6ad09227d3ac1eb433bef93eb7e3d5990db5e5a3c5a70",
+      "image_dhash": "0e8686a72d43576c",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000487649",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000487649#0",
+        "line_index": 3529,
+        "original_caption": "一个戴着黑色头盔的女孩拿着一只棒球棒。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000487649.jpg",
+        "original_tags": [
+          "棒球",
+          "女孩"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_026",
+      "image": "images/val/COCO_train2014_000000399001.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個盤子裏放着一塊吐司上面有香腸、蔬菜和沙拉醬。",
+      "reference_answers": [
+        "一個盤子裏放着一塊吐司上面有香腸、蔬菜和沙拉醬。"
+      ],
+      "width": 640,
+      "height": 478,
+      "image_sha256": "fdc92e407f0130f754ef4e9bd3a94d4acaa888846047b2c410a57d89f3cfab2f",
+      "pixel_sha256": "3d26f222a87c3c290c310378136ddcdbf07128b832452cfe596316531c932975",
+      "image_dhash": "70784dc5c36acee6",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000399001",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000399001#0",
+        "line_index": 12862,
+        "original_caption": "一个盘子里放着一块吐司上面有香肠、蔬菜和沙拉酱。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000399001.jpg",
+        "original_tags": [
+          "食物",
+          "香肠",
+          "吐司",
+          "沙拉酱"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_027",
+      "image": "images/val/COCO_val2014_000000531128.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "巨大的金色石頭鐘被天使們的雕像所環繞。",
+      "reference_answers": [
+        "巨大的金色石頭鐘被天使們的雕像所環繞。"
+      ],
+      "width": 640,
+      "height": 428,
+      "image_sha256": "357dc0b52aea8bab012f25c45269b10659ba8c5a8915bc5272fd7be49b0dbb58",
+      "pixel_sha256": "6688145871ca17c23f1935ed63f0e167e19e69d66283453505755875fb60d2d0",
+      "image_dhash": "170f1353306b4d45",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000531128",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000531128#0",
+        "line_index": 4545,
+        "original_caption": "巨大的金色石头钟被天使们的雕像所环绕。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000531128.jpg",
+        "original_tags": [
+          "钟表",
+          "金色的",
+          "天使"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_028",
+      "image": "images/val/COCO_train2014_000000250808.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個交通燈在馬路上亮出紅色。",
+      "reference_answers": [
+        "一個交通燈在馬路上亮出紅色。"
+      ],
+      "width": 640,
+      "height": 427,
+      "image_sha256": "6f014cf639cb0b1a46b600769a892ef6f00ae09974770bc45d5f7d52e3f5aaaa",
+      "pixel_sha256": "00a67e4f8fe7d3e066d0ce017800138c3bb6d652ae2606515b415e52c42a6cb3",
+      "image_dhash": "9595969e93939318",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000250808",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000250808#0",
+        "line_index": 3163,
+        "original_caption": "一个交通灯在马路上亮出红色。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000250808.jpg",
+        "original_tags": [
+          "红绿灯",
+          "交通"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_029",
+      "image": "images/val/COCO_train2014_000000105768.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個市場的攤位上擺放着許多香蕉",
+      "reference_answers": [
+        "一個市場的攤位上擺放着許多香蕉"
+      ],
+      "width": 425,
+      "height": 640,
+      "image_sha256": "856e014dd54339ccb1ba22195da7c0c29dac6e02bd2ab8669ecb0c9bb7d1bb59",
+      "pixel_sha256": "e592373f7da762e34bdb338c187c1d7ac5cab086ab0ba4eb6dc0f64e9fbec224",
+      "image_dhash": "37696bdb4d2c868f",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000105768",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000105768#0",
+        "line_index": 17540,
+        "original_caption": "一个市场的摊位上摆放着许多香蕉",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000105768.jpg",
+        "original_tags": [
+          "市场",
+          "人",
+          "香蕉"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_030",
+      "image": "images/val/COCO_val2014_000000483742.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "草地上有幾隻羊和一輛汽車",
+      "reference_answers": [
+        "草地上有幾隻羊和一輛汽車"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "e0f358ca00aeded20319356b7ba92f2dec360962213ac053fde54b9ae7ccf9d6",
+      "pixel_sha256": "1bf373c49e9eb2671c1c19c4d297f94128b03d0a5a1c35f28e4f76b7b102e789",
+      "image_dhash": "3929c91a6a3d0470",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000483742",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000483742#0",
+        "line_index": 19602,
+        "original_caption": "草地上有几只羊和一辆汽车",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000483742.jpg",
+        "original_tags": [
+          "青草",
+          "绵羊"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_031",
+      "image": "images/val/COCO_train2014_000000197917.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個女人在鏡子前梳頭髮。",
+      "reference_answers": [
+        "一個女人在鏡子前梳頭髮。",
+        "一個女人在鏡子前刷頭髮。",
+        "一個女人正對着鏡子打扮自己",
+        "一個外國女人在鏡子前梳頭髮。"
+      ],
+      "width": 640,
+      "height": 424,
+      "image_sha256": "a1b4b1922c1f284b1ad4c28366fdb3d4b4b77ddaa7afc60d4025ec614160f96c",
+      "pixel_sha256": "473484b97f310c008dc04fb1115ebc7d5e1134c46bbf4ada1c7d8755a26acdd8",
+      "image_dhash": "cb4f23b62f2d3931",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000197917",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000197917#1",
+        "line_index": 7948,
+        "original_caption": "一个女人在镜子前梳头发。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000197917.jpg",
+        "original_tags": [
+          "室内",
+          "肖像",
+          "女孩",
+          "梳头发",
+          "外国女人",
+          "镜子"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_032",
+      "image": "images/val/COCO_train2014_000000298297.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一對閨蜜滑完雪在滑雪場車前拍了一個合照",
+      "reference_answers": [
+        "一對閨蜜滑完雪在滑雪場車前拍了一個合照"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "3796f3e6fd00ee5ee06575813ac5077614a80968d16417375ce983bb9bc5ea3b",
+      "pixel_sha256": "9cfb67884218ea746cf258da07d6e720fa20537edd74d37b894c9ce637828231",
+      "image_dhash": "a8a9b5b460440003",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000298297",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000298297#0",
+        "line_index": 18207,
+        "original_caption": "一对闺蜜滑完雪在滑雪场车前拍了一个合照",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000298297.jpg",
+        "original_tags": [
+          "雪",
+          "冬天",
+          "滑雪"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_033",
+      "image": "images/val/COCO_train2014_000000322897.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "三隻長頸鹿伸長脖子喫樹。",
+      "reference_answers": [
+        "三隻長頸鹿伸長脖子喫樹。",
+        "三隻長頸鹿並排站着，其中一隻嘴裏咬着一個杯子。"
+      ],
+      "width": 333,
+      "height": 500,
+      "image_sha256": "89edde18f88cd6e9c3945f615501aaeeadb603aaf3e4ce82a5f7d0edeae09ed3",
+      "pixel_sha256": "b620f6d30681a3a1e4f88c658bb85573505ddab6d9d42fd969adce98135c0075",
+      "image_dhash": "2de7d36796668d9f",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000322897",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000322897#1",
+        "line_index": 6261,
+        "original_caption": "三只长颈鹿伸长脖子吃树。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000322897.jpg",
+        "original_tags": [
+          "长颈鹿",
+          "站",
+          "杯子",
+          "动物园"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_034",
+      "image": "images/val/COCO_train2014_000000139345.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一列迎面駛來的火車旁邊有一輛汽車",
+      "reference_answers": [
+        "一列迎面駛來的火車旁邊有一輛汽車"
+      ],
+      "width": 500,
+      "height": 342,
+      "image_sha256": "28fc8b45a4bfbcf88647f2935606d2e369c7429bd57030871db18d4a4f721c3e",
+      "pixel_sha256": "a4fd25d994477f0b6327b250af146c9c854d3015133d237f57427c81cd897a68",
+      "image_dhash": "5c48463731335eae",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000139345",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000139345#0",
+        "line_index": 9450,
+        "original_caption": "一列迎面驶来的火车旁边有一辆汽车",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000139345.jpg",
+        "original_tags": [
+          "汽车",
+          "火车"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_035",
+      "image": "images/val/COCO_train2014_000000314398.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "喬丹單手拿着球飛向籃筐。",
+      "reference_answers": [
+        "喬丹單手拿着球飛向籃筐。"
+      ],
+      "width": 640,
+      "height": 638,
+      "image_sha256": "e3f1cd47cc78ffe2fa11fd011734a75a477245285305de221e149c76bde4495e",
+      "pixel_sha256": "d62e74cf04db3a4b0116c781e16b0153910b53469889238b59a2bf7abfb6a10d",
+      "image_dhash": "9113479736661b17",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000314398",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000314398#0",
+        "line_index": 20668,
+        "original_caption": "乔丹单手拿着球飞向篮筐。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000314398.jpg",
+        "original_tags": [
+          "乔丹",
+          "篮球",
+          "运动",
+          "红色",
+          "篮球架"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_036",
+      "image": "images/val/COCO_train2014_000000318740.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一隻小鳥站在樹枝上喫吐司麪包。",
+      "reference_answers": [
+        "一隻小鳥站在樹枝上喫吐司麪包。"
+      ],
+      "width": 492,
+      "height": 640,
+      "image_sha256": "0ba57aee31ddb6bf1dbce7f620902bfeb3e590ac25ee201b186752c2da9d06dc",
+      "pixel_sha256": "eaa4b4d30a22013617cc2b1f3daa51fa6f8a1e58c6bb0feeef3bdf4e2c91db94",
+      "image_dhash": "9c98f1e9938386a4",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000318740",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000318740#0",
+        "line_index": 18292,
+        "original_caption": "一只小鸟站在树枝上吃吐司面包。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000318740.jpg",
+        "original_tags": [
+          "面包",
+          "树枝",
+          "小鸟"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_037",
+      "image": "images/val/COCO_train2014_000000413602.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "四個小毛巾被摺疊起來放在牀上。",
+      "reference_answers": [
+        "四個小毛巾被摺疊起來放在牀上。"
+      ],
+      "width": 640,
+      "height": 426,
+      "image_sha256": "49e5e7ca85bd54871cc2bbdce64453e1113859d8ee5ac3dac7bbf6038b6e5263",
+      "pixel_sha256": "90ab346123791ed3ea65cc760f4f99af799afd8fe1c3b97cf671553c57401cb7",
+      "image_dhash": "3fbfed2f2b4d5d5b",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000413602",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000413602#0",
+        "line_index": 2005,
+        "original_caption": "四个小毛巾被折叠起来放在床上。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000413602.jpg",
+        "original_tags": [
+          "床",
+          "日用织品"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_038",
+      "image": "images/val/COCO_train2014_000000537393.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一隻長頸鹿的頭部特寫鏡頭",
+      "reference_answers": [
+        "一隻長頸鹿的頭部特寫鏡頭"
+      ],
+      "width": 480,
+      "height": 640,
+      "image_sha256": "362ae60161c8baca62fb04db70862bb0cd5217481d1ff7d2f5d860d3169f2bf6",
+      "pixel_sha256": "a9ffe9929371125b9b0fc6e0bbc6cef6de9a7e6530c705526385d4b80205e3db",
+      "image_dhash": "d634281cb6624ccc",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000537393",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000537393#0",
+        "line_index": 15059,
+        "original_caption": "一只长颈鹿的头部特写镜头",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000537393.jpg",
+        "original_tags": [
+          "长颈鹿"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_039",
+      "image": "images/val/COCO_val2014_000000454610.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "岸邊的貨船上擺滿了水果蔬菜",
+      "reference_answers": [
+        "岸邊的貨船上擺滿了水果蔬菜"
+      ],
+      "width": 500,
+      "height": 333,
+      "image_sha256": "03237e19c045e81578b14cf7733c6a262d540cdfc889f5e7fddfc91a6d30f2a4",
+      "pixel_sha256": "e172df680165349ba0b18f0282a409439c66c1fc56d15efa52e86b756f9aa6a9",
+      "image_dhash": "541545223866667e",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000454610",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000454610#0",
+        "line_index": 8862,
+        "original_caption": "岸边的货船上摆满了水果蔬菜",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000454610.jpg",
+        "original_tags": [
+          "水果",
+          "货摊",
+          "食物",
+          "蔬菜"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_040",
+      "image": "images/val/COCO_val2014_000000304361.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個小女孩在家裏玩遙控器。",
+      "reference_answers": [
+        "一個小女孩在家裏玩遙控器。"
+      ],
+      "width": 375,
+      "height": 500,
+      "image_sha256": "6f2a93bae103181f5269f066520aa859df01ca18f3f60647a814b276908176a9",
+      "pixel_sha256": "9b40da91b3957df83395e3f73f06b72ed98d48d3fc8a3c4b2bc26be191c4758e",
+      "image_dhash": "50508966030b83d3",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000304361",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000304361#0",
+        "line_index": 14503,
+        "original_caption": "一个小女孩在家里玩遥控器。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000304361.jpg",
+        "original_tags": [
+          "遥控器",
+          "女孩"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_041",
+      "image": "images/val/COCO_val2014_000000578848.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "路口交通信號的小城市街道景觀。",
+      "reference_answers": [
+        "路口交通信號的小城市街道景觀。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "896ffc596ba30e00ed68a199ac23ab2d7d48480a00201952d54ce72b6ca2e9a5",
+      "pixel_sha256": "bac6bbaa5145ac0f6c28225d2a1758952784c7cc69f308e20c4cce5e7ca6dfd1",
+      "image_dhash": "1f0f37373121310b",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000578848",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000578848#0",
+        "line_index": 11742,
+        "original_caption": "路口交通信号的小城市街道景观。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000578848.jpg",
+        "original_tags": [
+          "汽车",
+          "街道"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_042",
+      "image": "images/val/COCO_train2014_000000121994.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "四個黃色的甜甜圈，其中兩個上面有一層白色。",
+      "reference_answers": [
+        "四個黃色的甜甜圈，其中兩個上面有一層白色。"
+      ],
+      "width": 612,
+      "height": 612,
+      "image_sha256": "410291b360ec7d57ef447f63ffed6b53784d282e350862fed703ea1a87e025f0",
+      "pixel_sha256": "fd83daf9dd8c30846c67f9613fd1cbdbf951bd7b91e547e0b2b8de74a17145d5",
+      "image_dhash": "65611547431919c9",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000121994",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000121994#0",
+        "line_index": 15786,
+        "original_caption": "四个黄色的甜甜圈，其中两个上面有一层白色。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000121994.jpg",
+        "original_tags": [
+          "食物",
+          "蛋糕",
+          "鸡蛋"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_043",
+      "image": "images/val/COCO_val2014_000000495379.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "街旁的一個紅色的消防栓。",
+      "reference_answers": [
+        "街旁的一個紅色的消防栓。"
+      ],
+      "width": 640,
+      "height": 439,
+      "image_sha256": "bfc153f060179a9e0a849ccf2d97785a56897548ac44f5c3e5fedd3235137048",
+      "pixel_sha256": "71de8fb5671df807c47989cfd4d5b070a20a4efcbf7354c3d108857e5c11f597",
+      "image_dhash": "303262c8a8e8d9d9",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000495379",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000495379#0",
+        "line_index": 13060,
+        "original_caption": "街旁的一个红色的消防栓。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000495379.jpg",
+        "original_tags": [
+          "消火栓",
+          "红色"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_044",
+      "image": "images/val/COCO_val2014_000000143154.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個小女孩正用一隻蛋殼做手工。",
+      "reference_answers": [
+        "一個小女孩正用一隻蛋殼做手工。"
+      ],
+      "width": 640,
+      "height": 428,
+      "image_sha256": "b0179a0034fa20093df0935e6255657ccea5fdc79f85c151c76279b4d36a5500",
+      "pixel_sha256": "f1ac1e6d4b63bdfe3a25ea30ccb5be36bd5cc75beec65dd653e7925389857fb9",
+      "image_dhash": "35a4256f6736f1e6",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000143154",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000143154#0",
+        "line_index": 7871,
+        "original_caption": "一个小女孩正用一只蛋壳做手工。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000143154.jpg",
+        "original_tags": [
+          "手工",
+          "蓝色",
+          "蛋壳",
+          "女孩",
+          "夏天",
+          "桌子"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_045",
+      "image": "images/val/COCO_val2014_000000223374.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個黑色微波爐上擺放着五個玩具",
+      "reference_answers": [
+        "一個黑色微波爐上擺放着五個玩具"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "766d2562e47922ae0e968033f7599b28e6a9c9d38d1e08d313f072d44af16db9",
+      "pixel_sha256": "5cc96b3424a5abc183e942f7f69d87f90fe949faad73a2fc78170dfccf894e2d",
+      "image_dhash": "51cccb23dbee767c",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000223374",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000223374#0",
+        "line_index": 6128,
+        "original_caption": "一个黑色微波炉上摆放着五个玩具",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000223374.jpg",
+        "original_tags": [
+          "黑色微波炉",
+          "玩具"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_046",
+      "image": "images/val/COCO_train2014_000000548391.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個戴着棒球帽、穿着藍色衣服的男人正眺望遠方。",
+      "reference_answers": [
+        "一個戴着棒球帽、穿着藍色衣服的男人正眺望遠方。"
+      ],
+      "width": 640,
+      "height": 411,
+      "image_sha256": "50a433ed8d66679e3e404a98b053da53166c9e410763921f78460c46d7d233ab",
+      "pixel_sha256": "84080cebb760b1d48c7a412de9150beb1e6721a646136db551340c42fd6100c9",
+      "image_dhash": "0f3737a6c3d3d3d3",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000548391",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000548391#0",
+        "line_index": 17787,
+        "original_caption": "一个戴着棒球帽、穿着蓝色衣服的男人正眺望远方。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000548391.jpg",
+        "original_tags": [
+          "男人",
+          "冬天",
+          "蓝色",
+          "风筝"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_047",
+      "image": "images/val/COCO_train2014_000000324315.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個頂着帶陽傘的小男孩正在喝飲料",
+      "reference_answers": [
+        "一個頂着帶陽傘的小男孩正在喝飲料"
+      ],
+      "width": 640,
+      "height": 438,
+      "image_sha256": "d46f7681faf4e298998c5682e7ef28b6484af0e727016c59c1a135d4799e2262",
+      "pixel_sha256": "aacfc8c467b6437356af4c83ff33e244b0be5b02fde873c9cb917e561e938e2b",
+      "image_dhash": "6367777576767a7a",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000324315",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000324315#0",
+        "line_index": 21098,
+        "original_caption": "一个顶着带阳伞的小男孩正在喝饮料",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000324315.jpg",
+        "original_tags": [
+          "男孩",
+          "太阳伞",
+          "饮料"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_048",
+      "image": "images/val/COCO_train2014_000000258073.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "市場上的水果攤裏陳列着許多不同的水果，包括檸檬和橙子，每種水果上面還有一塊價格牌。",
+      "reference_answers": [
+        "市場上的水果攤裏陳列着許多不同的水果，包括檸檬和橙子，每種水果上面還有一塊價格牌。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "3b7bcf0ba4b123e6fbe78beddeada87030d900d6c7f15d5b8fb479fc5e4afdca",
+      "pixel_sha256": "6e6d5524bc00d7ce486c07a4921dd90a6d3b0d8de4fc4ea63956d8c54b1d1649",
+      "image_dhash": "1fd5d48f8d9b9b9f",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000258073",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000258073#0",
+        "line_index": 12564,
+        "original_caption": "市场上的水果摊里陈列着许多不同的水果，包括柠檬和橙子，每种水果上面还有一块价格牌。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000258073.jpg",
+        "original_tags": [
+          "市场",
+          "橙子",
+          "柠檬",
+          "水果摊",
+          "价格牌"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_049",
+      "image": "images/val/COCO_val2014_000000204887.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一輛公共汽車在城市街道上行駛，旁邊有一輛車。",
+      "reference_answers": [
+        "一輛公共汽車在城市街道上行駛，旁邊有一輛車。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "c5502d72761018195bf81f54449643bb09ff0783c8675fbb152a83cc5ed058ca",
+      "pixel_sha256": "895c23cb86c56c561a582535843505414dd6576a48fe4178667c8b2af0d26f63",
+      "image_dhash": "f2c3b32430c36358",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000204887",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000204887#0",
+        "line_index": 17971,
+        "original_caption": "一辆公共汽车在城市街道上行驶，旁边有一辆车。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000204887.jpg",
+        "original_tags": [
+          "公交车",
+          "消防栓",
+          "马路",
+          "自行车"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_050",
+      "image": "images/val/COCO_train2014_000000272343.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "壁爐上擺放着一個金色的鐘表。",
+      "reference_answers": [
+        "壁爐上擺放着一個金色的鐘表。"
+      ],
+      "width": 480,
+      "height": 640,
+      "image_sha256": "a7ab4a88cab00ac8cc3e7896d2e0ba86c57f457b7a758ddcdb48de373fe8b8a3",
+      "pixel_sha256": "09705f0c414eb72214353fa74a759994a78e82cc2e453080deafa41d0f27e378",
+      "image_dhash": "373db9d9d1b1ad8c",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000272343",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000272343#0",
+        "line_index": 12403,
+        "original_caption": "壁炉上摆放着一个金色的钟表。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000272343.jpg",
+        "original_tags": [
+          "钟表",
+          "金色的",
+          "老式的",
+          "欧式",
+          "壁炉"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_051",
+      "image": "images/val/COCO_train2014_000000021084.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "海灘上空有一架大型飛機在低空飛行。",
+      "reference_answers": [
+        "海灘上空有一架大型飛機在低空飛行。"
+      ],
+      "width": 480,
+      "height": 640,
+      "image_sha256": "92d20e48fe2b5bd2d766bde2787be56197a884ed51399f429a662bcffdd4f0d5",
+      "pixel_sha256": "2c1857a57fc317954b9c430575bfde3e90aa725bfac920b7fdd81ae70da83e02",
+      "image_dhash": "0337f0c379e2018b",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000021084",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000021084#0",
+        "line_index": 13956,
+        "original_caption": "海滩上空有一架大型飞机在低空飞行。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000021084.jpg",
+        "original_tags": [
+          "飞机",
+          "海滩",
+          "低空"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_052",
+      "image": "images/val/COCO_val2014_000000416745.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "透過廁所半開的門可以看到洗手池和馬桶。",
+      "reference_answers": [
+        "透過廁所半開的門可以看到洗手池和馬桶。"
+      ],
+      "width": 612,
+      "height": 612,
+      "image_sha256": "ed85f4f684f7cd0a93a04e71a2a383a7679f6a4386a27c367a8ec7abea281ff2",
+      "pixel_sha256": "a14daf7f4d7db71947d1636a5b19d8571b1bd6f676c2395c60f4befaf0cd984a",
+      "image_dhash": "96869f9f8f8797b6",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000416745",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000416745#0",
+        "line_index": 103,
+        "original_caption": "透过厕所半开的门可以看到洗手池和马桶。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000416745.jpg",
+        "original_tags": [
+          "厕所",
+          "马桶"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_053",
+      "image": "images/val/COCO_train2014_000000033215.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一張展示的繁華街道的黑白照片。",
+      "reference_answers": [
+        "一張展示的繁華街道的黑白照片。",
+        "一個繁忙的城市街道的黑白照片。"
+      ],
+      "width": 640,
+      "height": 359,
+      "image_sha256": "02d128f0864c6b8c67eb47648120637c7387a02d19579ff58d179decea39997a",
+      "pixel_sha256": "47b68bae5bf37364d446e7947b9cc478c1e89200545ab9d45135ecbd7d3fee06",
+      "image_dhash": "16ceceac8d8e5757",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000033215",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000033215#0",
+        "line_index": 14768,
+        "original_caption": "一张展示的繁华街道的黑白照片。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000033215.jpg",
+        "original_tags": [
+          "汽车",
+          "黑白",
+          "都市",
+          "街道"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_054",
+      "image": "images/val/COCO_train2014_000000201386.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一列火車在山腳下的鐵路上行駛。",
+      "reference_answers": [
+        "一列火車在山腳下的鐵路上行駛。"
+      ],
+      "width": 640,
+      "height": 426,
+      "image_sha256": "47c97dded1c12eeb975b84b550c97f7570e34f9600a57655c4458409ad2f7c93",
+      "pixel_sha256": "39831831df3100e2f498cee9fb3afccde837746afbb35500620ea6aaa32751cd",
+      "image_dhash": "0b0791d9a3036617",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000201386",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000201386#0",
+        "line_index": 4928,
+        "original_caption": "一列火车在山脚下的铁路上行驶。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000201386.jpg",
+        "original_tags": [
+          "山脉",
+          "铁路",
+          "火车"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_055",
+      "image": "images/val/COCO_val2014_000000141334.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "女孩看着手裏的手機走在街道上",
+      "reference_answers": [
+        "女孩看着手裏的手機走在街道上"
+      ],
+      "width": 640,
+      "height": 368,
+      "image_sha256": "8a7c1409430abd714a2968be458d642bad6f492df01e0850991749cda8d84f62",
+      "pixel_sha256": "7cad0aabc8ebe8b0aa72750beeb4e98f1be14d8897ad06c305130b355b4f66b6",
+      "image_dhash": "91935273b3b3f232",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000141334",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000141334#0",
+        "line_index": 6601,
+        "original_caption": "女孩看着手里的手机走在街道上",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000141334.jpg",
+        "original_tags": [
+          "手机",
+          "女孩",
+          "街道"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_056",
+      "image": "images/val/COCO_train2014_000000349827.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "灰濛濛的天空下，天安門廣場上有很多人在放風箏",
+      "reference_answers": [
+        "灰濛濛的天空下，天安門廣場上有很多人在放風箏"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "580118571ccd0858d45519ce598133df0460a994eb404f1ddee3fd1e0d6844d2",
+      "pixel_sha256": "4d38376d2dda0fe25993585b5e8a38919da14fedee2cd4ef71643fb8501be5e4",
+      "image_dhash": "360e73d2426ae7e7",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000349827",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000349827#0",
+        "line_index": 5108,
+        "original_caption": "灰蒙蒙的天空下，天安门广场上有很多人在放风筝",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000349827.jpg",
+        "original_tags": [
+          "广场",
+          "人群"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_057",
+      "image": "images/val/COCO_train2014_000000225210.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個男孩正在衝浪板上衝浪。",
+      "reference_answers": [
+        "一個男孩正在衝浪板上衝浪。"
+      ],
+      "width": 612,
+      "height": 612,
+      "image_sha256": "35c9a75b7c278857200d8de80b6bdb0ac3e2f8078f289e7539c3bbe2e21f0764",
+      "pixel_sha256": "3f93a788a62301cbeedfdc1a844ac401b4cb56758a9e58911711378cbf8013b6",
+      "image_dhash": "171707274b0f2727",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000225210",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000225210#0",
+        "line_index": 5275,
+        "original_caption": "一个男孩正在冲浪板上冲浪。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000225210.jpg",
+        "original_tags": [
+          "运动",
+          "冬天",
+          "冲浪",
+          "海浪"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_058",
+      "image": "images/val/COCO_val2014_000000401816.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "三個人牽着三頭馬在馬路上走。",
+      "reference_answers": [
+        "三個人牽着三頭馬在馬路上走。"
+      ],
+      "width": 640,
+      "height": 480,
+      "image_sha256": "4767f21388799562216852ac2c764dfcdf8ec51c223c734b557952bc8554b7c6",
+      "pixel_sha256": "82fece2ea63845b2fdef8ff2851af24287715370137c811f3d9887cee625bf3d",
+      "image_dhash": "fffffffdb9b97977",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000401816",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000401816#0",
+        "line_index": 182,
+        "original_caption": "三个人牵着三头马在马路上走。",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000401816.jpg",
+        "original_tags": [
+          "马",
+          "动物",
+          "雾",
+          "马路",
+          "雪"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_059",
+      "image": "images/val/COCO_val2014_000000558854.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "桌子上擺着薯條漢堡三明治紅豆粥和可樂",
+      "reference_answers": [
+        "桌子上擺着薯條漢堡三明治紅豆粥和可樂"
+      ],
+      "width": 500,
+      "height": 375,
+      "image_sha256": "751c5d24f29eaa4aae3f53b94d3c3db971c1f6533eaffe16dc59f827d565c1d3",
+      "pixel_sha256": "654908d5704a42aa3a4f3b9ea8079ea8fdd2ae8a579e22fbcc331665f1791e77",
+      "image_dhash": "68690d49cd8f2707",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_val2014_000000558854",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_val2014_000000558854#0",
+        "line_index": 894,
+        "original_caption": "桌子上摆着薯条汉堡三明治红豆粥和可乐",
+        "image_url": "http://images.cocodataset.org/val2014/COCO_val2014_000000558854.jpg",
+        "original_tags": [
+          "可乐",
+          "汉堡",
+          "三明治",
+          "薯条",
+          "红豆粥"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    },
+    {
+      "id": "val_060",
+      "image": "images/val/COCO_train2014_000000522817.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "answer": "一個熱狗擺放在一堆炸薯條旁邊。",
+      "reference_answers": [
+        "一個熱狗擺放在一堆炸薯條旁邊。"
+      ],
+      "width": 640,
+      "height": 425,
+      "image_sha256": "84a2b1e1a8ff4ddbab40ab5a79e778df1f783ccfe01f32ccc65281996f4a7e4a",
+      "pixel_sha256": "06d2983ddb68ed744988d8db5707d9245d65dfb2fca14993dd1ab2d31f834889",
+      "image_dhash": "2f8fcf733f3d29b3",
+      "source": {
+        "dataset": "COCO-CN",
+        "repo": "AIMClab-RUC/COCO-CN",
+        "revision": "d40a7aac6fdfa88f5e30c0cd89516feaa8014739",
+        "split": "val",
+        "image_id": "COCO_train2014_000000522817",
+        "split_file": "coco-cn-version1805v1.1/coco-cn_val.txt",
+        "caption_file": "coco-cn-version1805v1.1/imageid.human-written-caption.txt",
+        "caption_type": "human_written",
+        "annotation_id": "COCO_train2014_000000522817#0",
+        "line_index": 7750,
+        "original_caption": "一个热狗摆放在一堆炸薯条旁边。",
+        "image_url": "http://images.cocodataset.org/train2014/COCO_train2014_000000522817.jpg",
+        "original_tags": [
+          "食物",
+          "炸薯条",
+          "油炸"
+        ],
+        "text_conversion": "OpenCC s2t; character conversion only, no LLM generation/translation"
+      }
+    }
+  ]
+}

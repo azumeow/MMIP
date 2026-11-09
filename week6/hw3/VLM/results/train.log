@@ -1,0 +1,136 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+FlashAttention2 is not installed.
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:47<04:46, 47.83s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [01:36<04:00, 48.12s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [02:25<03:15, 48.76s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [03:13<02:25, 48.47s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [04:00<01:35, 47.95s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [04:46<00:47, 47.30s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:55<00:00, 34.83s/it]Loading checkpoint shards: 100%|██████████| 7/7 [04:55<00:00, 42.28s/it]
+Prepared 30/300 image-conditioned examples
+Prepared 60/300 image-conditioned examples
+Prepared 90/300 image-conditioned examples
+Prepared 120/300 image-conditioned examples
+Prepared 150/300 image-conditioned examples
+Prepared 180/300 image-conditioned examples
+Prepared 210/300 image-conditioned examples
+Prepared 240/300 image-conditioned examples
+Prepared 270/300 image-conditioned examples
+Prepared 300/300 image-conditioned examples
+Prepared 30/60 image-conditioned examples
+Prepared 60/60 image-conditioned examples
+Initial validation NLL: 3.189983
+SFT epoch=1/3 update=1/114 nll=3.2029 grad=0.6206 elapsed=72.2s
+SFT epoch=1/3 update=2/114 nll=3.0334 grad=0.5468 elapsed=79.6s
+SFT epoch=1/3 update=3/114 nll=3.2499 grad=0.6119 elapsed=87.9s
+SFT epoch=1/3 update=4/114 nll=3.0687 grad=0.6874 elapsed=95.5s
+SFT epoch=1/3 update=5/114 nll=2.9382 grad=0.7477 elapsed=103.0s
+SFT epoch=1/3 update=6/114 nll=2.7580 grad=0.5827 elapsed=112.9s
+SFT epoch=1/3 update=7/114 nll=3.2327 grad=0.6722 elapsed=121.2s
+SFT epoch=1/3 update=8/114 nll=3.5906 grad=1.0149 elapsed=127.1s
+SFT epoch=1/3 update=9/114 nll=2.6553 grad=0.7585 elapsed=135.5s
+SFT epoch=1/3 update=10/114 nll=2.9359 grad=0.8337 elapsed=142.2s
+SFT epoch=1/3 update=11/114 nll=3.2064 grad=0.8322 elapsed=150.6s
+SFT epoch=1/3 update=12/114 nll=2.8412 grad=0.9981 elapsed=159.5s
+SFT epoch=1/3 update=13/114 nll=2.8874 grad=0.7868 elapsed=167.7s
+SFT epoch=1/3 update=14/114 nll=3.0268 grad=1.1335 elapsed=178.0s
+SFT epoch=1/3 update=15/114 nll=3.0049 grad=0.9384 elapsed=184.7s
+SFT epoch=1/3 update=16/114 nll=3.2143 grad=1.3514 elapsed=192.2s
+SFT epoch=1/3 update=17/114 nll=2.7503 grad=1.1722 elapsed=201.4s
+SFT epoch=1/3 update=18/114 nll=2.9254 grad=1.1582 elapsed=210.4s
+SFT epoch=1/3 update=19/114 nll=2.6112 grad=1.1621 elapsed=218.7s
+SFT epoch=1/3 update=20/114 nll=2.6732 grad=1.1856 elapsed=227.0s
+SFT epoch=1/3 update=21/114 nll=2.7142 grad=1.5859 elapsed=234.5s
+SFT epoch=1/3 update=22/114 nll=2.5054 grad=1.3968 elapsed=241.3s
+SFT epoch=1/3 update=23/114 nll=2.5914 grad=1.2721 elapsed=250.2s
+SFT epoch=1/3 update=24/114 nll=2.5120 grad=1.3903 elapsed=260.3s
+SFT epoch=1/3 update=25/114 nll=2.7688 grad=1.4722 elapsed=268.5s
+SFT epoch=1/3 update=26/114 nll=2.6397 grad=1.3564 elapsed=276.8s
+SFT epoch=1/3 update=27/114 nll=2.4776 grad=1.2830 elapsed=285.9s
+SFT epoch=1/3 update=28/114 nll=2.6842 grad=1.5205 elapsed=293.4s
+SFT epoch=1/3 update=29/114 nll=2.1970 grad=1.1653 elapsed=300.9s
+SFT epoch=1/3 update=30/114 nll=2.4952 grad=1.4717 elapsed=310.7s
+SFT epoch=1/3 update=31/114 nll=2.3908 grad=1.2647 elapsed=319.7s
+SFT epoch=1/3 update=32/114 nll=2.2590 grad=1.4191 elapsed=325.6s
+SFT epoch=1/3 update=33/114 nll=2.3775 grad=1.2821 elapsed=335.4s
+SFT epoch=1/3 update=34/114 nll=2.1350 grad=1.0590 elapsed=344.6s
+SFT epoch=1/3 update=35/114 nll=2.5532 grad=1.3155 elapsed=351.3s
+SFT epoch=1/3 update=36/114 nll=2.8044 grad=1.8834 elapsed=358.0s
+SFT epoch=1/3 update=37/114 nll=2.4634 grad=1.6450 elapsed=366.2s
+SFT epoch=1/3 update=38/114 nll=2.4988 grad=1.4447 elapsed=369.9s
+/tmp/hw3_runtime/lib/python3.11/site-packages/peft/utils/save_and_load.py:286: UserWarning: Could not find a config file in /root/codespace/checkpoints/Qwen3-14B - will assume that the vocabulary was not modified.
+  warnings.warn(
+Validation epoch=1 NLL=2.293537; best epoch=1
+SFT epoch=2/3 update=39/114 nll=2.3107 grad=1.2208 elapsed=399.8s
+SFT epoch=2/3 update=40/114 nll=2.4108 grad=1.2032 elapsed=407.3s
+SFT epoch=2/3 update=41/114 nll=2.2656 grad=1.4784 elapsed=413.9s
+SFT epoch=2/3 update=42/114 nll=2.2839 grad=1.3556 elapsed=423.0s
+SFT epoch=2/3 update=43/114 nll=1.9243 grad=1.2226 elapsed=431.9s
+SFT epoch=2/3 update=44/114 nll=1.7369 grad=1.0366 elapsed=440.9s
+SFT epoch=2/3 update=45/114 nll=2.1535 grad=1.6423 elapsed=448.5s
+SFT epoch=2/3 update=46/114 nll=2.2889 grad=1.2821 elapsed=456.7s
+SFT epoch=2/3 update=47/114 nll=2.1355 grad=1.1648 elapsed=465.1s
+SFT epoch=2/3 update=48/114 nll=2.5179 grad=1.4232 elapsed=471.8s
+SFT epoch=2/3 update=49/114 nll=1.9049 grad=1.0178 elapsed=480.1s
+SFT epoch=2/3 update=50/114 nll=1.7693 grad=1.0472 elapsed=487.4s
+SFT epoch=2/3 update=51/114 nll=2.3543 grad=1.2602 elapsed=495.6s
+SFT epoch=2/3 update=52/114 nll=2.3060 grad=1.1988 elapsed=503.9s
+SFT epoch=2/3 update=53/114 nll=2.1421 grad=1.8218 elapsed=511.3s
+SFT epoch=2/3 update=54/114 nll=2.5442 grad=1.7059 elapsed=518.7s
+SFT epoch=2/3 update=55/114 nll=2.2980 grad=1.3421 elapsed=527.7s
+SFT epoch=2/3 update=56/114 nll=1.6361 grad=1.2251 elapsed=536.7s
+SFT epoch=2/3 update=57/114 nll=2.1581 grad=1.1766 elapsed=544.2s
+SFT epoch=2/3 update=58/114 nll=2.0286 grad=1.0156 elapsed=551.7s
+SFT epoch=2/3 update=59/114 nll=2.0243 grad=1.2046 elapsed=559.1s
+SFT epoch=2/3 update=60/114 nll=1.7732 grad=1.0281 elapsed=568.8s
+SFT epoch=2/3 update=61/114 nll=2.0294 grad=1.0348 elapsed=576.2s
+SFT epoch=2/3 update=62/114 nll=2.1907 grad=1.2479 elapsed=583.8s
+SFT epoch=2/3 update=63/114 nll=1.5337 grad=1.0607 elapsed=591.3s
+SFT epoch=2/3 update=64/114 nll=1.8638 grad=1.1844 elapsed=600.3s
+SFT epoch=2/3 update=65/114 nll=1.8201 grad=1.3312 elapsed=609.3s
+SFT epoch=2/3 update=66/114 nll=1.7554 grad=1.0503 elapsed=619.0s
+SFT epoch=2/3 update=67/114 nll=1.9636 grad=1.2688 elapsed=626.6s
+SFT epoch=2/3 update=68/114 nll=2.1302 grad=1.3154 elapsed=634.1s
+SFT epoch=2/3 update=69/114 nll=1.8147 grad=1.0657 elapsed=641.6s
+SFT epoch=2/3 update=70/114 nll=1.6885 grad=0.9480 elapsed=651.3s
+SFT epoch=2/3 update=71/114 nll=1.5224 grad=1.0956 elapsed=660.3s
+SFT epoch=2/3 update=72/114 nll=1.6055 grad=1.2140 elapsed=667.9s
+SFT epoch=2/3 update=73/114 nll=1.7844 grad=1.0148 elapsed=676.9s
+SFT epoch=2/3 update=74/114 nll=1.5658 grad=1.0945 elapsed=686.0s
+SFT epoch=2/3 update=75/114 nll=1.8060 grad=1.4699 elapsed=692.7s
+SFT epoch=2/3 update=76/114 nll=2.0974 grad=1.6373 elapsed=696.3s
+Validation epoch=2 NLL=1.912539; best epoch=2
+SFT epoch=3/3 update=77/114 nll=1.6082 grad=1.1137 elapsed=724.4s
+SFT epoch=3/3 update=78/114 nll=2.0919 grad=1.0878 elapsed=732.6s
+SFT epoch=3/3 update=79/114 nll=1.8865 grad=1.1415 elapsed=740.1s
+SFT epoch=3/3 update=80/114 nll=1.9534 grad=1.1155 elapsed=749.1s
+SFT epoch=3/3 update=81/114 nll=1.6191 grad=1.0664 elapsed=757.3s
+SFT epoch=3/3 update=82/114 nll=1.5844 grad=1.0769 elapsed=765.6s
+SFT epoch=3/3 update=83/114 nll=2.1048 grad=1.1358 elapsed=772.2s
+SFT epoch=3/3 update=84/114 nll=2.0663 grad=1.3248 elapsed=780.5s
+SFT epoch=3/3 update=85/114 nll=1.9583 grad=1.2848 elapsed=789.5s
+SFT epoch=3/3 update=86/114 nll=1.8657 grad=1.1217 elapsed=796.9s
+SFT epoch=3/3 update=87/114 nll=1.5627 grad=1.2011 elapsed=803.7s
+SFT epoch=3/3 update=88/114 nll=1.6043 grad=1.3219 elapsed=812.6s
+SFT epoch=3/3 update=89/114 nll=1.4564 grad=1.1185 elapsed=822.3s
+SFT epoch=3/3 update=90/114 nll=1.6899 grad=1.2067 elapsed=830.6s
+SFT epoch=3/3 update=91/114 nll=1.9137 grad=1.1609 elapsed=838.0s
+SFT epoch=3/3 update=92/114 nll=1.8692 grad=0.9798 elapsed=845.4s
+SFT epoch=3/3 update=93/114 nll=1.7861 grad=1.2879 elapsed=853.8s
+SFT epoch=3/3 update=94/114 nll=2.1904 grad=1.3721 elapsed=862.0s
+SFT epoch=3/3 update=95/114 nll=1.9589 grad=1.4535 elapsed=869.5s
+SFT epoch=3/3 update=96/114 nll=1.6881 grad=1.1426 elapsed=878.5s
+SFT epoch=3/3 update=97/114 nll=1.5790 grad=1.1942 elapsed=888.3s
+SFT epoch=3/3 update=98/114 nll=1.4399 grad=1.1178 elapsed=896.7s
+SFT epoch=3/3 update=99/114 nll=1.7964 grad=1.0438 elapsed=906.4s
+SFT epoch=3/3 update=100/114 nll=1.7140 grad=1.1454 elapsed=913.2s
+SFT epoch=3/3 update=101/114 nll=1.9276 grad=1.2279 elapsed=920.6s
+SFT epoch=3/3 update=102/114 nll=1.8692 grad=1.0042 elapsed=926.7s
+SFT epoch=3/3 update=103/114 nll=1.5720 grad=1.0174 elapsed=934.8s
+SFT epoch=3/3 update=104/114 nll=2.0295 grad=1.1389 elapsed=942.3s
+SFT epoch=3/3 update=105/114 nll=1.7242 grad=1.1149 elapsed=951.3s
+SFT epoch=3/3 update=106/114 nll=1.7103 grad=1.0690 elapsed=960.4s
+SFT epoch=3/3 update=107/114 nll=1.7033 grad=1.0138 elapsed=968.8s
+SFT epoch=3/3 update=108/114 nll=1.7722 grad=1.4069 elapsed=975.4s
+SFT epoch=3/3 update=109/114 nll=1.8207 grad=1.0479 elapsed=985.1s
+SFT epoch=3/3 update=110/114 nll=1.5341 grad=1.2124 elapsed=993.4s
+SFT epoch=3/3 update=111/114 nll=2.1500 grad=1.5107 elapsed=1000.8s
+SFT epoch=3/3 update=112/114 nll=2.0947 grad=1.4676 elapsed=1009.1s
+SFT epoch=3/3 update=113/114 nll=2.1008 grad=1.2198 elapsed=1018.2s
+SFT epoch=3/3 update=114/114 nll=1.6668 grad=1.2483 elapsed=1022.8s
+Validation epoch=3 NLL=1.841148; best epoch=3
+TRAINING_COMPLETED best_epoch=3 adapter=/root/mmip_hw6/hw3/VLM/checkpoints/sft_adapter

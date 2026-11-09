@@ -1,0 +1,10 @@
+{
+  "coco_cn_train": {
+    "root": "hw3/VLM/data/",
+    "annotation": "hw3/VLM/data/train_sft_300.jsonl",
+    "data_augment": false,
+    "max_dynamic_patch": 6,
+    "repeat_time": 1,
+    "length": 300
+  }
+}

@@ -1,0 +1,1017 @@
+{
+  "status": "completed",
+  "model": "OpenGVLab/InternVL3_5-14B",
+  "revision": "a1e37197b393ce9eec9df700fef65c11f4a6ffbd",
+  "adapter": "checkpoints/sft_adapter",
+  "config": {
+    "model": "OpenGVLab/InternVL3_5-14B",
+    "revision": "a1e37197b393ce9eec9df700fef65c11f4a6ffbd",
+    "seed": 42,
+    "epochs": 3,
+    "micro_batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "lora_targets": [
+      "q_proj",
+      "v_proj"
+    ],
+    "quantization": "NF4",
+    "double_quantization": false,
+    "compute_dtype": "float16",
+    "trainable_dtype": "float32",
+    "vision_dtype": "float16",
+    "vision_and_projector": "frozen",
+    "max_dynamic_tiles": 2,
+    "thumbnail": true,
+    "tile_size": 448,
+    "max_sequence_length": 1536,
+    "gradient_checkpointing": "non-reentrant",
+    "attention": "eager",
+    "selection": "lowest validation token-mean NLL",
+    "max_new_tokens": 128,
+    "do_sample": false,
+    "system_message": "你是一個圖片描述助手。"
+  },
+  "data_hashes": {
+    "train_sft_300.json": "b00ddccb9af725852fc422c52617fbf1b3949b79cd35ae0067962777357aba27",
+    "validation_60.json": "185d9d51a363c2b22f555a67bc35c5b19c8b8ce395118d6b0b88f78a5114746a",
+    "target_test_60.json": "655771db6a374360dd749545dfeaf976462dc31f3efaa2a72dd8df9fe1e07bb4",
+    "sources.json": "752b9ce53ba6eb9f4ee1d4f00220a3365a915eb1b3c324a9ad01b7b2407f2dbe"
+  },
+  "image_chat_parity": {
+    "id": "test_001",
+    "same_answer": true,
+    "check": "reloaded selected adapter: cached-feature generation == official pixel_values chat"
+  },
+  "examples": [
+    {
+      "id": "test_001",
+      "image": "images/test/COCO_train2014_000000154377.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個黑人男孩拿着一個滑板站在樹林前",
+      "reference_answers": [
+        "一個黑人男孩拿着一個滑板站在樹林前"
+      ],
+      "image_sha256": "3c5ee3b864244f27c78aa55ad95bc36e71f6100e13b6d59e2f4d050912f111ce",
+      "answer": "一個年輕的男孩在戶外拿着滑板，他穿着紫色的條紋T恤，看起來非常開心。",
+      "generated_tokens": 26,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 2.2434497931972146
+    },
+    {
+      "id": "test_002",
+      "image": "images/test/COCO_train2014_000000255330.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "年輕人在空中做滑板特技。",
+      "reference_answers": [
+        "年輕人在空中做滑板特技。"
+      ],
+      "image_sha256": "3cd8eb91c4982952f35fe41f0f2788a52d4f3d7935b9d55f5ba9dd2b59f755a7",
+      "answer": "一個年輕人正在玩滑板",
+      "generated_tokens": 8,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.7969788853079081
+    },
+    {
+      "id": "test_003",
+      "image": "images/test/COCO_train2014_000000239580.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個男人在一座建築前玩滑板飛下臺階",
+      "reference_answers": [
+        "一個男人在一座建築前玩滑板飛下臺階"
+      ],
+      "image_sha256": "d565465010b833afbfa379ad856b9375d7fea9efd3be733f8f842287f9eecaa0",
+      "answer": "一個年輕人正在滑板場上做一個技巧動作。",
+      "generated_tokens": 14,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.5084281312301755
+    },
+    {
+      "id": "test_004",
+      "image": "images/test/COCO_train2014_000000301890.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "兩隻女孩各自抱着毛絨玩具。",
+      "reference_answers": [
+        "兩隻女孩各自抱着毛絨玩具。"
+      ],
+      "image_sha256": "773bfbadba8a3cba6b74f19c93cfd1dbfe78d010279df83ec2cc11719c4c7112",
+      "answer": "兩個小女孩擁抱着她們的玩具。",
+      "generated_tokens": 10,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.9524148991331458
+    },
+    {
+      "id": "test_005",
+      "image": "images/test/COCO_train2014_000000026263.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個人左手拿着一隻寫着字的黃色的香蕉。",
+      "reference_answers": [
+        "一個人左手拿着一隻寫着字的黃色的香蕉。"
+      ],
+      "image_sha256": "50e312f4942ead5d6bc3c1afc25d0379fbc8e445d2ac650df5c6fddfd780cbcc",
+      "answer": "一隻手握著一根香蕉，香蕉上有字",
+      "generated_tokens": 12,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.1248831748962402
+    },
+    {
+      "id": "test_006",
+      "image": "images/test/COCO_val2014_000000421882.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "有一個馬桶的廁所裏很髒。",
+      "reference_answers": [
+        "有一個馬桶的廁所裏很髒。"
+      ],
+      "image_sha256": "89f1e7a16ade0d9eb511bb59c8d8fbb6367b7a82a97aa75ec097215c8633a43f",
+      "answer": "一個髒髒的廁所",
+      "generated_tokens": 10,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.1863191025331616
+    },
+    {
+      "id": "test_007",
+      "image": "images/test/COCO_val2014_000000158372.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "桌子上有一個藍色行李箱。",
+      "reference_answers": [
+        "桌子上有一個藍色行李箱。"
+      ],
+      "image_sha256": "a1baca755ecab36aa41bbe4e5160ff375ac7f7f73073895189bf014d7a70e705",
+      "answer": "一個紫色的行李箱",
+      "generated_tokens": 6,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.6415200838819146
+    },
+    {
+      "id": "test_008",
+      "image": "images/test/COCO_val2014_000000324253.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一面鏡子，一個洗手池與一個浴缸擺放在浴室裏",
+      "reference_answers": [
+        "一面鏡子，一個洗手池與一個浴缸擺放在浴室裏"
+      ],
+      "image_sha256": "25dc8809d809a519ee1fe66bba0a7d5e26ecfad52659b199b701d564bd23af67",
+      "answer": "一個浴室",
+      "generated_tokens": 3,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 0.6262161629274487
+    },
+    {
+      "id": "test_009",
+      "image": "images/test/COCO_val2014_000000346262.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "白色的盤子裏放着一個素餡餅和一隻冰激凌空杯子。",
+      "reference_answers": [
+        "白色的盤子裏放着一個素餡餅和一隻冰激凌空杯子。"
+      ],
+      "image_sha256": "9ae27238c80537f2792bb1e044c1a40332c82f6fe155aa8a340fc41c6fcf95eb",
+      "answer": "一個三明治",
+      "generated_tokens": 5,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.5653698006644845
+    },
+    {
+      "id": "test_010",
+      "image": "images/test/COCO_val2014_000000391862.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個戴頭盔的小男孩正在水岸邊一條道路上玩滑板。",
+      "reference_answers": [
+        "一個戴頭盔的小男孩正在水岸邊一條道路上玩滑板。"
+      ],
+      "image_sha256": "ac08c6c11c0a7165cc48985aac171efd8c1b65c74affa5e0dcbcaa22e4f1514a",
+      "answer": "一個小男孩在海邊滑滑板",
+      "generated_tokens": 9,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.8829632857814431
+    },
+    {
+      "id": "test_011",
+      "image": "images/test/COCO_train2014_000000140500.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "幾頭牛躺在沙地上靠在一艘船的旁邊。",
+      "reference_answers": [
+        "幾頭牛躺在沙地上靠在一艘船的旁邊。"
+      ],
+      "image_sha256": "f26fbc9535e1a3a2a43c9ca38297b663eeb93a37f90fd0045245dc8f68b48900",
+      "answer": "四頭牛躺在沙灘上。",
+      "generated_tokens": 10,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.9624389493837953
+    },
+    {
+      "id": "test_012",
+      "image": "images/test/COCO_val2014_000000299946.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一位主婦在廚房餐桌上攪拌一大杯食物。",
+      "reference_answers": [
+        "一位主婦在廚房餐桌上攪拌一大杯食物。"
+      ],
+      "image_sha256": "364907baa7ef3461894eae0914d4fea10046865baf1cac4559f4abefa1f36de2",
+      "answer": "一個男人正在廚房裏用攪拌機攪拌綠色的東西。",
+      "generated_tokens": 20,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.77281139139086
+    },
+    {
+      "id": "test_013",
+      "image": "images/test/COCO_val2014_000000486457.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "辦公室裏有許多電腦和氣球",
+      "reference_answers": [
+        "辦公室裏有許多電腦和氣球"
+      ],
+      "image_sha256": "b2e056a161dce829402db43dc4da93beac129cd5a36b26a5291c893d7f5cbd57",
+      "answer": "一個辦公室的角落，有兩個人在辦公桌前工作，桌上擺滿了電腦、文件和辦公用品，還有一束五顏六色的氣球。",
+      "generated_tokens": 41,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 3.4386817617341876
+    },
+    {
+      "id": "test_014",
+      "image": "images/test/COCO_val2014_000000441522.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "許多廚師在廚房裏烹飪食物。",
+      "reference_answers": [
+        "許多廚師在廚房裏烹飪食物。"
+      ],
+      "image_sha256": "14bd49762008ea6d42cab857f83f84a0551e9d6303eeeff9600c1a2e2962d7fb",
+      "answer": "一個廚房裏面有十個人在做飯",
+      "generated_tokens": 12,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.1251819357275963
+    },
+    {
+      "id": "test_015",
+      "image": "images/test/COCO_train2014_000000143095.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一隻白色的泰迪熊躺在一張藍白色條紋的牀上。",
+      "reference_answers": [
+        "一隻白色的泰迪熊躺在一張藍白色條紋的牀上。"
+      ],
+      "image_sha256": "7c24b8ba1643df9a9657f31ed12c1994154cfb933dd4f68892ec1f6eb108e891",
+      "answer": "一隻白色的泰迪熊坐在藍白條紋的床單上。",
+      "generated_tokens": 17,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.5178895704448223
+    },
+    {
+      "id": "test_016",
+      "image": "images/test/COCO_train2014_000000480313.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個戴着墨鏡的男人手中拿着一個熱狗。",
+      "reference_answers": [
+        "一個戴着墨鏡的男人手中拿着一個熱狗。"
+      ],
+      "image_sha256": "a38337bea5fc326678ff0b6148d08f76583a48cf0cd8af10f1ba5173e7f00ce2",
+      "answer": "一個男人在戶外吃漢堡",
+      "generated_tokens": 9,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.8806116720661521
+    },
+    {
+      "id": "test_017",
+      "image": "images/test/COCO_train2014_000000400124.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個盤子上擺放着一塊熱狗和幾塊水果。",
+      "reference_answers": [
+        "一個盤子上擺放着一塊熱狗和幾塊水果。"
+      ],
+      "image_sha256": "2d18996667e23292705b21d6dc279a17ae1daf685bfa5eaed376cb0a275a6fa9",
+      "answer": "一盤食物",
+      "generated_tokens": 4,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.4743396248668432
+    },
+    {
+      "id": "test_018",
+      "image": "images/test/COCO_train2014_000000568963.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "白色的盤子裏放着兩個三明治、一碗湯和一個勺子",
+      "reference_answers": [
+        "白色的盤子裏放着兩個三明治、一碗湯和一個勺子"
+      ],
+      "image_sha256": "ff080eda4cdaf59f192ae2a0b724c9ba037f71e381b1ff4122f5e5c872a19276",
+      "answer": "一盤三明治和湯",
+      "generated_tokens": 8,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.0311467573046684
+    },
+    {
+      "id": "test_019",
+      "image": "images/test/COCO_val2014_000000523250.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一隻彩色的鸚鵡站在一個小樹枝上。",
+      "reference_answers": [
+        "一隻彩色的鸚鵡站在一個小樹枝上。"
+      ],
+      "image_sha256": "f15bf208c5a8def77f317f0c29eae25e4a1c1972c8c3137b3532656c0eed9e4a",
+      "answer": "一隻鳥站在一個黑色的東西上。",
+      "generated_tokens": 11,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.0356346117332578
+    },
+    {
+      "id": "test_020",
+      "image": "images/test/COCO_val2014_000000521052.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一輛卡車上面到處都是塗鴉。",
+      "reference_answers": [
+        "一輛卡車上面到處都是塗鴉。"
+      ],
+      "image_sha256": "3aa389e1258ce12da6b3aab20489a1c2fd6e9da8495badaaef394a09730691cb",
+      "answer": "一輛貨車的後面有兩個人的圖案",
+      "generated_tokens": 14,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.2773250164464116
+    },
+    {
+      "id": "test_021",
+      "image": "images/test/COCO_train2014_000000349047.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一些自行車和摩托車停放在有自行車標識的場地上。",
+      "reference_answers": [
+        "一些自行車和摩托車停放在有自行車標識的場地上。"
+      ],
+      "image_sha256": "59c4298bb084774698e3c718b9d57a6a7372ff8b32c372ea451afa4402f05220",
+      "answer": "一排停放在街頭的自行車和摩托車",
+      "generated_tokens": 13,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.2151195891201496
+    },
+    {
+      "id": "test_022",
+      "image": "images/test/COCO_train2014_000000580033.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "有幾個人在海邊的沙灘上玩飛盤",
+      "reference_answers": [
+        "有幾個人在海邊的沙灘上玩飛盤"
+      ],
+      "image_sha256": "8acf3f59061555977335055a9b1ac7f63fb80048041d9d425284533d9c73398e",
+      "answer": "在海灘上，有四個人在玩飛盤。",
+      "generated_tokens": 15,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.6030748207122087
+    },
+    {
+      "id": "test_023",
+      "image": "images/test/COCO_val2014_000000244760.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一匹穿着衣服的黑馬在柵欄裏奔跑。",
+      "reference_answers": [
+        "一匹穿着衣服的黑馬在柵欄裏奔跑。"
+      ],
+      "image_sha256": "e9fa23b202e1ca783ad636d6388625993acab0d3b4e6438cf20341a45547e03b",
+      "answer": "一匹馬在木製柵欄後面。",
+      "generated_tokens": 13,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.434410434216261
+    },
+    {
+      "id": "test_024",
+      "image": "images/test/COCO_train2014_000000487869.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個小女孩面前放着一個粉色的蛋糕",
+      "reference_answers": [
+        "一個小女孩面前放着一個粉色的蛋糕"
+      ],
+      "image_sha256": "62f61fb17324df9f5775a7f636ef14b6271f00f34a5df2e17b08e392c314c431",
+      "answer": "一個小女孩正在看一個粉紅色的蛋糕。",
+      "generated_tokens": 12,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.1171302506700158
+    },
+    {
+      "id": "test_025",
+      "image": "images/test/COCO_train2014_000000249656.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "兩隻長頸鹿站在圍欄裏的草地上。",
+      "reference_answers": [
+        "兩隻長頸鹿站在圍欄裏的草地上。"
+      ],
+      "image_sha256": "51e546b4703611e120285b2f218a024ef0509d715317410b5954a83869bed2c4",
+      "answer": "兩隻長頸鹿在草地上",
+      "generated_tokens": 10,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.1853707069531083
+    },
+    {
+      "id": "test_026",
+      "image": "images/test/COCO_val2014_000000412440.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個拿着披薩的人在街道上行走。",
+      "reference_answers": [
+        "一個拿着披薩的人在街道上行走。"
+      ],
+      "image_sha256": "4ac50f2a9cb528a7f9834861fcca0174e3e9c8131630a6db61f8979a218a9a8a",
+      "answer": "一隻手拿着一塊披薩。",
+      "generated_tokens": 10,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.9498338783159852
+    },
+    {
+      "id": "test_027",
+      "image": "images/test/COCO_train2014_000000369201.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "火車軌道上停了一輛火車。",
+      "reference_answers": [
+        "火車軌道上停了一輛火車。"
+      ],
+      "image_sha256": "4580efe60be9d8bf75ca65a9e26e20396b103e83f47fe58439d0bdb580118c12",
+      "answer": "一列火車停在火車站的月台上。",
+      "generated_tokens": 14,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.2667757607996464
+    },
+    {
+      "id": "test_028",
+      "image": "images/test/COCO_train2014_000000049363.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個男人在網球場上打網球",
+      "reference_answers": [
+        "一個男人在網球場上打網球"
+      ],
+      "image_sha256": "3516dd2e395133950aaa14c4785d45f0a5b732f8044f24989db9b147b3429b45",
+      "answer": "一個男人在網球場上",
+      "generated_tokens": 8,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.7879264242947102
+    },
+    {
+      "id": "test_029",
+      "image": "images/test/COCO_train2014_000000464630.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "兩名男人在廁所維修馬桶。",
+      "reference_answers": [
+        "兩名男人在廁所維修馬桶。"
+      ],
+      "image_sha256": "fd275167c86d3d54b66b25da2fbbb65e448eb128e277399d806d24c4afa3f7ae",
+      "answer": "一個穿軍裝的人坐在馬桶上，另一個穿軍裝的人站在他旁邊。",
+      "generated_tokens": 22,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.9162033814936876
+    },
+    {
+      "id": "test_030",
+      "image": "images/test/COCO_train2014_000000515428.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "菜市場上擺滿了很多胡蘿蔔和綠色蔬菜",
+      "reference_answers": [
+        "菜市場上擺滿了很多胡蘿蔔和綠色蔬菜"
+      ],
+      "image_sha256": "6fca6425d5f035fb5ba377dbe89bc7041ed360850aa684076354b1abd25e794c",
+      "answer": "一攤新鮮的胡蘿蔔",
+      "generated_tokens": 12,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.118921129964292
+    },
+    {
+      "id": "test_031",
+      "image": "images/test/COCO_val2014_000000240681.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個騎摩托車的人站在摩托車旁邊。",
+      "reference_answers": [
+        "一個騎摩托車的人站在摩托車旁邊。"
+      ],
+      "image_sha256": "a013d8ba2159e3124270638848d7b6a8b9e282c8b89dc968338cd993e98ee05c",
+      "answer": "一個男人站在紅色摩托車旁邊",
+      "generated_tokens": 10,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.9588829465210438
+    },
+    {
+      "id": "test_032",
+      "image": "images/test/COCO_train2014_000000309521.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "房間裏有一張牀，兩邊有木質的牀頭櫃，櫃子上有一盞燈。",
+      "reference_answers": [
+        "房間裏有一張牀，兩邊有木質的牀頭櫃，櫃子上有一盞燈。"
+      ],
+      "image_sha256": "88e8cf8fd97b3f0d84a2ac7bd2355875583307bb01e2be9971ebdaced54404f9",
+      "answer": "一張舒適的臥室，有一張大床，上面有一個綠色的被子，一個白色的枕頭，一個白色的包，一個黑色的扇子，一個白色的窗簾，一個白色的窗台，一個白色的花瓶，一個白色的燈，一個白色的牆壁，一個白色的地毯，一個白色的枕頭，一個白色的枕頭套，一個白色的枕頭墊，一個白色的枕頭套，一個白色的枕頭墊，一個白色的枕頭套，一個白色的枕頭墊，一個白色的枕頭套，一個白色的枕頭墊，一個白色的枕頭",
+      "generated_tokens": 128,
+      "ended_with_eos": false,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 10.669261708855629
+    },
+    {
+      "id": "test_033",
+      "image": "images/test/COCO_train2014_000000475967.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一隻黑色的狗嘴裏叼着一塊麪包",
+      "reference_answers": [
+        "一隻黑色的狗嘴裏叼着一塊麪包"
+      ],
+      "image_sha256": "bb80275d59608c85ba276b28ac2f0eccd436a43fc2ca86463da21c863df18a6f",
+      "answer": "一隻黑色的狗在咬著一個甜甜圈",
+      "generated_tokens": 12,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.3492708150297403
+    },
+    {
+      "id": "test_034",
+      "image": "images/test/COCO_train2014_000000267422.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "盤子裏裝着很多口味的披薩餅",
+      "reference_answers": [
+        "盤子裏裝着很多口味的披薩餅"
+      ],
+      "image_sha256": "9118b3918b6f279c0e2100d8912ab915ebb0acd8627e94046937c8d9714954d7",
+      "answer": "一張披薩的圖片。",
+      "generated_tokens": 8,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.7942284122109413
+    },
+    {
+      "id": "test_035",
+      "image": "images/test/COCO_val2014_000000472233.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一大羣人在一條道路上騎摩托車。",
+      "reference_answers": [
+        "一大羣人在一條道路上騎摩托車。"
+      ],
+      "image_sha256": "ba2e37b10d0b1843f7a426a2ec1cd7a1236be32680d758705cb967cb87610f03",
+      "answer": "一對男女騎著摩托車在街上行駛，兩旁有許多觀眾在觀看。",
+      "generated_tokens": 24,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 2.3236447321251035
+    },
+    {
+      "id": "test_036",
+      "image": "images/test/COCO_train2014_000000407173.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個女人坐在擺着餐具和紅酒的桌子前。",
+      "reference_answers": [
+        "一個女人坐在擺着餐具和紅酒的桌子前。"
+      ],
+      "image_sha256": "3934d1e002f22067ac633a4a92497627a0357b580761da3b0ebb0ffda1d7e088",
+      "answer": "一個女人坐在餐桌前，桌上擺滿了餐具和食物。",
+      "generated_tokens": 15,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.588561398908496
+    },
+    {
+      "id": "test_037",
+      "image": "images/test/COCO_train2014_000000210416.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個男孩和一個女孩在衛生間刷牙",
+      "reference_answers": [
+        "一個男孩和一個女孩在衛生間刷牙"
+      ],
+      "image_sha256": "a0fb0cc6948cf5e262644e02098ccdfa17a1648f1b16da712008723ff824ba8c",
+      "answer": "兩個小孩在浴室裡刷牙。",
+      "generated_tokens": 9,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.8709691558033228
+    },
+    {
+      "id": "test_038",
+      "image": "images/test/COCO_train2014_000000549172.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個女孩在籬笆上喂長頸鹿喫手上的食物。",
+      "reference_answers": [
+        "一個女孩在籬笆上喂長頸鹿喫手上的食物。"
+      ],
+      "image_sha256": "49e259300c3cfda29d91d558a0efcbadca6827e3a84dedbfa013789bd319b10f",
+      "answer": "一個小女孩在動物園的長頸鹿面前",
+      "generated_tokens": 12,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.3448417903855443
+    },
+    {
+      "id": "test_039",
+      "image": "images/test/COCO_train2014_000000310136.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "棒球場上，一個一身白色運動服的男生完成了一次投球",
+      "reference_answers": [
+        "棒球場上，一個一身白色運動服的男生完成了一次投球"
+      ],
+      "image_sha256": "caefb7f895201336351868c3bd535c71383b2a1dcf025b39cc1ecfd6aadf2308",
+      "answer": "一個棒球投手正在投球",
+      "generated_tokens": 9,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.8775871051475406
+    },
+    {
+      "id": "test_040",
+      "image": "images/test/COCO_train2014_000000084949.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "盤子裏裝着一塊已經被喫過的披薩餅",
+      "reference_answers": [
+        "盤子裏裝着一塊已經被喫過的披薩餅"
+      ],
+      "image_sha256": "113df3cd84c1ded07ba120dfd10006f92e32c205251c9623d2aff4db5541829a",
+      "answer": "一盤披薩",
+      "generated_tokens": 5,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.5494427708908916
+    },
+    {
+      "id": "test_041",
+      "image": "images/test/COCO_train2014_000000251319.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個穿牛仔褲和領帶的男人下半身特寫",
+      "reference_answers": [
+        "一個穿牛仔褲和領帶的男人下半身特寫",
+        "一個穿藍上衣牛仔褲，打着白領帶的男人胳膊上有紋身。"
+      ],
+      "image_sha256": "4e66d52dc292f25c703f988425f38e8ed4991d65f0317e5d6aad21e4fa53563c",
+      "answer": "一個男人穿着藍色牛仔褲和白色襯衫，戴着白色領帶，雙手自然下垂，手臂上有紋身。",
+      "generated_tokens": 31,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 2.8544066548347473
+    },
+    {
+      "id": "test_042",
+      "image": "images/test/COCO_train2014_000000151254.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "棒球場上，一個擊球手正舉着棒球棒，旁邊兩個人有兩個人蹲着。",
+      "reference_answers": [
+        "棒球場上，一個擊球手正舉着棒球棒，旁邊兩個人有兩個人蹲着。"
+      ],
+      "image_sha256": "988a07ee786f8395a2540d22094996c220fb054451b83f5ceff42fcc16a47628",
+      "answer": "一個棒球運動員在比賽中準備擊球。",
+      "generated_tokens": 13,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.2027665926143527
+    },
+    {
+      "id": "test_043",
+      "image": "images/test/COCO_train2014_000000550023.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個人在一座白雪覆蓋的山坡上滑雪。",
+      "reference_answers": [
+        "一個人在一座白雪覆蓋的山坡上滑雪。"
+      ],
+      "image_sha256": "05d88e2c3507617851b17b6d004b93c295dc0ffa7a08e1f60b7484c295f63739",
+      "answer": "一個男人在雪山上滑雪",
+      "generated_tokens": 7,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 0.9411763353273273
+    },
+    {
+      "id": "test_044",
+      "image": "images/test/COCO_train2014_000000213135.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個金髮小男孩坐在桌前，手裏拿着一根烤腸正在喫早餐。",
+      "reference_answers": [
+        "一個金髮小男孩坐在桌前，手裏拿着一根烤腸正在喫早餐。"
+      ],
+      "image_sha256": "788771d0cd3d98f35b55d35ecffce02253588966a37cc5f8f505ec746607b3a1",
+      "answer": "一個小男孩坐在椅子上吃著食物",
+      "generated_tokens": 9,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.8814432984218001
+    },
+    {
+      "id": "test_045",
+      "image": "images/test/COCO_train2014_000000139144.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "叢林裏有幾隻行走的大象。",
+      "reference_answers": [
+        "叢林裏有幾隻行走的大象。"
+      ],
+      "image_sha256": "b30992b070a746023782702209770df5d9a067faddf12370b176a265707b1fb7",
+      "answer": "一隻大象在森林裏。",
+      "generated_tokens": 8,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.7975680716335773
+    },
+    {
+      "id": "test_046",
+      "image": "images/test/COCO_train2014_000000025274.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "許多人站在一個大的建築物前的廣場上。",
+      "reference_answers": [
+        "許多人站在一個大的建築物前的廣場上。"
+      ],
+      "image_sha256": "e9559b5812b0b7c8d5dba2edaace7f1e1aa7f0c022ce43125c587baaf876356c",
+      "answer": "一羣人在城市街道上等待過馬路。",
+      "generated_tokens": 13,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 1.4284732285887003
+    },
+    {
+      "id": "test_047",
+      "image": "images/test/COCO_train2014_000000073494.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一張桌子上有一臺臺式電腦和一臺筆記本電腦。",
+      "reference_answers": [
+        "一張桌子上有一臺臺式電腦和一臺筆記本電腦。"
+      ],
+      "image_sha256": "c6a9b59271b0ef8c0f414ed8d59d4a79162028f9ae4172da0aa646a1dd8ffed1",
+      "answer": "一個辦公室的角落",
+      "generated_tokens": 7,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.7136355033144355
+    },
+    {
+      "id": "test_048",
+      "image": "images/test/COCO_train2014_000000247849.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "三個飢餓的男孩用一塊麪包擺姿勢。",
+      "reference_answers": [
+        "三個飢餓的男孩用一塊麪包擺姿勢。"
+      ],
+      "image_sha256": "5bd0c5cce2cae91ab381ae57bd1f3807359cda61e45db37578778162d54361fa",
+      "answer": "三個男人在吃一個漢堡",
+      "generated_tokens": 8,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.7976419748738408
+    },
+    {
+      "id": "test_049",
+      "image": "images/test/COCO_train2014_000000177954.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一羣人坐在海邊的長椅上。",
+      "reference_answers": [
+        "一羣人坐在海邊的長椅上。"
+      ],
+      "image_sha256": "afd40caa0d9f2281608e015aa9dfb3ef9b8d765c8ef6f635b137854a4bd129a8",
+      "answer": "一群人在戶外的桌子旁學習。",
+      "generated_tokens": 10,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.9571532476693392
+    },
+    {
+      "id": "test_050",
+      "image": "images/test/COCO_train2014_000000045422.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個藍色的架子靠在牆邊，上面放着一摞書，一個花瓶和一個籃子",
+      "reference_answers": [
+        "一個藍色的架子靠在牆邊，上面放着一摞書，一個花瓶和一個籃子"
+      ],
+      "image_sha256": "68592d902cd97ec09007507db872fd3a9a7540f423fcb1c9e29860349a4cd55a",
+      "answer": "一個藍色的桌子，上面有一個花瓶，花瓶裏插著白色的花，還有一個黑色的籃子，籃子裏裝著一些東西，桌子下面有幾本書，還有一個白色的碟子，桌子旁邊有一個黑色的箱子，箱子上有一個白色的圖案，地板是木頭的，牆壁是白色的。",
+      "generated_tokens": 80,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 6.52927927300334
+    },
+    {
+      "id": "test_051",
+      "image": "images/test/COCO_val2014_000000209901.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "道路一邊有一幢建築物，另一邊有一個標識牌。",
+      "reference_answers": [
+        "道路一邊有一幢建築物，另一邊有一個標識牌。"
+      ],
+      "image_sha256": "182f4dacd188dc5555ea99d3ed19bf58fb08a6a97060da896fad63da7bbf64c6",
+      "answer": "一個綠色的牌子，上面寫著哈里特·圖姆森小學，周圍有樹木和建築物。",
+      "generated_tokens": 29,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 2.471869917586446
+    },
+    {
+      "id": "test_052",
+      "image": "images/test/COCO_val2014_000000256852.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一輛有軌電車正駛過街道的十字路口。",
+      "reference_answers": [
+        "一輛有軌電車正駛過街道的十字路口。"
+      ],
+      "image_sha256": "11343c85fb3194a98a4959bf9fb6d7565a9322a7b0ba8ed8b869d02328764da1",
+      "answer": "一輛紅白相間的電車在城市街道上行駛。",
+      "generated_tokens": 18,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.59029287006706
+    },
+    {
+      "id": "test_053",
+      "image": "images/test/COCO_val2014_000000271820.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "整潔的臥室裏有一張牀，一臺電視機和一個沙發。",
+      "reference_answers": [
+        "整潔的臥室裏有一張牀，一臺電視機和一個沙發。"
+      ],
+      "image_sha256": "08b864ee60b4b54f606800588e6e082e2ca0815fcf860304f4bb47cb9a17d152",
+      "answer": "房間裏有一張雙人牀，一張綠色的沙發，一張茶几，一盞燈，一張電視，一張鏡子。",
+      "generated_tokens": 38,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 3.363599330186844
+    },
+    {
+      "id": "test_054",
+      "image": "images/test/COCO_train2014_000000019499.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一條公路上發生了事故，旁邊有很多騎賽車的人在圍觀",
+      "reference_answers": [
+        "一條公路上發生了事故，旁邊有很多騎賽車的人在圍觀"
+      ],
+      "image_sha256": "5993681ba1b4351486c7bad77603887c6cda6fab707bd05c29bacde2b81cfeaf",
+      "answer": "一輛自行車翻倒在馬路上，旁邊有自行車騎士和一名男子",
+      "generated_tokens": 20,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.7628091676160693
+    },
+    {
+      "id": "test_055",
+      "image": "images/test/COCO_train2014_000000531201.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個穿着白色T恤戴着白色帽子的男人手裏拿着一個網球拍。",
+      "reference_answers": [
+        "一個穿着白色T恤戴着白色帽子的男人手裏拿着一個網球拍。"
+      ],
+      "image_sha256": "472dff5e123b8447c62ed4fd888006781ffee80cffd37c90d465426391881c0a",
+      "answer": "一個男人站在網球場上，他穿著白色的帽子、白色的襯衫和灰色的短褲，他手裡拿著一個網球拍。",
+      "generated_tokens": 35,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 3.000266262330115
+    },
+    {
+      "id": "test_056",
+      "image": "images/test/COCO_train2014_000000125667.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "廚房裏有很多櫥櫃和廚具，還有一個水槽。",
+      "reference_answers": [
+        "廚房裏有很多櫥櫃和廚具，還有一個水槽。"
+      ],
+      "image_sha256": "8545874fdb3a99d02b119cc577d6acd8830e61bd780361c27429616008a78b47",
+      "answer": "一個廚房",
+      "generated_tokens": 4,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.47840647399425507
+    },
+    {
+      "id": "test_057",
+      "image": "images/test/COCO_train2014_000000312828.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "桌子上白色餐盤裏盛着幾種小食品，旁邊的碗裏盛着湯。",
+      "reference_answers": [
+        "桌子上白色餐盤裏盛着幾種小食品，旁邊的碗裏盛着湯。"
+      ],
+      "image_sha256": "8e9e24412543477233e26345997f7a44964634830da91a4242ec057b72581a44",
+      "answer": "一個裝有食物的盤子和一個碗",
+      "generated_tokens": 11,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 1.0554095413535833
+    },
+    {
+      "id": "test_058",
+      "image": "images/test/COCO_train2014_000000182997.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "近處的盤子裏擺着一份三明治，一位女士坐在對面喫蔬菜沙拉",
+      "reference_answers": [
+        "近處的盤子裏擺着一份三明治，一位女士坐在對面喫蔬菜沙拉"
+      ],
+      "image_sha256": "904a24bd0e8bd23611aa617f45378d91801aa53e41ba5555d4429e2ce369d225",
+      "answer": "一個女人坐在餐廳的桌子旁，面前擺着一盤三明治和一杯飲料。",
+      "generated_tokens": 22,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 2.1971342200413346
+    },
+    {
+      "id": "test_059",
+      "image": "images/test/COCO_train2014_000000283557.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "一個白色的鍋裏放着黃色的食物。",
+      "reference_answers": [
+        "一個白色的鍋裏放着黃色的食物。"
+      ],
+      "image_sha256": "f6b8e88ccfa4aaca4ed7cdff022ebf3787881ebf3d85aff050adba1c116738ed",
+      "answer": "一個烤盤裏有一個蛋糕",
+      "generated_tokens": 8,
+      "ended_with_eos": true,
+      "input_tokens": 285,
+      "visual_tokens": 256,
+      "generation_seconds": 0.8105482524260879
+    },
+    {
+      "id": "test_060",
+      "image": "images/test/COCO_train2014_000000342797.jpg",
+      "prompt": "這張圖片在說什麼？",
+      "reference_answer": "街道旁的交通標誌牌上貼滿了各種小廣告",
+      "reference_answers": [
+        "街道旁的交通標誌牌上貼滿了各種小廣告"
+      ],
+      "image_sha256": "78df2065d6ae3f24e56dc30d95a35f29f64067ae91d46bd1b9795fe111445b0e",
+      "answer": "一個停車標誌",
+      "generated_tokens": 7,
+      "ended_with_eos": true,
+      "input_tokens": 797,
+      "visual_tokens": 768,
+      "generation_seconds": 0.9554084483534098
+    }
+  ],
+  "count": 60,
+  "elapsed_seconds": 94.47997505776584
+}

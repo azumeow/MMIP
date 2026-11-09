@@ -1,0 +1,88 @@
+{
+  "seed": 42,
+  "optimization": "Helpfulness of cooking-related answers according to human preferences",
+  "preference_filter": "score_ratio >= 2; prompt 16..180 Qwen tokens; each response 8..160 tokens; one pair per post; no post/prompt/response overlap",
+  "benchmark_filter": "25 each ARC-Easy, ARC-Challenge, BoolQ, WinoGrande; exclude cooking terms; formatted input <= 480 Qwen tokens",
+  "sources": [
+    {
+      "repo": "stanfordnlp/SHP",
+      "revision": "e94b5f32602712d78ed494fe79105b1959396686",
+      "file": "askculinary/train.json",
+      "url": "https://huggingface.co/datasets/stanfordnlp/SHP",
+      "download_url": "https://huggingface.co/datasets/stanfordnlp/SHP/resolve/e94b5f32602712d78ed494fe79105b1959396686/askculinary/train.json",
+      "file_sha256": "635d9cdd17eac48e90ee5088d27a5822b75b8c2ae723e9a40ff36df1c93502fc",
+      "split": "train",
+      "raw_count": 45710,
+      "eligible_count": 14868,
+      "selected": 100
+    },
+    {
+      "repo": "stanfordnlp/SHP",
+      "revision": "e94b5f32602712d78ed494fe79105b1959396686",
+      "file": "askculinary/validation.json",
+      "url": "https://huggingface.co/datasets/stanfordnlp/SHP",
+      "download_url": "https://huggingface.co/datasets/stanfordnlp/SHP/resolve/e94b5f32602712d78ed494fe79105b1959396686/askculinary/validation.json",
+      "file_sha256": "58a95d0c97bb59c137164fb7511e7ba35db7fac044af8e78bb1b7fd279df8568",
+      "split": "validation",
+      "raw_count": 2094,
+      "eligible_count": 679,
+      "selected": 20
+    },
+    {
+      "repo": "stanfordnlp/SHP",
+      "revision": "e94b5f32602712d78ed494fe79105b1959396686",
+      "file": "askculinary/test.json",
+      "url": "https://huggingface.co/datasets/stanfordnlp/SHP",
+      "download_url": "https://huggingface.co/datasets/stanfordnlp/SHP/resolve/e94b5f32602712d78ed494fe79105b1959396686/askculinary/test.json",
+      "file_sha256": "6a9f5a7340db6f4fd38049d9f276355f240867a8732a98b815174f541306b1a6",
+      "split": "test",
+      "raw_count": 2563,
+      "eligible_count": 843,
+      "selected": 50
+    },
+    {
+      "repo": "allenai/ai2_arc",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "file": "ARC-Easy/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/allenai/ai2_arc",
+      "download_url": "https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ARC-Easy/test-00000-of-00001.parquet",
+      "file_sha256": "4160597d618ae851c7eb04e281574f3f654776216ac6b6641588d64527b47177",
+      "raw_count": 2376,
+      "selected": 25,
+      "category": "ARC-Easy"
+    },
+    {
+      "repo": "allenai/ai2_arc",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "file": "ARC-Challenge/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/allenai/ai2_arc",
+      "download_url": "https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ARC-Challenge/test-00000-of-00001.parquet",
+      "file_sha256": "62f03257e737aed263f55c6abf87c7bb0028a44a6bdd2a26eb1279eb42c1d1e9",
+      "raw_count": 1172,
+      "selected": 25,
+      "category": "ARC-Challenge"
+    },
+    {
+      "repo": "google/boolq",
+      "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+      "file": "data/validation-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/google/boolq",
+      "download_url": "https://huggingface.co/datasets/google/boolq/resolve/35b264d03638db9f4ce671b711558bf7ff0f80d5/data/validation-00000-of-00001.parquet",
+      "file_sha256": "52355d11524b4b874a9b9dcc278feb10f672d52c4f4eff9872e695ede59820f8",
+      "raw_count": 3270,
+      "selected": 25,
+      "category": "BoolQ"
+    },
+    {
+      "repo": "allenai/winogrande",
+      "revision": "01e74176c63542e6b0bcb004dcdea22d94fb67b5",
+      "file": "winogrande_debiased/validation-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/allenai/winogrande",
+      "download_url": "https://huggingface.co/datasets/allenai/winogrande/resolve/01e74176c63542e6b0bcb004dcdea22d94fb67b5/winogrande_debiased/validation-00000-of-00001.parquet",
+      "file_sha256": "f9d914d1818c0aba98cabdf8af2bc4bd943c462b9c5e7062647e05c2ce3315d1",
+      "raw_count": 1267,
+      "selected": 25,
+      "category": "WinoGrande"
+    }
+  ]
+}

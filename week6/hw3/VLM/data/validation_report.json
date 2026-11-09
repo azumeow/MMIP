@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "counts": {
+    "train": 300,
+    "val": 60,
+    "test": 60
+  },
+  "total_images": 420,
+  "source_dataset_count": 1,
+  "unique_source_images": 420,
+  "unique_decoded_images": 420,
+  "unique_answers": 420,
+  "minimum_pairwise_dhash_distance": 12,
+  "checks": [
+    "counts",
+    "image_decode",
+    "file_sha256",
+    "pixel_sha256",
+    "dhash_near_duplicates",
+    "source_ids",
+    "answer_deduplication",
+    "json_jsonl_parity",
+    "single_source",
+    "fixed_eval_prompt"
+  ]
+}
