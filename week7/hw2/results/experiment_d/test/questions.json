@@ -1,0 +1,34 @@
+{
+  "route": {
+    "type": "choice",
+    "instructions": "Choose the best route for the customer message.\n- product_inquiry: product specifications, features, uses and product information.\n- place_order: purchasing or placing an order AND canceling an existing order.\n- order_tracking: locating an order, checking delivery, shipment or arrival status.\n- returns: return/refund requests, refund policy, and refund progress.\n- customer_support: troubleshooting, complaints, reviews, feedback, contacting support,\n  requesting a human agent, or asking how to reach customer service.\n- out_of_scope: topics unrelated to this store, including food, weather, travel,\n  personal finance, employee leave, and car maintenance.\n- clarification: the intent itself is genuinely ambiguous without more context.\nTypos, informal language and profanity do not by themselves change the business intent.\nMissing required fields do NOT change a known business route into clarification.\nKeep purchase cancellation in place_order, not returns.",
+    "criteria": {
+      "product_inquiry": "Product features, specifications, usage instructions, and product information",
+      "returns": "Returns, refunds, and return policies",
+      "customer_support": "Product malfunctions, technical issues, customer complaints, compliments, and feedback",
+      "out_of_scope": "Questions unrelated to the company's products or services",
+      "place_order": "Purchasing products, adding items to cart, placing orders, and canceling orders",
+      "order_tracking": "Order history, shipping, and delivery tracking",
+      "clarification": "Cannot determine the user's intent; further information is required"
+    }
+  },
+  "intent": {
+    "type": "choice",
+    "instructions": "Identify the specific intent of the same customer message.",
+    "criteria": {
+      "check_product_specs": "Ask about a particular product specification or feature.",
+      "general_product_question": "General product information or usage, not an order.",
+      "request_return": "Request a return, refund, reimbursement or compensation.",
+      "ask_return_policy": "Ask about eligibility, conditions or policy for returns/refunds.",
+      "technical_support": "Troubleshoot a product malfunction or technical issue.",
+      "feedback": "Submit a complaint, review, compliment or other feedback.",
+      "contact_customer_service": "Ask how or when to contact customer service.",
+      "contact_human_agent": "Explicitly ask to speak with a human representative.",
+      "purchase_product": "Buy a product or place a new order.",
+      "cancel_order": "Cancel an existing purchase or order.",
+      "check_shipping_status": "Track an order, shipment, delivery or expected arrival.",
+      "unrelated_request": "A request unrelated to this electronics store.",
+      "unknown": "Cannot identify the intent without more context."
+    }
+  }
+}

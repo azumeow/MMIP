@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "checkpoint": "checkpoint-50",
+  "architecture": "Qwen3ForCausalLM",
+  "lora_tensors": 32,
+  "dry_run": true,
+  "base_weights_converted": false
+}

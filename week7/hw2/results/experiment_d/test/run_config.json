@@ -1,0 +1,38 @@
+{
+  "run_state": "completed",
+  "method": "D: native Clef-Flash System One",
+  "model": "Cloudflare/clef-flash Q4_K_M",
+  "base_url": "http://127.0.0.1:8082/v1",
+  "n": 210,
+  "split": "test",
+  "threshold": 0.6,
+  "threshold_rule": "max(route probabilities) > threshold",
+  "constrained_decoding": false,
+  "text_generation": false,
+  "assignment_training": false,
+  "output_adapter": true,
+  "dataset_sha256": "4217d9e6082311c7e104ae2733dbe16aff984a0478a4a5c6f64f2370b7132764",
+  "questions_sha256": "40f97a548bec543ae898531ff2c1d0f5a6fb18aeb2ad506dc1f3b22bef375403",
+  "routing_rules_sha256": "6020ba475489512f9ba359b3d2b6e8f2cd8a2ee933bc7bb6fe9aec1d1470405c",
+  "route_options": [
+    "product_inquiry",
+    "returns",
+    "customer_support",
+    "out_of_scope",
+    "place_order",
+    "order_tracking",
+    "clarification"
+  ],
+  "python": "3.12.4",
+  "pydantic": "2.5.3",
+  "field_provenance": {
+    "route": "native choice + fixed probability rejection threshold",
+    "intent": "native intent probabilities, argmax among compatible intents for predicted route",
+    "confidence": "maximum native route probability, not the API entropy-derived confidence field",
+    "extracted_slots": "deterministic explicit-text extraction; all five keys always emitted",
+    "status/missing_slots/next_action": "deterministic scheme business rules"
+  },
+  "timing": "One fixed warmup and model loading excluded. Per query includes HTTP, decision forward, validation and Router JSON assembly.",
+  "format_interpretation": "Schema compliance of program-assembled JSON; not free-form JSON generation ability.",
+  "scope": "Same single-intent test queries; full slots/status/action gold is not available."
+}

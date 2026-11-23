@@ -1,0 +1,5 @@
+{
+  "path": "C:\\Users\\Jian Yowen\\Desktop\\MMIP\\week7\\models\\experiment_b\\adapter.gguf",
+  "sha256": "c217305310d369a956bf8513879f6cd4bf4afc77adf355fa4f7f87042e97b8fb",
+  "method": "B: SFT + QLoRA"
+}

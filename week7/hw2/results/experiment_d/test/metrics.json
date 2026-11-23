@@ -1,0 +1,22 @@
+{
+  "n": 210,
+  "json_valid_rate": 1.0,
+  "schema_valid_rate": 1.0,
+  "route_correct_rate": 0.8047619047619048,
+  "end_to_end_success_rate": 0.8047619047619048,
+  "native_route_accuracy": 0.9142857142857143,
+  "native_response_valid_rate": 1.0,
+  "coverage": 0.8428571428571429,
+  "threshold": 0.6,
+  "threshold_rejection_rate": 0.15714285714285714,
+  "accepted_accuracy": 0.9548022598870056,
+  "api_errors": 0,
+  "mean_latency_s": 0.3745248100007995,
+  "p95_latency_s": 0.3912916899993434,
+  "total_wall_inference_s": 78.6502101001679,
+  "prompt_tokens": 177650,
+  "completion_tokens": 0,
+  "gpu_cost": null,
+  "slot_and_status_accuracy": null,
+  "note": "Native decision model probabilities plus deterministic JSON adapter. Format rates concern the adapter, not model-generated JSON. Probabilities are not guaranteed calibrated."
+}

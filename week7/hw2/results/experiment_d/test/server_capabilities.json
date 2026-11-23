@@ -1,0 +1,61 @@
+{
+  "models": [
+    {
+      "name": "clef-flash-q4_k_m",
+      "model": "clef-flash-q4_k_m",
+      "modified_at": "",
+      "size": "",
+      "digest": "",
+      "type": "model",
+      "description": "",
+      "tags": [
+        ""
+      ],
+      "capabilities": [
+        "completion"
+      ],
+      "parameters": "",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "",
+        "families": [
+          ""
+        ],
+        "parameter_size": "",
+        "quantization_level": ""
+      }
+    }
+  ],
+  "object": "list",
+  "data": [
+    {
+      "id": "clef-flash-q4_k_m",
+      "aliases": [
+        "clef-flash-q4_k_m"
+      ],
+      "tags": [],
+      "object": "model",
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "decisions"
+        ]
+      },
+      "created": 1795075155,
+      "owned_by": "llamacpp",
+      "meta": {
+        "vocab_type": 2,
+        "n_vocab": 248320,
+        "n_ctx": 4096,
+        "n_ctx_train": 262144,
+        "n_embd": 4096,
+        "n_params": 9075566084,
+        "size": 6721802256,
+        "ftype": "Q4_K - Medium"
+      }
+    }
+  ]
+}

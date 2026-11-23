@@ -1,0 +1,1298 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>作業二 B：Router 評估</title>
+<style>body{font-family:system-ui,"Microsoft JhengHei",sans-serif;background:#f1f5f9;color:#1e293b;line-height:1.7;margin:0}main{max-width:1050px;margin:auto;padding:25px 20px}article,.intro,.metric{background:white;border:1px solid #dbe3ec;border-radius:12px;padding:18px;margin:16px 0}article.bad{border-left:5px solid #dc2626}article.ok{border-left:5px solid #16a34a}.metrics{display:flex;gap:12px;flex-wrap:wrap}.metric strong{display:block;font-size:26px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f8fafc;padding:12px;border-radius:8px}.query{font-size:21px}.error{color:#b91c1c}small{color:#64748b}h1{font-size:28px}h3{margin:0}button{font:inherit;padding:10px 15px;border:1px solid #cbd5e1;border-radius:8px;background:white;cursor:pointer}</style>
+<main><h1>作業二 B：Router 評估</h1><div class="intro"><p>模型：Qwen3-8B Q4_K_M ＋ SFT LoRA adapter，未啟用強制 JSON 解碼。</p>
+<p>共 210 題。Pydantic 檢查格式；分類正確率另與原標籤比較。現有資料沒有完整 slots、status、next_action 的人工答案，因此不宣稱這些欄位的語意已正確。</p>
+<p>平均延遲 1.01 秒；P95 1.06 秒。Token：輸入 234,155／輸出 12,803。本機執行，沒有付費 API 帳單。</p>
+<p>本頁不套用分類器的 0.6 門檻：LLM 自填 confidence 與分類器 predict_proba 不同。</p></div><div class="metrics"><div class="metric">JSON 可解析率<strong>100.00%</strong></div><div class="metric">Pydantic 格式合規率<strong>98.57%</strong></div><div class="metric">分類正確率<strong>91.90%</strong></div><div class="metric">格式與分類同時正確<strong>91.90%</strong></div></div>
+<button onclick="document.querySelectorAll('article.ok').forEach(e=>e.hidden=!e.hidden)">顯示／隱藏通過案例</button><p><small>需要檢查 17 筆；通過 193 筆。預設先看失敗案例，若全部通過可按上方按鈕顯示。每題保留原始輸出，未移除 Markdown 或修正 JSON。</small></p><article class="bad">
+<h3>bitext-16010 · 需要檢查</h3>
+<p class="query">i need help to obtain compensations</p>
+<p>預期：<b>退貨退款</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：0.95 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-19728 · 需要檢查</h3>
+<p class="query">where can I earn some articles?</p>
+<p>預期：<b>下單／取消</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.00 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-07562 · 需要檢查</h3>
+<p class="query">helplodging a consumer reclamation against ur business</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.02 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-19205 · 需要檢查</h3>
+<p class="query">i do not know what to do to earn some items</p>
+<p>預期：<b>下單／取消</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.01 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-19455 · 需要檢查</h3>
+<p class="query">where to purchase an article?</p>
+<p>預期：<b>下單／取消</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.02 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>clinc-train-10284 · 需要檢查</h3>
+<p class="query">pizza has which ingredients</p>
+<p>預期：<b>離題</b>　模型：<b>商品詢問</b></p>
+<p>JSON：通過　Pydantic：失敗　分類：錯誤　耗時：0.69 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;product_inquiry&quot;,&quot;intent&quot;:&quot;ask_product_details&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:&quot;pizza&quot;},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+<pre class="error">4 validation errors for RouterOutput
+extracted_slots.quantity
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.order_id
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing</pre></article><article class="bad">
+<h3>bitext-07267 · 需要檢查</h3>
+<p class="query">I want help to lodge a consumer reclamation</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：0.96 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-25832 · 需要檢查</h3>
+<p class="query">can you help me see purchase 240 current status?</p>
+<p>預期：<b>訂單物流</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.06 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:&quot;current&quot;,&quot;quantity&quot;:240,&quot;delivery_address&quot;:null,&quot;order_id&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-09407 · 需要檢查</h3>
+<p class="query">can you direct to me a person?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.02 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-25581 · 需要檢查</h3>
+<p class="query">wanna locate uprchase 595 can i get some help</p>
+<p>預期：<b>訂單物流</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.06 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:&quot;uprchase&quot;,&quot;quantity&quot;:595,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null,&quot;order_id&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-07607 · 需要檢查</h3>
+<p class="query">can I file a consumer reclamation against your company?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.04 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-16412 · 需要檢查</h3>
+<p class="query">I am trying ot get rebates</p>
+<p>預期：<b>退貨退款</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.07 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-19497 · 需要檢查</h3>
+<p class="query">how can I earn some articles?</p>
+<p>預期：<b>下單／取消</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.02 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>clinc-train-10282 · 需要檢查</h3>
+<p class="query">list the ingredients in pizza</p>
+<p>預期：<b>離題</b>　模型：<b>商品詢問</b></p>
+<p>JSON：通過　Pydantic：失敗　分類：錯誤　耗時：0.70 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;product_inquiry&quot;,&quot;intent&quot;:&quot;product_specifications&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:&quot;pizza&quot;},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+<pre class="error">4 validation errors for RouterOutput
+extracted_slots.quantity
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.order_id
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;pizza&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing</pre></article><article class="bad">
+<h3>clinc-train-06077 · 需要檢查</h3>
+<p class="query">can i have 3 carry ons with delta at jfk</p>
+<p>預期：<b>離題</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：失敗　分類：錯誤　耗時：0.91 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:&quot;carry ons&quot;,&quot;quantity&quot;:3,&quot;delivery_address&quot;:&quot;jfk&quot;},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_order_confirmation&quot;}</pre></details>
+<pre class="error">2 validation errors for RouterOutput
+extracted_slots.order_id
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;carry o...elivery_address&#x27;: &#x27;jfk&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={&#x27;product_name&#x27;: &#x27;carry o...elivery_address&#x27;: &#x27;jfk&#x27;}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing</pre></article><article class="bad">
+<h3>bitext-16885 · 需要檢查</h3>
+<p class="query">reimbusre TWD 1050</p>
+<p>預期：<b>退貨退款</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.02 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="bad">
+<h3>bitext-25002 · 需要檢查</h3>
+<p class="query">I don&#x27;t know how I could see purchase 88 status</p>
+<p>預期：<b>訂單物流</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：錯誤　耗時：1.06 秒</p>
+<details open><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-04599 · 通過</h3>
+<p class="query">when to change my oil</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08057 · 通過</h3>
+<p class="query">I want to check what hours customer support available is</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.93 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16027 · 通過</h3>
+<p class="query">where to ask for a rebate of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-07436 · 通過</h3>
+<p class="query">I need assistance to file a consumer claim</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08398 · 通過</h3>
+<p class="query">I want help to check what hours I can reach customer support</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16793 · 通過</h3>
+<p class="query">assistance to ask for a reimbursement</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22009 · 通過</h3>
+<p class="query">where do i leave a review about a service</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.93 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-08411 · 通過</h3>
+<p class="query">what type of fuel do i need to use to fill the car up with</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22243 · 通過</h3>
+<p class="query">could you help me to submit my feedback for your products?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.94 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-01621 · 通過</h3>
+<p class="query">is flight dl123 coming in on time</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19447 · 通過</h3>
+<p class="query">I need assistance ordering an item</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19166 · 通過</h3>
+<p class="query">i dont know how to order several of ur article</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19568 · 通過</h3>
+<p class="query">I am trying to order some of your article</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16428 · 通過</h3>
+<p class="query">how long until I obtain a restitution of money?</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00880 · 通過</h3>
+<p class="query">I want assistance canceling purchase 899</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.06 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;899&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-08897 · 通過</h3>
+<p class="query">can you tell me the next holiday</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00309 · 通過</h3>
+<p class="query">I need assistance with canceling purchase 543</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;543&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09434 · 通過</h3>
+<p class="query">i dont know what i have to do to speak to an assistant</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09191 · 通過</h3>
+<p class="query">you are not helpful at all, help me speak to a human agent</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.99 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-02873 · 通過</h3>
+<p class="query">can you help me rollover my 401k to my new place of employment</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09218 · 通過</h3>
+<p class="query">can Icontact a person?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06228 · 通過</h3>
+<p class="query">I don&#x27;t know how I can check your reimbursement policy</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.94 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16057 · 通過</h3>
+<p class="query">I want herlp to obtain reimbursements of money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09128 · 通過</h3>
+<p class="query">I am trying to talk to somebody</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06706 · 通過</h3>
+<p class="query">I have to see in what cases can I request refunds, help me</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.94 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11692 · 通過</h3>
+<p class="query">i would like to know where the closest gas station is</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09188 · 通過</h3>
+<p class="query">I cannot speak with an assistant</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06320 · 通過</h3>
+<p class="query">i have to check how long reufnds take how to do it</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.95 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22177 · 通過</h3>
+<p class="query">assistance leaving my feedback for your services</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.92 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-00771 · 通過</h3>
+<p class="query">i&#x27;d like to see if there&#x27;s a travel alert for the country</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16502 · 通過</h3>
+<p class="query">i do not know how to request a rebate of money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25826 · 通過</h3>
+<p class="query">i want assistance to see the ETA of the order 954</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;954&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09505 · 通過</h3>
+<p class="query">I do not know what to do to contact a damn operator</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.99 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00039 · 通過</h3>
+<p class="query">i do not want these article i try to cancel order 263</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.07 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;263&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-02819 · 通過</h3>
+<p class="query">how do i relocate my 401k</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19666 · 通過</h3>
+<p class="query">I need to shop several of your article</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.7,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22708 · 通過</h3>
+<p class="query">I call to leave some feedback about your services</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.93 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-14530 · 通過</h3>
+<p class="query">give me the low down on my income</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-06001 · 通過</h3>
+<p class="query">how many carry ons will american let me take for a flight to los vegas</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19323 · 通過</h3>
+<p class="query">assistance ordering some bloodyproducts</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00117 · 通過</h3>
+<p class="query">assistance with canceling purchase 475</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;475&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25492 · 通過</h3>
+<p class="query">i need help seeing the goddamn eta of purchae 379</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;379&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-08753 · 通過</h3>
+<p class="query">how much is 500 dollars in pesos</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00450 · 通過</h3>
+<p class="query">I want assistance canceling order 984</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;984&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08573 · 通過</h3>
+<p class="query">i dont know what i have to do to talk with customer service</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25308 · 通過</h3>
+<p class="query">help to see thje ETA of purchase 128</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;128&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-14590 · 通過</h3>
+<p class="query">what do i earn on average at my job</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-14791 · 通過</h3>
+<p class="query">if im traveling to the hospital around noon what is the traffic typically like</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00804 · 通過</h3>
+<p class="query">where do i cancel order 781</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;781&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06446 · 通過</h3>
+<p class="query">can you show me in which situations can I ask for refunds?</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.95 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08735 · 通過</h3>
+<p class="query">I have to check what hours I can reach customer support</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25862 · 通過</h3>
+<p class="query">help me locating purchase 562</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;562&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05914 · 通過</h3>
+<p class="query">what day of the month is it today</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05597 · 通過</h3>
+<p class="query">what&#x27;s the nutritional value for a pizza lunchable</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10728 · 通過</h3>
+<p class="query">at this location what are my gps coordinates</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05943 · 通過</h3>
+<p class="query">in 2 days, what date will it be</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19695 · 通過</h3>
+<p class="query">I would like to earn several products, how could I do it?</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25555 · 通過</h3>
+<p class="query">I have to see the ETA of the order 961, help me</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;961&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22155 · 通過</h3>
+<p class="query">I want to leave feedback about your services</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.93 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25373 · 通過</h3>
+<p class="query">I don&#x27;t know how I can check the ETA of order 765</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;765&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06064 · 通過</h3>
+<p class="query">how do I check your money back policy ?</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.95 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10853 · 通過</h3>
+<p class="query">is it going to be sunny today</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16762 · 通過</h3>
+<p class="query">assistance to request my money back</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-07742 · 通過</h3>
+<p class="query">where to filr a consumer complaint?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-05936 · 通過</h3>
+<p class="query">I am trying to see in what cases can I request a refund</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-06085 · 通過</h3>
+<p class="query">search for carry on rules for flights on delta airlines</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25324 · 通過</h3>
+<p class="query">assistance to see the ETA of the order 671</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;671&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11689 · 通過</h3>
+<p class="query">i want to know the nearest bank&#x27;s location</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05977 · 通過</h3>
+<p class="query">show me a calendar</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-04532 · 通過</h3>
+<p class="query">when do i have to change oil</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25222 · 通過</h3>
+<p class="query">can you help me check the ETA of the purchase 915?</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;915&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-04596 · 通過</h3>
+<p class="query">how often should you get an oil change</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-06160 · 通過</h3>
+<p class="query">how many days did i skip work</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-04703 · 通過</h3>
+<p class="query">i need help with some fun tourist things to do in tokyo</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06495 · 通過</h3>
+<p class="query">help me check in which cvases can i ask for my money back</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09237 · 通過</h3>
+<p class="query">you are not helpful, help talking to an operator</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25050 · 通過</h3>
+<p class="query">need assistance to check the ETA of order 966</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;966&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-01240 · 通過</h3>
+<p class="query">when will i recieve my next paycheck</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-24961 · 通過</h3>
+<p class="query">I&#x27;m trying to check purcahse 619 current status</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.07 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;619&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11673 · 通過</h3>
+<p class="query">where is the nearest gas station to 20th and market streets, in philadelphia, pa</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00110 · 通過</h3>
+<p class="query">need assistance canceling order 369</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.06 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;369&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05989 · 通過</h3>
+<p class="query">tell me tomorrow&#x27;s date</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19575 · 通過</h3>
+<p class="query">buy item</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00220 · 通過</h3>
+<p class="query">assistance canceling purchase 343</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.10 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;343&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03559 · 通過</h3>
+<p class="query">are there some good thai restaurants in san antonio</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11334 · 通過</h3>
+<p class="query">does mexico require me to have a visa to travel there</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-06851 · 通過</h3>
+<p class="query">how long to microwave a frozen dinner</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-07315 · 通過</h3>
+<p class="query">assistance lodging a customer complaint against your company</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.93 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-24949 · 通過</h3>
+<p class="query">I try to track order 416</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;416&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-07596 · 通過</h3>
+<p class="query">I need to file a complaint against your business</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.95 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10695 · 通過</h3>
+<p class="query">i&#x27;m going to need a hotel in tampa near ybor city for march 23rd through the 28th</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25666 · 通過</h3>
+<p class="query">how can I see the status of purchae 456?</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;456&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22404 · 通過</h3>
+<p class="query">is there a section to leave some feedack for ur services</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.94 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06433 · 通過</h3>
+<p class="query">check your money back policy</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00902 · 通過</h3>
+<p class="query">ihave bought some damn product cancel order 791</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.08 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;791&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05957 · 通過</h3>
+<p class="query">what is today&#x27;s date</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16001 · 通過</h3>
+<p class="query">is it possible to ask for an rebate of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.99 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-06127 · 通過</h3>
+<p class="query">what&#x27;s the total of days i&#x27;ve taken for me time so far</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16888 · 通過</h3>
+<p class="query">I want assistance receiving a refund of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-01459 · 通過</h3>
+<p class="query">now what is the time</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03577 · 通過</h3>
+<p class="query">find me a new place for dinner</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-01494 · 通過</h3>
+<p class="query">what time is it in paris</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11346 · 通過</h3>
+<p class="query">do i need to get a visa for russia</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22680 · 通過</h3>
+<p class="query">assistance leaving a bloody opinion about a product</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05249 · 通過</h3>
+<p class="query">gauge the tire pressure</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16232 · 通過</h3>
+<p class="query">want hep receiving a refund of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00816 · 通過</h3>
+<p class="query">assistance to cancel purchase 755</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;755&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16702 · 通過</h3>
+<p class="query">I want help to receive refunds of money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19320 · 通過</h3>
+<p class="query">assistance shopping some of your product</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-08859 · 通過</h3>
+<p class="query">can you tell me what the next holiday is</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-07161 · 通過</h3>
+<p class="query">cumin may be substituted for tumeric</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00591 · 通過</h3>
+<p class="query">assistance canceling order 931</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.07 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;931&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25272 · 通過</h3>
+<p class="query">i need assistance to check the eta of the order 162</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.99 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;162&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09439 · 通過</h3>
+<p class="query">what do I need to do to speak with somebody?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-02808 · 通過</h3>
+<p class="query">i have to transfer my 401k but i don&#x27;t know how to do it</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00594 · 通過</h3>
+<p class="query">I nee assistance to cancel purchase 1000</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.07 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;1000&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11583 · 通過</h3>
+<p class="query">what number of vacation days do i have</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03074 · 通過</h3>
+<p class="query">how long does it take to get to houston by bus</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06384 · 通過</h3>
+<p class="query">help me see under what circumtsances can I ask for refunds</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.99 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08615 · 通過</h3>
+<p class="query">check at what time I can call customer support</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08024 · 通過</h3>
+<p class="query">what do I need to do to call customer assistance?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08676 · 通過</h3>
+<p class="query">I try to check what hours customer assistance available is</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-08750 · 通過</h3>
+<p class="query">how many pesos equals 500 dollars</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25619 · 通過</h3>
+<p class="query">I need assistance trackng purchase 248</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;248&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-07161 · 通過</h3>
+<p class="query">need help to make a complaint against ur company</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.94 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-07635 · 通過</h3>
+<p class="query">where is my w-2</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-05989 · 通過</h3>
+<p class="query">I&#x27;m trying to check how long reimbursements take</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.99 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00185 · 通過</h3>
+<p class="query">what do I ned to do to cancel order 503?</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;503&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16368 · 通過</h3>
+<p class="query">i do not know how i can request a rebate of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16385 · 通過</h3>
+<p class="query">i dont know what to do to obtain a reimbursement of money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-00730 · 通過</h3>
+<p class="query">any travel advisories for portugal</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10848 · 通過</h3>
+<p class="query">read me the current weather report for tallahassee</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10846 · 通過</h3>
+<p class="query">i need meteorological data for tallahassee</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00952 · 通過</h3>
+<p class="query">order cancellation</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11323 · 通過</h3>
+<p class="query">i need to know if i must have an international visa to go to france</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05224 · 通過</h3>
+<p class="query">how much air remains in my tires</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16887 · 通過</h3>
+<p class="query">where could I get a compensation of my money?</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11698 · 通過</h3>
+<p class="query">where is the closest mcdonalds</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00971 · 通過</h3>
+<p class="query">I want assistance to cancel purchase 672</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;672&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00685 · 通過</h3>
+<p class="query">i need help with cancelliung order 361</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;361&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-00841 · 通過</h3>
+<p class="query">i want you to make me a pto request for me for april twenty through may two</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06225 · 通過</h3>
+<p class="query">show me in which situations can i request my money back</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.96 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05541 · 通過</h3>
+<p class="query">what are the nutritional data for mashed potatoes</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10937 · 通過</h3>
+<p class="query">can you find the exact amount i pay income taxes</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03572 · 通過</h3>
+<p class="query">could you locate me some good places in kentucky that serve sushi</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16747 · 通過</h3>
+<p class="query">how can i ask for rebates of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-14126 · 通過</h3>
+<p class="query">i want to travel to new york and i would like to rent a car</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10779 · 通過</h3>
+<p class="query">can you find my location on the map, please</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11343 · 通過</h3>
+<p class="query">do i need a travel visa to visit canada</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16234 · 通過</h3>
+<p class="query">how can i ask for a ocmpensation of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03023 · 通過</h3>
+<p class="query">tell the miles it will take to get to las vegas from san diego</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-14790 · 通過</h3>
+<p class="query">can you tell me about the traffic typically at noon on the route the hospital</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09180 · 通過</h3>
+<p class="query">can you help me  to speak with somebody?</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08431 · 通過</h3>
+<p class="query">help to check at what time I can call customer support</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-14450 · 通過</h3>
+<p class="query">find a good recipe for meatloaf</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08875 · 通過</h3>
+<p class="query">uhave a free number to talk with customer assistance</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03235 · 通過</h3>
+<p class="query">which timezone is england in</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10901 · 通過</h3>
+<p class="query">what will my state taxes cost</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19539 · 通過</h3>
+<p class="query">order a few of your article</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.6,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-00719 · 通過</h3>
+<p class="query">is there a travel alert for canada</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-08797 · 通過</h3>
+<p class="query">how many dollars can i exchange for 200 yen</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09429 · 通過</h3>
+<p class="query">I do not know how to chat with a fucking human agent</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-07882 · 通過</h3>
+<p class="query">assistance to make a claim against ur business</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09165 · 通過</h3>
+<p class="query">i need assistance to talk with an agent</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-01689 · 通過</h3>
+<p class="query">what time will my flight be boarding</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03508 · 通過</h3>
+<p class="query">do you know any good restaurants good for kids</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00486 · 通過</h3>
+<p class="query">icannot afford order 993 could i cancel it</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.10 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;993&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-11364 · 通過</h3>
+<p class="query">if i&#x27;m planning to go to the uk, do i need a visa</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06038 · 通過</h3>
+<p class="query">can you help me seeing your refund policy?</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.95 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08711 · 通過</h3>
+<p class="query">I want help calling customer support</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03292 · 通過</h3>
+<p class="query">is austin in the central timezone</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00386 · 通過</h3>
+<p class="query">want assistance canceling purchase 461</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;461&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-18920 · 通過</h3>
+<p class="query">what do I have to do to acquire several products?</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.8,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16190 · 通過</h3>
+<p class="query">help to ask for a rebate of my money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.99 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-16390 · 通過</h3>
+<p class="query">I want to ask for a compensation of money</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.00 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;request_return&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-09857 · 通過</h3>
+<p class="query">need help chatting with a person</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_human_agent&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-07660 · 通過</h3>
+<p class="query">my experience with you was too bad, lodge a complaint</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-25686 · 通過</h3>
+<p class="query">could uhelp me see the eta of purchase 458</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.05 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;458&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-22041 · 通過</h3>
+<p class="query">I want to send my bloody feedback about your products</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;feedback&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-06580 · 通過</h3>
+<p class="query">need help to check in which cases can Irequest refunds</p>
+<p>預期：<b>退貨退款</b>　模型：<b>退貨退款</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;returns&quot;,&quot;intent&quot;:&quot;ask_return_policy&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05968 · 通過</h3>
+<p class="query">what day of the week is it</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03574 · 通過</h3>
+<p class="query">can you find me some good places in kentucky that serve sushi</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08683 · 通過</h3>
+<p class="query">I want help to contact customer assistance</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.98 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-24892 · 通過</h3>
+<p class="query">track order 427</p>
+<p>預期：<b>訂單物流</b>　模型：<b>訂單物流</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;order_tracking&quot;,&quot;intent&quot;:&quot;check_shipping_status&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;427&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-10737 · 通過</h3>
+<p class="query">please show me where i am on a map</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-19691 · 通過</h3>
+<p class="query">want help shopping several items</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;purchase_product&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;missing_information&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;ask_for_information&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-05988 · 通過</h3>
+<p class="query">calender says tomorrow is</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.03 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03046 · 通過</h3>
+<p class="query">how long does it take to get to the park in detroit</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-01404 · 通過</h3>
+<p class="query">what time is it in houston, tx</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.01 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-07660 · 通過</h3>
+<p class="query">where do i locate the form that has my tax information</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.02 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>clinc-train-03062 · 通過</h3>
+<p class="query">what time will we arrive at the bank</p>
+<p>預期：<b>離題</b>　模型：<b>離題</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.04 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;out_of_scope&quot;,&quot;intent&quot;:&quot;unrelated_request&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;out_of_scope&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;reject_request&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-00406 · 通過</h3>
+<p class="query">i dont khow how to cancel order 385</p>
+<p>預期：<b>下單／取消</b>　模型：<b>下單／取消</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：1.09 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;place_order&quot;,&quot;intent&quot;:&quot;cancel_order&quot;,&quot;confidence&quot;:0.9,&quot;status&quot;:&quot;awaiting_confirmation&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:&quot;385&quot;,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;request_cancellation_confirmation&quot;}</pre></details>
+</article><article class="ok">
+<h3>bitext-08390 · 通過</h3>
+<p class="query">I need assistance getting in touch with customer support</p>
+<p>預期：<b>客服／回饋</b>　模型：<b>客服／回饋</b></p>
+<p>JSON：通過　Pydantic：通過　分類：正確　耗時：0.97 秒</p>
+<details ><summary>模型原始回答</summary><pre>{&quot;route&quot;:&quot;customer_support&quot;,&quot;intent&quot;:&quot;contact_customer_service&quot;,&quot;confidence&quot;:1,&quot;status&quot;:&quot;ready&quot;,&quot;extracted_slots&quot;:{&quot;product_name&quot;:null,&quot;quantity&quot;:null,&quot;order_id&quot;:null,&quot;delivery_address&quot;:null,&quot;customer_name&quot;:null},&quot;missing_slots&quot;:[],&quot;next_action&quot;:&quot;generate_response&quot;}</pre></details>
+</article></main>
+<script>document.querySelectorAll('article.ok').forEach(e=>e.hidden=true);</script></html>

@@ -1,0 +1,9 @@
+{
+  "peak_torch_allocated_gb": 5.3273984,
+  "optimizer_training_wall_s": 2324.6628564999846,
+  "training_plus_final_validation_s": 2509.5723298999947,
+  "optimizer_steps": 116,
+  "train_n": 1853,
+  "initial_validation_loss": 0.26492953804155056,
+  "final_validation_loss": 0.01163251987782948
+}

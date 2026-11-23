@@ -1,0 +1,5 @@
+{
+  "phase": "completed",
+  "completed": true,
+  "comparison": "results/experiment_b/test/comparison_ab.md"
+}

@@ -1,0 +1,6 @@
+{
+  "loss": 0.0038354997523128986,
+  "seconds": 1.9251354000007268,
+  "parameters_with_nonzero_gradient": 16,
+  "peak_allocated_gb": 5.308567552
+}

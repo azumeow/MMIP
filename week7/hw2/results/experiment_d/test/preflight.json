@@ -1,0 +1,61 @@
+{
+  "native_api_response": {
+    "model": "clef-flash-q4_k_m",
+    "answers": {
+      "route": {
+        "type": "choice",
+        "choice": "customer_support",
+        "probabilities": {
+          "clarification": 0.11798001341446239,
+          "customer_support": 0.45359422733907356,
+          "order_tracking": 0.06866258558143361,
+          "out_of_scope": 0.0936574551012301,
+          "place_order": 0.06914124806705185,
+          "product_inquiry": 0.10212286267967745,
+          "returns": 0.09484160781707089
+        },
+        "confidence": 0.3625265985622525
+      },
+      "intent": {
+        "type": "choice",
+        "choice": "contact_human_agent",
+        "probabilities": {
+          "ask_return_policy": 0.0015673378801565531,
+          "cancel_order": 0.0015610055781376973,
+          "check_product_specs": 0.001658973363042774,
+          "check_shipping_status": 0.0014304872670437916,
+          "contact_customer_service": 0.03608655671625563,
+          "contact_human_agent": 0.944884865921419,
+          "feedback": 0.0023280052455535143,
+          "general_product_question": 0.0014543727866918473,
+          "purchase_product": 0.0015981380622896411,
+          "request_return": 0.0020684855604242063,
+          "technical_support": 0.0018097295071812824,
+          "unknown": 0.0017499731154749095,
+          "unrelated_request": 0.001802068996329584
+        },
+        "confidence": 0.9402919380815371
+      }
+    },
+    "usage": {
+      "input_tokens": 850,
+      "output_tokens": 0
+    }
+  },
+  "assembled_router": {
+    "route": "clarification",
+    "intent": "unknown",
+    "confidence": 0.45359422733907356,
+    "status": "ambiguous_intent",
+    "extracted_slots": {
+      "product_name": null,
+      "quantity": null,
+      "order_id": null,
+      "delivery_address": null,
+      "customer_name": null
+    },
+    "missing_slots": [],
+    "next_action": "ask_for_information"
+  },
+  "passed": true
+}

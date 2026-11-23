@@ -1,0 +1,47 @@
+INFO:lora-to-gguf:Loading base model: conversion_base
+INFO:lora-to-gguf:Using model architecture: Qwen3ForCausalLM
+INFO:gguf.gguf_writer:gguf: This GGUF file is for Little Endian only
+INFO:lora-to-gguf:Exporting model...
+INFO:hf-to-gguf:blk.28.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.28.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.28.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.28.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:blk.29.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.29.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.29.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.29.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:blk.30.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.30.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.30.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.30.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:blk.31.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.31.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.31.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.31.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:blk.32.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.32.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.32.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.32.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:blk.33.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.33.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.33.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.33.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:blk.34.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.34.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.34.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.34.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:blk.35.attn_q.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.35.attn_q.weight.lora_b, torch.float32 --> F16, shape = {8, 4096}
+INFO:hf-to-gguf:blk.35.attn_v.weight.lora_a, torch.float32 --> F16, shape = {4096, 8}
+INFO:hf-to-gguf:blk.35.attn_v.weight.lora_b, torch.float32 --> F16, shape = {8, 1024}
+INFO:hf-to-gguf:Set meta model
+INFO:hf-to-gguf:Set model parameters
+INFO:hf-to-gguf:Set model quantization version
+INFO:hf-to-gguf:Set model tokenizer
+INFO:gguf.gguf_writer:Writing the following files:
+INFO:gguf.gguf_writer:C:\Users\Jian Yowen\Desktop\MMIP\week7\models\experiment_b\adapter.gguf: n_tensors = 32, total_size = 1.7M
+
+Writing:   0%|          | 0.00/1.70M [00:00<?, ?byte/s]
+Writing: 100%|██████████| 1.70M/1.70M [00:00<00:00, 284Mbyte/s]
+INFO:lora-to-gguf:Model successfully exported to C:\Users\Jian Yowen\Desktop\MMIP\week7\models\experiment_b\adapter.gguf
+Converted LoRA: C:\Users\Jian Yowen\Desktop\MMIP\week7\models\experiment_b\adapter.gguf

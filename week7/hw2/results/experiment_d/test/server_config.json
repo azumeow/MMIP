@@ -1,0 +1,31 @@
+{
+  "command": [
+    "C:\\Users\\Jian Yowen\\Desktop\\MMIP\\week7\\tools\\llama-b12359-cuda\\llama-server.exe",
+    "-m",
+    "C:\\Users\\Jian Yowen\\Desktop\\MMIP\\week7\\models\\clef-flash-gguf\\Clef-Flash-Q4_K_M.gguf",
+    "--alias",
+    "clef-flash-q4_k_m",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8082",
+    "-c",
+    "4096",
+    "--parallel",
+    "1",
+    "--batch-size",
+    "2048",
+    "--ubatch-size",
+    "2048",
+    "--fit",
+    "on",
+    "--fit-target",
+    "512",
+    "--no-mmproj",
+    "--jinja"
+  ],
+  "host": "127.0.0.1",
+  "port": 8082,
+  "gpu_policy": "Automatic fit; exact layer counts absent in default-verbosity log. See hardware_snapshot.json for observed total device memory during inference.",
+  "ubatch_policy": "Entire native decision prompt must fit in one 2048-token ubatch"
+}

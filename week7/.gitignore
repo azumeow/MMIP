@@ -1,0 +1,8 @@
+# 只放在本機：模型、推論引擎、虛擬環境、資料與分類器
+.venv-b/
+.venv-hw3/
+classifier/
+data/
+models/
+tools/
+__pycache__/

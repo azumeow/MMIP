@@ -1,0 +1,751 @@
+﻿id,text,expected_route,predicted_route,json_valid,schema_valid,route_correct,end_to_end_success,latency_s,api_error,validation_error,raw_output
+clinc-train-04599,when to change my oil,out_of_scope,product_inquiry,True,True,False,False,1.0280134000058752,,,"{""route"":""product_inquiry"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-08057,I want to check what hours customer support available is,customer_support,customer_support,True,True,True,True,1.0525225999881513,,,"{""route"":""customer_support"",""intent"":""ask_customer_service_hours"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16027,where to ask for a rebate of my money,returns,returns,True,True,True,True,0.9750252999947406,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null,""product_name"":null,""quantity"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-07436,I need assistance to file a consumer claim,customer_support,customer_support,True,True,True,True,0.9737816999841016,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-08398,I want help to check what hours I can reach customer support,customer_support,customer_support,True,True,True,True,1.0257883000012953,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16793,assistance to ask for a reimbursement,returns,returns,True,True,True,True,0.9555894999939483,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-22009,where do i leave a review about a service,customer_support,customer_support,True,True,True,True,0.9890291999909095,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-08411,what type of fuel do i need to use to fill the car up with,out_of_scope,product_inquiry,True,True,False,False,1.0303382000129204,,,"{""route"":""product_inquiry"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-22243,could you help me to submit my feedback for your products?,customer_support,customer_support,True,True,True,True,0.9334412999742199,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-01621,is flight dl123 coming in on time,out_of_scope,out_of_scope,True,True,True,True,0.9565223000245169,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19447,I need assistance ordering an item,place_order,place_order,True,True,True,True,1.1065494999929797,,,"{""route"":""place_order"",""intent"":""purchase_product"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[""product_name"",""quantity"",""delivery_address""],""next_action"":""ask_for_information""}"
+bitext-19166,i dont know how to order several of ur article,place_order,product_inquiry,True,True,False,False,1.0253484999993816,,,"{""route"":""product_inquiry"",""intent"":""technical_support"",""confidence"":0.9,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-19568,I am trying to order some of your article,place_order,product_inquiry,True,True,False,False,1.1587331000191625,,,"{""route"":""product_inquiry"",""intent"":""purchase_product"",""confidence"":0.8,""status"":""missing_information"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[""product_name"",""quantity"",""delivery_address""],""next_action"":""ask_for_information""}"
+bitext-16428,how long until I obtain a restitution of money?,returns,returns,True,True,True,True,0.9354667000006884,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null,""product_name"":null,""quantity"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-00880,I want assistance canceling purchase 899,place_order,place_order,True,False,True,False,0.71045710000908,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '899'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '899'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '899'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '899'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""899""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+clinc-train-08897,can you tell me the next holiday,out_of_scope,out_of_scope,True,True,True,True,0.9657153000007384,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00309,I need assistance with canceling purchase 543,place_order,place_order,True,False,True,False,0.7705272000166588,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '543'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '543'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '543'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '543'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":""543""},""missing_slots"":[""customer_name""],""next_action"":""ask_for_information""}"
+bitext-09434,i dont know what i have to do to speak to an assistant,customer_support,customer_support,True,True,True,True,1.0814575999975204,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-09191,"you are not helpful at all, help me speak to a human agent",customer_support,customer_support,True,True,True,True,1.0966838000167627,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+clinc-train-02873,can you help me rollover my 401k to my new place of employment,out_of_scope,out_of_scope,True,True,True,True,1.0010447000095155,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-09218,can Icontact a person?,customer_support,customer_support,True,True,True,True,1.0333771999867167,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-06228,I don't know how I can check your reimbursement policy,returns,returns,True,True,True,True,0.9053668999986257,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16057,I want herlp to obtain reimbursements of money,returns,returns,True,True,True,True,0.926733600004809,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-09128,I am trying to talk to somebody,customer_support,customer_support,True,True,True,True,0.986631399980979,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-06706,"I have to see in what cases can I request refunds, help me",returns,returns,True,True,True,True,0.9371266000089236,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-11692,i would like to know where the closest gas station is,out_of_scope,out_of_scope,True,True,True,True,0.9839560000109486,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-09188,I cannot speak with an assistant,customer_support,customer_support,True,True,True,True,1.0018646999960765,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-06320,i have to check how long reufnds take how to do it,returns,returns,True,True,True,True,0.9554089000157546,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-22177,assistance leaving my feedback for your services,customer_support,customer_support,True,True,True,True,0.9274198999919463,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-00771,i'd like to see if there's a travel alert for the country,out_of_scope,out_of_scope,True,True,True,True,0.9833501999964938,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-16010,i need help to obtain compensations,returns,customer_support,True,True,False,False,0.941183999995701,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16502,i do not know how to request a rebate of money,returns,customer_support,True,True,False,False,0.9588244000042323,,,"{""route"":""customer_support"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25826,i want assistance to see the ETA of the order 954,order_tracking,order_tracking,True,False,True,False,0.6992167000134941,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '954'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '954'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '954'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '954'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""954""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-09505,I do not know what to do to contact a damn operator,customer_support,customer_support,True,True,True,True,1.0028636000060942,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-00039,i do not want these article i try to cancel order 263,place_order,place_order,True,False,True,False,0.7609454999910668,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '263'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '263'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '263'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '263'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""263""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+clinc-train-02819,how do i relocate my 401k,out_of_scope,out_of_scope,True,True,True,True,0.9597743999911472,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19666,I need to shop several of your article,place_order,product_inquiry,True,True,False,False,1.0765168000070844,,,"{""route"":""product_inquiry"",""intent"":""purchase_product"",""confidence"":0.7,""status"":""missing_information"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[""product_name"",""quantity"",""delivery_address""],""next_action"":""ask_for_information""}"
+bitext-22708,I call to leave some feedback about your services,customer_support,customer_support,True,True,True,True,0.9355667000054382,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-14530,give me the low down on my income,out_of_scope,out_of_scope,True,True,True,True,0.9661686999897938,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-06001,how many carry ons will american let me take for a flight to los vegas,out_of_scope,out_of_scope,True,True,True,True,0.9701366999943275,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19728,where can I earn some articles?,place_order,out_of_scope,True,True,False,False,0.9716139000083786,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19323,assistance ordering some bloodyproducts,place_order,place_order,True,True,True,True,1.0765660999750253,,,"{""route"":""place_order"",""intent"":""purchase_product"",""confidence"":0.8,""status"":""missing_information"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[""product_name"",""quantity"",""delivery_address""],""next_action"":""ask_for_information""}"
+bitext-00117,assistance with canceling purchase 475,place_order,place_order,True,False,True,False,0.7548288999823853,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '475'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '475'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '475'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '475'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""475""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-25492,i need help seeing the goddamn eta of purchae 379,order_tracking,order_tracking,True,False,True,False,0.7005466000118759,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '379'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '379'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '379'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '379'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""379""},""missing_slots"":[],""next_action"":""query_database""}"
+clinc-train-08753,how much is 500 dollars in pesos,out_of_scope,out_of_scope,True,True,True,True,0.9696389999880921,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00450,I want assistance canceling order 984,place_order,place_order,True,False,True,False,0.7137167999753729,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '984'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '984'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '984'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '984'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""984""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-08573,i dont know what i have to do to talk with customer service,customer_support,customer_support,True,True,True,True,1.0083300000114832,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-25308,help to see thje ETA of purchase 128,order_tracking,order_tracking,True,False,True,False,0.7147811000177171,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '128'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '128'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '128'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '128'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""128""},""missing_slots"":[],""next_action"":""query_database""}"
+clinc-train-14590,what do i earn on average at my job,out_of_scope,out_of_scope,True,True,True,True,0.955248299986124,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-14791,if im traveling to the hospital around noon what is the traffic typically like,out_of_scope,out_of_scope,True,True,True,True,0.9596002000034787,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00804,where do i cancel order 781,place_order,place_order,True,False,True,False,0.7134651999804191,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '781'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '781'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '781'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '781'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""781""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-07562,helplodging a consumer reclamation against ur business,customer_support,customer_support,True,True,True,True,0.9707273000094574,,,"{""route"":""customer_support"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-19205,i do not know what to do to earn some items,place_order,clarification,True,True,False,False,0.9690709999995306,,,"{""route"":""clarification"",""intent"":""unknown"",""confidence"":0.8,""status"":""ambiguous_intent"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""ask_for_information""}"
+bitext-06446,can you show me in which situations can I ask for refunds?,returns,returns,True,True,True,True,0.8933639999886509,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-08735,I have to check what hours I can reach customer support,customer_support,customer_support,True,True,True,True,0.9803099000127986,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25862,help me locating purchase 562,order_tracking,order_tracking,True,False,True,False,0.760938499995973,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '562'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '562'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '562'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '562'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":""562""},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+clinc-train-05914,what day of the month is it today,out_of_scope,out_of_scope,True,True,True,True,0.9661451000138186,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-05597,what's the nutritional value for a pizza lunchable,out_of_scope,out_of_scope,True,True,True,True,0.9774519000202417,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-10728,at this location what are my gps coordinates,out_of_scope,out_of_scope,True,True,True,True,0.9754613999975845,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-05943,"in 2 days, what date will it be",out_of_scope,out_of_scope,True,True,True,True,0.9714109000051394,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19695,"I would like to earn several products, how could I do it?",place_order,product_inquiry,True,True,False,False,0.9871439000125974,,,"{""route"":""product_inquiry"",""intent"":""ask_return_policy"",""confidence"":0.9,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25555,"I have to see the ETA of the order 961, help me",order_tracking,order_tracking,True,False,True,False,0.7007252000039443,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '961'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '961'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '961'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '961'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""961""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-22155,I want to leave feedback about your services,customer_support,customer_support,True,True,True,True,0.9031439000100363,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25373,I don't know how I can check the ETA of order 765,order_tracking,order_tracking,True,False,True,False,0.7031550999963656,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '765'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '765'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '765'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '765'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""765""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-06064,how do I check your money back policy ?,returns,returns,True,True,True,True,0.9151670999999624,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-10853,is it going to be sunny today,out_of_scope,out_of_scope,True,True,True,True,0.9600657999981195,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-16762,assistance to request my money back,returns,returns,True,False,True,False,0.7006865000003017,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+bitext-07742,where to filr a consumer complaint?,customer_support,customer_support,True,True,True,True,0.9592185000074096,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-05936,I am trying to see in what cases can I request a refund,returns,returns,True,True,True,True,0.9578532000014093,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-06085,search for carry on rules for flights on delta airlines,out_of_scope,out_of_scope,True,True,True,True,0.9661673000082374,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19455,where to purchase an article?,place_order,product_inquiry,True,True,False,False,0.9742471000063233,,,"{""route"":""product_inquiry"",""intent"":""ask_where_to_purchase"",""confidence"":0.9,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25324,assistance to see the ETA of the order 671,order_tracking,order_tracking,True,False,True,False,0.71158520001336,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '671'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '671'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '671'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '671'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""671""},""missing_slots"":[],""next_action"":""query_database""}"
+clinc-train-11689,i want to know the nearest bank's location,out_of_scope,out_of_scope,True,True,True,True,0.9608169999846723,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-05977,show me a calendar,out_of_scope,out_of_scope,True,True,True,True,0.9627546000119764,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-04532,when do i have to change oil,out_of_scope,product_inquiry,True,True,False,False,0.9624568999861367,,,"{""route"":""product_inquiry"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25222,can you help me check the ETA of the purchase 915?,order_tracking,order_tracking,True,False,True,False,0.6990617999981623,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '915'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '915'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '915'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '915'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""915""},""missing_slots"":[],""next_action"":""query_database""}"
+clinc-train-04596,how often should you get an oil change,out_of_scope,product_inquiry,True,True,False,False,0.958844799984945,,,"{""route"":""product_inquiry"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-06160,how many days did i skip work,out_of_scope,out_of_scope,True,True,True,True,0.9705310999997891,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-04703,i need help with some fun tourist things to do in tokyo,out_of_scope,out_of_scope,True,True,True,True,1.0230240999953821,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-06495,help me check in which cvases can i ask for my money back,returns,returns,True,True,True,True,0.9455861000169534,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-09237,"you are not helpful, help talking to an operator",customer_support,customer_support,True,True,True,True,0.9869910000124946,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-25050,need assistance to check the ETA of order 966,order_tracking,order_tracking,True,False,True,False,0.7023995000054128,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '966'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '966'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '966'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '966'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""966""},""missing_slots"":[],""next_action"":""query_database""}"
+clinc-train-01240,when will i recieve my next paycheck,out_of_scope,out_of_scope,True,True,True,True,0.9787816999887582,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-24961,I'm trying to check purcahse 619 current status,order_tracking,order_tracking,True,False,True,False,0.7696749000169802,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '619'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '619'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '619'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '619'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":""619""},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+clinc-train-11673,"where is the nearest gas station to 20th and market streets, in philadelphia, pa",out_of_scope,out_of_scope,True,True,True,True,0.9752967999957036,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-10284,pizza has which ingredients,out_of_scope,product_inquiry,True,False,False,False,0.7008269999932963,,"4 validation errors for RouterOutput
+extracted_slots.quantity
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.order_id
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""product_inquiry"",""intent"":""product_specifications"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":""pizza""},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-00110,need assistance canceling order 369,place_order,place_order,True,False,True,False,0.7276037000119686,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '369'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '369'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '369'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '369'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""369""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+clinc-train-05989,tell me tomorrow's date,out_of_scope,out_of_scope,True,True,True,True,0.9651392000087071,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19575,buy item,place_order,place_order,True,True,True,True,1.073093399987556,,,"{""route"":""place_order"",""intent"":""purchase_product"",""confidence"":0.8,""status"":""missing_information"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[""product_name"",""quantity"",""delivery_address""],""next_action"":""ask_for_information""}"
+bitext-00220,assistance canceling purchase 343,place_order,place_order,True,False,True,False,0.771618300001137,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '343'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '343'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '343'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '343'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":""343""},""missing_slots"":[""product_name""],""next_action"":""ask_for_information""}"
+clinc-train-03559,are there some good thai restaurants in san antonio,out_of_scope,out_of_scope,True,True,True,True,0.959608200006187,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-07267,I want help to lodge a consumer reclamation,customer_support,returns,True,True,False,False,0.93700059998082,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25832,can you help me see purchase 240 current status?,order_tracking,order_tracking,True,False,True,False,0.7390678000228945,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":null},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+clinc-train-11334,does mexico require me to have a visa to travel there,out_of_scope,out_of_scope,True,True,True,True,0.9645794999960344,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-06851,how long to microwave a frozen dinner,out_of_scope,product_inquiry,True,False,False,False,0.7136086999962572,,"4 validation errors for RouterOutput
+extracted_slots.quantity
+  Field required [type=missing, input_value={'product_name': 'frozen dinner'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.order_id
+  Field required [type=missing, input_value={'product_name': 'frozen dinner'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'product_name': 'frozen dinner'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'product_name': 'frozen dinner'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""product_inquiry"",""intent"":""product_usage_instructions"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":""frozen dinner""},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-07315,assistance lodging a customer complaint against your company,customer_support,customer_support,True,True,True,True,0.9044667000125628,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-09407,can you direct to me a person?,customer_support,customer_support,True,True,True,True,1.015058399992995,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-24949,I try to track order 416,order_tracking,order_tracking,True,False,True,False,0.7056982000067364,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '416'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '416'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '416'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '416'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""416""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-07596,I need to file a complaint against your business,customer_support,customer_support,True,True,True,True,0.9040588999923784,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25581,wanna locate uprchase 595 can i get some help,order_tracking,place_order,True,True,False,False,1.131386900000507,,,"{""route"":""place_order"",""intent"":""purchase_product"",""confidence"":0.9,""status"":""missing_information"",""extracted_slots"":{""product_name"":null,""quantity"":595,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[""product_name"",""delivery_address"",""customer_name""],""next_action"":""ask_for_information""}"
+clinc-train-10695,i'm going to need a hotel in tampa near ybor city for march 23rd through the 28th,out_of_scope,out_of_scope,True,True,True,True,0.979769400000805,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-25666,how can I see the status of purchae 456?,order_tracking,order_tracking,True,False,True,False,0.7310750000178814,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '456'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '456'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '456'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '456'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""456""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-22404,is there a section to leave some feedack for ur services,customer_support,customer_support,True,True,True,True,0.9333072000008542,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-06433,check your money back policy,returns,returns,True,True,True,True,0.8987797999870963,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-00902,ihave bought some damn product cancel order 791,place_order,place_order,True,False,True,False,0.7496615999843925,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '791'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '791'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '791'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '791'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""791""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+clinc-train-05957,what is today's date,out_of_scope,out_of_scope,True,True,True,True,0.9668868999870028,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-07607,can I file a consumer reclamation against your company?,customer_support,customer_support,True,True,True,True,0.95279290000326,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16412,I am trying ot get rebates,returns,customer_support,True,True,False,False,0.9826804999902379,,,"{""route"":""customer_support"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16001,is it possible to ask for an rebate of my money,returns,returns,True,False,True,False,0.6858595999947283,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+clinc-train-06127,what's the total of days i've taken for me time so far,out_of_scope,out_of_scope,True,True,True,True,0.9632619000039995,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-16888,I want assistance receiving a refund of my money,returns,returns,True,True,True,True,0.9418802000000142,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null,""product_name"":null,""quantity"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""query_database""}"
+clinc-train-01459,now what is the time,out_of_scope,out_of_scope,True,True,True,True,0.9667537000204902,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-03577,find me a new place for dinner,out_of_scope,out_of_scope,True,True,True,True,0.957296700013103,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-01494,what time is it in paris,out_of_scope,out_of_scope,True,True,True,True,0.9676191000035033,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-11346,do i need to get a visa for russia,out_of_scope,out_of_scope,True,True,True,True,0.9725794999976642,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19497,how can I earn some articles?,place_order,out_of_scope,True,True,False,False,0.9582827999838628,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-22680,assistance leaving a bloody opinion about a product,customer_support,customer_support,True,True,True,True,0.9548958000086714,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-05249,gauge the tire pressure,out_of_scope,product_inquiry,True,True,False,False,0.9835894000134431,,,"{""route"":""product_inquiry"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16232,want hep receiving a refund of my money,returns,returns,True,False,True,False,0.7078981999948155,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+bitext-00816,assistance to cancel purchase 755,place_order,place_order,True,False,True,False,0.7502317999897059,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '755'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '755'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '755'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '755'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""755""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-16702,I want help to receive refunds of money,returns,returns,True,True,True,True,0.933516499993857,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-19320,assistance shopping some of your product,place_order,product_inquiry,True,True,False,False,0.9461400999862235,,,"{""route"":""product_inquiry"",""intent"":""purchase_product"",""confidence"":0.9,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-08859,can you tell me what the next holiday is,out_of_scope,out_of_scope,True,True,True,True,0.9842481999949086,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-07161,cumin may be substituted for tumeric,out_of_scope,product_inquiry,True,True,False,False,1.00211929998477,,,"{""route"":""product_inquiry"",""intent"":""product_substitution"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":""cumin"",""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-00591,assistance canceling order 931,place_order,place_order,True,False,True,False,0.7517026000132319,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '931'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '931'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '931'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '931'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""931""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-25272,i need assistance to check the eta of the order 162,order_tracking,order_tracking,True,False,True,False,0.7174279000028037,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '162'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '162'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '162'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '162'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""162""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-09439,what do I need to do to speak with somebody?,customer_support,customer_support,True,True,True,True,0.999941599991871,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+clinc-train-02808,i have to transfer my 401k but i don't know how to do it,out_of_scope,out_of_scope,True,True,True,True,1.008859699999448,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00594,I nee assistance to cancel purchase 1000,place_order,place_order,True,False,True,False,0.7744927000021562,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '1000'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '1000'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '1000'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '1000'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":""1000""},""missing_slots"":[""customer_name""],""next_action"":""ask_for_information""}"
+clinc-train-11583,what number of vacation days do i have,out_of_scope,out_of_scope,True,True,True,True,0.9710726999910548,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-03074,how long does it take to get to houston by bus,out_of_scope,out_of_scope,True,True,True,True,0.9664711000223178,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-10282,list the ingredients in pizza,out_of_scope,product_inquiry,True,False,False,False,0.7247592000057921,,"4 validation errors for RouterOutput
+extracted_slots.quantity
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.order_id
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'product_name': 'pizza'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""product_inquiry"",""intent"":""product_specifications"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":""pizza""},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-06384,help me see under what circumtsances can I ask for refunds,returns,returns,True,True,True,True,1.0000861000153236,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-08615,check at what time I can call customer support,customer_support,customer_support,True,True,True,True,0.9779348000010941,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-08024,what do I need to do to call customer assistance?,customer_support,customer_support,True,True,True,True,0.9869982000091113,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-08676,I try to check what hours customer assistance available is,customer_support,customer_support,True,True,True,True,0.9607866000151262,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-08750,how many pesos equals 500 dollars,out_of_scope,out_of_scope,True,True,True,True,0.9727696000190917,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-25619,I need assistance trackng purchase 248,order_tracking,order_tracking,True,False,True,False,0.6978986999893095,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '248'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '248'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '248'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '248'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""248""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-07161,need help to make a complaint against ur company,customer_support,customer_support,True,True,True,True,0.9444984000001568,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-07635,where is my w-2,out_of_scope,out_of_scope,True,True,True,True,0.9554479999933392,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-05989,I'm trying to check how long reimbursements take,returns,returns,True,True,True,True,0.9526787000067998,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-00185,what do I ned to do to cancel order 503?,place_order,place_order,True,False,True,False,0.7186380000202917,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '503'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '503'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '503'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '503'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""503""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-16368,i do not know how i can request a rebate of my money,returns,returns,True,True,True,True,0.930496300017694,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-06077,can i have 3 carry ons with delta at jfk,out_of_scope,place_order,True,True,False,False,1.0661300999927334,,,"{""route"":""place_order"",""intent"":""purchase_product"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""product_name"":""carry ons"",""quantity"":3,""delivery_address"":null,""order_id"":null,""customer_name"":null},""missing_slots"":[""delivery_address"",""customer_name""],""next_action"":""ask_for_information""}"
+bitext-16385,i dont know what to do to obtain a reimbursement of money,returns,returns,True,True,True,True,0.9596855999843683,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-00730,any travel advisories for portugal,out_of_scope,out_of_scope,True,True,True,True,0.9681892000080552,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-10848,read me the current weather report for tallahassee,out_of_scope,out_of_scope,True,True,True,True,0.9807643999811262,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-10846,i need meteorological data for tallahassee,out_of_scope,out_of_scope,True,True,True,True,0.9602673999906983,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00952,order cancellation,place_order,place_order,True,False,True,False,0.715678200009279,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":null},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+clinc-train-11323,i need to know if i must have an international visa to go to france,out_of_scope,out_of_scope,True,True,True,True,0.9623778999957722,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-05224,how much air remains in my tires,out_of_scope,product_inquiry,True,True,False,False,0.9666186999820638,,,"{""route"":""product_inquiry"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16887,where could I get a compensation of my money?,returns,returns,True,True,True,True,0.9785952999955043,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-11698,where is the closest mcdonalds,out_of_scope,out_of_scope,True,True,True,True,0.9896360999846365,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00971,I want assistance to cancel purchase 672,place_order,place_order,True,False,True,False,0.7561339999956544,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '672'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '672'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '672'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '672'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""672""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-00685,i need help with cancelliung order 361,place_order,place_order,True,False,True,False,0.7476326000178233,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '361'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '361'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '361'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '361'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""361""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+clinc-train-00841,i want you to make me a pto request for me for april twenty through may two,out_of_scope,out_of_scope,True,True,True,True,0.971068800019566,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-06225,show me in which situations can i request my money back,returns,returns,True,True,True,True,0.9541148999996949,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-05541,what are the nutritional data for mashed potatoes,out_of_scope,product_inquiry,True,False,False,False,0.721624800004065,,"4 validation errors for RouterOutput
+extracted_slots.quantity
+  Field required [type=missing, input_value={'product_name': 'mashed potatoes'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.order_id
+  Field required [type=missing, input_value={'product_name': 'mashed potatoes'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'product_name': 'mashed potatoes'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'product_name': 'mashed potatoes'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""product_inquiry"",""intent"":""product_specifications"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":""mashed potatoes""},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-10937,can you find the exact amount i pay income taxes,out_of_scope,out_of_scope,True,True,True,True,0.9622089999902528,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-03572,could you locate me some good places in kentucky that serve sushi,out_of_scope,out_of_scope,True,True,True,True,0.9631260999885853,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-16747,how can i ask for rebates of my money,returns,returns,True,True,True,True,0.938018299988471,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null,""product_name"":null,""quantity"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-14126,i want to travel to new york and i would like to rent a car,out_of_scope,out_of_scope,True,True,True,True,0.9906157999939751,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-10779,"can you find my location on the map, please",out_of_scope,out_of_scope,True,True,True,True,0.9666637000045739,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-11343,do i need a travel visa to visit canada,out_of_scope,out_of_scope,True,True,True,True,0.9628821999940556,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-16234,how can i ask for a ocmpensation of my money,returns,returns,True,True,True,True,0.92724749998888,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null,""product_name"":null,""quantity"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-03023,tell the miles it will take to get to las vegas from san diego,out_of_scope,out_of_scope,True,True,True,True,0.9704588000022341,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-14790,can you tell me about the traffic typically at noon on the route the hospital,out_of_scope,out_of_scope,True,True,True,True,0.9735346999950707,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-09180,can you help me  to speak with somebody?,customer_support,customer_support,True,True,True,True,1.0004533000173979,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-08431,help to check at what time I can call customer support,customer_support,customer_support,True,True,True,True,0.9771874999860302,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-14450,find a good recipe for meatloaf,out_of_scope,out_of_scope,True,True,True,True,0.9705202000041027,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-16885,reimbusre TWD 1050,returns,out_of_scope,True,True,False,False,0.9767787999880966,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-08875,uhave a free number to talk with customer assistance,customer_support,customer_support,True,True,True,True,0.9903344000049401,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+clinc-train-03235,which timezone is england in,out_of_scope,out_of_scope,True,True,True,True,0.9578098000201862,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-25002,I don't know how I could see purchase 88 status,order_tracking,order_tracking,True,False,True,False,0.7395853999769315,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":null},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+clinc-train-10901,what will my state taxes cost,out_of_scope,out_of_scope,True,True,True,True,0.9845831000129692,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-19539,order a few of your article,place_order,place_order,True,True,True,True,1.0889241000113543,,,"{""route"":""place_order"",""intent"":""purchase_product"",""confidence"":0.7,""status"":""missing_information"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[""product_name"",""quantity"",""delivery_address""],""next_action"":""ask_for_information""}"
+clinc-train-00719,is there a travel alert for canada,out_of_scope,out_of_scope,True,True,True,True,0.9560354999848641,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-08797,how many dollars can i exchange for 200 yen,out_of_scope,out_of_scope,True,True,True,True,0.9911966999934521,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-09429,I do not know how to chat with a fucking human agent,customer_support,customer_support,True,True,True,True,0.9936267000157386,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-07882,assistance to make a claim against ur business,customer_support,customer_support,True,True,True,True,0.9460226999945007,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-09165,i need assistance to talk with an agent,customer_support,customer_support,True,True,True,True,0.9600842999934684,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+clinc-train-01689,what time will my flight be boarding,out_of_scope,out_of_scope,True,True,True,True,0.9882632000080775,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-03508,do you know any good restaurants good for kids,out_of_scope,out_of_scope,True,True,True,True,0.9861851000168826,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00486,icannot afford order 993 could i cancel it,place_order,place_order,True,False,True,False,0.7469507000059821,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '993'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '993'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '993'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '993'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""993""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+clinc-train-11364,"if i'm planning to go to the uk, do i need a visa",out_of_scope,out_of_scope,True,True,True,True,0.9588084999995772,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-06038,can you help me seeing your refund policy?,returns,returns,True,True,True,True,0.9195839999883901,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-08711,I want help calling customer support,customer_support,customer_support,True,True,True,True,0.9706771000055596,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+clinc-train-03292,is austin in the central timezone,out_of_scope,out_of_scope,True,True,True,True,0.9538963999948464,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00386,want assistance canceling purchase 461,place_order,place_order,True,False,True,False,0.7653549000096973,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '461'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '461'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '461'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '461'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""awaiting_confirmation"",""extracted_slots"":{""order_id"":""461""},""missing_slots"":[],""next_action"":""request_cancellation_confirmation""}"
+bitext-18920,what do I have to do to acquire several products?,place_order,product_inquiry,True,True,False,False,0.976188300002832,,,"{""route"":""product_inquiry"",""intent"":""product_acquisition_instructions"",""confidence"":0.9,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16190,help to ask for a rebate of my money,returns,returns,True,True,True,True,0.9612609000178054,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":null,""product_name"":null,""quantity"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-16390,I want to ask for a compensation of money,returns,returns,True,True,True,True,0.9430645999964327,,,"{""route"":""returns"",""intent"":""request_return"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-09857,need help chatting with a person,customer_support,customer_support,True,True,True,True,0.9849415999779012,,,"{""route"":""customer_support"",""intent"":""contact_human_agent"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-07660,"my experience with you was too bad, lodge a complaint",customer_support,customer_support,True,True,True,True,0.9633567000273615,,,"{""route"":""customer_support"",""intent"":""technical_support"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-25686,could uhelp me see the eta of purchase 458,order_tracking,order_tracking,True,False,True,False,0.7197015999990981,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '458'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '458'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '458'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '458'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""458""},""missing_slots"":[],""next_action"":""query_database""}"
+bitext-22041,I want to send my bloody feedback about your products,customer_support,customer_support,True,True,True,True,0.9473927000071853,,,"{""route"":""customer_support"",""intent"":""feedback"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+bitext-06580,need help to check in which cases can Irequest refunds,returns,returns,True,True,True,True,0.9661174000066239,,,"{""route"":""returns"",""intent"":""ask_return_policy"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-05968,what day of the week is it,out_of_scope,out_of_scope,True,True,True,True,0.9769859999942128,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-03574,can you find me some good places in kentucky that serve sushi,out_of_scope,out_of_scope,True,True,True,True,0.9794323999958578,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-08683,I want help to contact customer assistance,customer_support,customer_support,True,True,True,True,0.9966201999923214,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"
+bitext-24892,track order 427,order_tracking,order_tracking,True,False,True,False,0.7136700999981258,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '427'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '427'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '427'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '427'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""order_id"":""427""},""missing_slots"":[],""next_action"":""query_database""}"
+clinc-train-10737,please show me where i am on a map,out_of_scope,order_tracking,True,False,False,False,0.7563466999854427,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""order_tracking"",""intent"":""check_shipping_status"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":null},""missing_slots"":[""order_id""],""next_action"":""ask_for_information""}"
+bitext-19691,want help shopping several items,place_order,product_inquiry,True,True,False,False,0.9855238999880385,,,"{""route"":""product_inquiry"",""intent"":""ask_for_information"",""confidence"":0.95,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""generate_response""}"
+clinc-train-05988,calender says tomorrow is,out_of_scope,out_of_scope,True,True,True,True,0.9653992999810725,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-03046,how long does it take to get to the park in detroit,out_of_scope,out_of_scope,True,True,True,True,0.9635391999909189,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-01404,"what time is it in houston, tx",out_of_scope,out_of_scope,True,True,True,True,0.9606497999920975,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-07660,where do i locate the form that has my tax information,out_of_scope,out_of_scope,True,True,True,True,0.9629930999944918,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+clinc-train-03062,what time will we arrive at the bank,out_of_scope,out_of_scope,True,True,True,True,0.9910866999998689,,,"{""route"":""out_of_scope"",""intent"":""unrelated_request"",""confidence"":1,""status"":""out_of_scope"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""delivery_address"":null,""customer_name"":null},""missing_slots"":[],""next_action"":""reject_request""}"
+bitext-00406,i dont khow how to cancel order 385,place_order,place_order,True,False,True,False,0.7496842000109609,,"4 validation errors for RouterOutput
+extracted_slots.product_name
+  Field required [type=missing, input_value={'order_id': '385'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.quantity
+  Field required [type=missing, input_value={'order_id': '385'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.delivery_address
+  Field required [type=missing, input_value={'order_id': '385'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing
+extracted_slots.customer_name
+  Field required [type=missing, input_value={'order_id': '385'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.5/v/missing","{""route"":""place_order"",""intent"":""cancel_order"",""confidence"":0.95,""status"":""missing_information"",""extracted_slots"":{""order_id"":""385""},""missing_slots"":[""customer_name""],""next_action"":""ask_for_information""}"
+bitext-08390,I need assistance getting in touch with customer support,customer_support,customer_support,True,True,True,True,0.9690240999916568,,,"{""route"":""customer_support"",""intent"":""contact_customer_service"",""confidence"":1,""status"":""ready"",""extracted_slots"":{""product_name"":null,""quantity"":null,""order_id"":null,""customer_name"":null,""delivery_address"":null},""missing_slots"":[],""next_action"":""handoff_to_human""}"

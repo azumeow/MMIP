@@ -1,0 +1,28 @@
+{
+  "command": [
+    "C:\\Users\\Jian Yowen\\Desktop\\MMIP\\week7\\tools\\llama-b12359-cuda\\llama-server.exe",
+    "-m",
+    "C:\\Users\\Jian Yowen\\Desktop\\MMIP\\week7\\models\\qwen3-8b-gguf\\Qwen3-8B-Q4_K_M.gguf",
+    "--alias",
+    "qwen3-8b-q4_k_m",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8081",
+    "-ngl",
+    "99",
+    "-c",
+    "4096",
+    "--parallel",
+    "1",
+    "--batch-size",
+    "256",
+    "--ubatch-size",
+    "128",
+    "--jinja",
+    "--reasoning-budget",
+    "0"
+  ],
+  "port": 8081,
+  "host": "127.0.0.1"
+}

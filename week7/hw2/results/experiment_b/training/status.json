@@ -1,0 +1,10 @@
+{
+  "phase": "completed",
+  "completed": true,
+  "processed": 1853,
+  "optimizer_steps": 116,
+  "initial_validation_loss": 0.26492953804155056,
+  "best_validation_loss": 0.01163251987782948,
+  "elapsed_s": 2509.5723298999947,
+  "adapter": "C:\\Users\\Jian Yowen\\Desktop\\MMIP\\week7\\models\\experiment_b\\adapter"
+}

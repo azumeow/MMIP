@@ -1,0 +1,43 @@
+{
+  "epochs": 1,
+  "rank": 8,
+  "layers": 8,
+  "gradient_accumulation": 16,
+  "max_length": 1536,
+  "learning_rate": 0.0002,
+  "smoke_only": true,
+  "base_model": "Qwen/Qwen3-8B",
+  "training_checkpoint": "C:\\Users\\Jian Yowen\\Desktop\\MMIP\\week7\\models\\qwen3-8b-nf4",
+  "quantization": "bitsandbytes NF4 double quantization",
+  "compute_dtype": "bfloat16",
+  "target_modules": [
+    "q_proj",
+    "v_proj"
+  ],
+  "target_layers": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "trainable_parameters": 851968,
+  "batch_size": 1,
+  "effective_batch_size": 16,
+  "train_n": 1853,
+  "validation_n": 223,
+  "max_actual_length": 1209,
+  "confidence_numeric_loss_mask": true,
+  "assistant_only_loss": true,
+  "frozen_embedding_cpu_offload": true,
+  "seed": 20261119,
+  "torch": "2.7.1+cu126",
+  "transformers": "4.56.2",
+  "peft": "0.17.1",
+  "bitsandbytes": "0.47.0",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "prompt_sha256": "62d2c8c0efa29afa2a63a8fca21f16d25b8b2f1c10267e7273ddbcb2cbbb5c3c"
+}

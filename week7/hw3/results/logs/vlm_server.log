@@ -1,0 +1,14 @@
+0.00.093.909 I srv  llama_server: initializing ...
+0.00.093.921 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.094.218 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.112.041 I srv    load_model: loading model 'C:\Users\Jian Yowen\Desktop\MMIP\week7\models\qwen3-vl-2b-gguf\Qwen3-VL-2B-Instruct-Q8_0.gguf'
+0.00.517.031 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.00.778.601 I cmn          init: llama threadpool init, n_threads = 6
+0.01.084.778 W load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks
+0.01.084.786 W load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024
+0.01.084.786 W load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842
+
+0.01.844.976 I srv    load_model: loaded multimodal model, 'C:\Users\Jian Yowen\Desktop\MMIP\week7\models\qwen3-vl-2b-gguf\mmproj-Qwen3-VL-2B-Instruct-Q8_0.gguf'
+0.01.957.844 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'
+0.01.964.478 I srv  server_run_i: model loaded
+0.01.964.488 I srv  server_on_li: listening on http://127.0.0.1:8083

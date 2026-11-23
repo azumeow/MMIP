@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "route",
+    "intent",
+    "confidence",
+    "status",
+    "extracted_slots",
+    "missing_slots",
+    "next_action"
+  ],
+  "properties": {
+    "route": {
+      "type": "string",
+      "enum": [
+        "product_inquiry",
+        "returns",
+        "customer_support",
+        "out_of_scope",
+        "place_order",
+        "order_tracking",
+        "clarification"
+      ],
+      "description": "Downstream task or special handling route"
+    },
+    "intent": {
+      "type": "string",
+      "description": "Specific user intent; use unknown when it cannot be identified"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "The classification model's confidence estimate, which may not be a calibrated probability"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ready",
+        "missing_information",
+        "ambiguous_intent",
+        "out_of_scope",
+        "blocked",
+        "awaiting_confirmation"
+      ],
+      "description": "Task processing status"
+    },
+    "extracted_slots": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product_name",
+        "quantity",
+        "order_id",
+        "delivery_address",
+        "customer_name"
+      ],
+      "properties": {
+        "product_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "order_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "customer_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "delivery_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "description": "Extract from the current message and prior context; use null when unavailable and never fabricate values."
+    },
+    "missing_slots": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "product_name",
+          "quantity",
+          "order_id",
+          "delivery_address",
+          "customer_name"
+        ]
+      },
+      "description": "Required information missing from an otherwise identified intent"
+    },
+    "next_action": {
+      "type": "string",
+      "enum": [
+        "query_database",
+        "ask_for_information",
+        "generate_response",
+        "handoff_to_human",
+        "reject_request",
+        "request_order_confirmation",
+        "simulate_place_order",
+        "request_cancellation_confirmation",
+        "simulate_cancel_order"
+      ],
+      "description": "Next processing action"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "observed_at": "2026-11-19T16:00:08.785863",
+  "nvidia_smi": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA GeForce RTX 3060 Ti, 8192 MiB, 7138 MiB, 100 %\n",
+  "note": "Snapshot during formal inference; memory includes desktop and other GPU processes. Exact layer offload counts unavailable in default verbosity log."
+}

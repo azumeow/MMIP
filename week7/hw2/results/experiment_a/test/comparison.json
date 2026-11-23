@@ -1,0 +1,27 @@
+{
+  "n": 210,
+  "threshold": 0.6,
+  "baseline_accuracy_before_rejection": 1.0,
+  "baseline_route_accuracy_after_rejection": 0.9857142857142858,
+  "baseline_coverage": 0.9857142857142858,
+  "baseline_accepted_accuracy": 1.0,
+  "baseline_mean_latency_s": 0.001143444287368939,
+  "baseline_p95_latency_s": 0.001607224998588207,
+  "a_metrics": {
+    "n": 210,
+    "json_valid_rate": 1.0,
+    "schema_valid_rate": 0.7857142857142857,
+    "route_correct_rate": 0.8571428571428571,
+    "end_to_end_success_rate": 0.6666666666666666,
+    "api_errors": 0,
+    "mean_latency_s": 0.9225194376192077,
+    "p95_latency_s": 1.0439071699875055,
+    "total_wall_inference_s": 193.72908190003363,
+    "prompt_tokens": 234155,
+    "completion_tokens": 12314,
+    "gpu_cost": null,
+    "slot_and_status_accuracy": null,
+    "note": "Schema validation checks shape, not factual/business correctness. Gold slots/status/actions are unavailable, so their semantic accuracy is not scored."
+  },
+  "limitations": "Baseline timing is CPU direct Python; A includes local HTTP + CUDA GPU inference. Baseline has five trained labels plus threshold rejection; A permits seven scheme routes. This is a preliminary same-query comparison, not a fully controlled A-D comparison. Baseline is not scored as a full Router JSON. No tuning on this comparison."
+}

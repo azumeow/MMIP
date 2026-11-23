@@ -1,0 +1,17 @@
+{
+  "model": "Cloudflare/clef-flash",
+  "gguf_repository": "ggml-org/Clef-Flash-GGUF",
+  "revision": "c3d925454595d792d5333da8b35f3c09911f7568",
+  "filename": "Clef-Flash-Q4_K_M.gguf",
+  "quantization": "Q4_K_M",
+  "parameter_count": "9B",
+  "url": "https://huggingface.co/ggml-org/Clef-Flash-GGUF/resolve/c3d925454595d792d5333da8b35f3c09911f7568/Clef-Flash-Q4_K_M.gguf",
+  "sha256": "eef2968c238a80d49d340430f22410ea3db9934ad1c6fdb233a503cbf9a9b54e",
+  "bytes": 6732781824,
+  "license": "Apache-2.0",
+  "api": "/v1/systemone",
+  "native_decision_model": true,
+  "assignment_fine_tuning": false,
+  "source_model_card": "https://huggingface.co/Cloudflare/clef-flash",
+  "runtime_model_card": "https://huggingface.co/ggml-org/Clef-Flash-GGUF"
+}
